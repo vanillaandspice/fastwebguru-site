@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Human in the Loop — How Fast Web Guru Uses AI | Fast Web Guru"
+  description="Every AI output at Fast Web Guru is reviewed by a human specialist before it reaches you. Here's exactly how our Human in the Loop process works."
+>
+  <!-- HERO -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">AI does the work. A real person makes sure it's right.</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Every AI output at Fast Web Guru is reviewed by a human specialist before it reaches you or your customers. Here's exactly how that works — and why it matters.</p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM WITH AI ALONE -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">The problem with AI alone</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>AI is fast. AI is capable. And AI, without a human checking its work, will occasionally get your brand completely wrong.</p>
+        <p>It might produce copy that sounds generic. It might miss the tone your customers respond to. It might generate an image that's technically fine but doesn't look anything like your business.</p>
+        <p>For most businesses, discovering that problem happens after the content is already live. By then, the damage is done — or you're paying someone to fix it.</p>
+        <p class="text-brand-dark font-semibold">That's why we built Human in the Loop into every service we offer. Not as a feature to add on. As the standard way we work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-4">Every output. Every time. No exceptions.</h2>
+      <div class="divider-accent mb-12"></div>
+
+      <div class="space-y-16">
+        {[
+          {
+            n: '1',
+            title: 'AI does the heavy lifting',
+            body: 'Artificial intelligence handles the volume work: drafting marketing content, writing website copy, generating social media posts, producing image variations, running reports. AI is extraordinarily good at doing this fast and at scale.',
+          },
+          {
+            n: '2',
+            title: 'A specialist reviews every output',
+            body: 'Before anything produced by AI reaches your brand, your website, or your customers, it\'s reviewed by a human specialist. This is a real person — not a checklist, not an automated filter — who understands your business, your tone, and what "right" looks like for you.',
+          },
+          {
+            n: '3',
+            title: 'Judgment calls, made by humans',
+            body: 'The specialist isn\'t just checking for typos. They\'re asking: does this sound like this business? Does this image match what their customers expect? Is this landing page copy going to make the phone ring, or does it miss the mark? These are judgment calls. AI can\'t make them reliably. Humans can.',
+          },
+          {
+            n: '4',
+            title: 'You get the output',
+            body: 'Only when the specialist is satisfied does the content reach you — ready to use, on-brand, and actually right for your business.',
+          },
+        ].map(step => (
+          <div class="flex gap-8 items-start">
+            <div class="step-number flex-shrink-0 w-20 text-right">{step.n}</div>
+            <div class="border-l-2 border-brand-border pl-8 flex-1">
+              <h3 class="font-bold text-xl mb-3">{step.title}</h3>
+              <p class="text-brand-text-secondary text-lg leading-relaxed">{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE HITL APPLIES -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-10">Where Human in the Loop applies at Fast Web Guru</h2>
+      <div class="space-y-8">
+        {[
+          { title: 'Website copy and content', body: 'Every piece of AI-generated copy, blog post, product description, or social post is reviewed before delivery.' },
+          { title: 'Marketing images and visuals', body: 'AI-generated images and graphic variations are checked for brand alignment and quality before use.' },
+          { title: 'Website builds', body: 'Every Fast Web Guru website build allocates at least 20% of the project budget to a human specialist reviewing every page, every sentence, and every image — before the site goes live.' },
+          { title: 'Ongoing AI marketing production (Advanced plan)', body: 'Weekly AI content production — social, email, product descriptions — reviewed by a specialist every cycle before delivery.' },
+        ].map(item => (
+          <div class="flex gap-5 pb-8 border-b border-brand-border last:border-0">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <div>
+              <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+              <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS MATTERS -->
+  <section class="section-dark py-16">
+    <div class="container max-w-3xl">
+      <h2 class="text-white mb-6">The question isn't whether AI can do it. It's whether it did it right.</h2>
+      <div class="space-y-4 text-zinc-400 text-lg leading-relaxed">
+        <p>Business owners who've tried AI tools on their own tell us the same story: the first draft is impressive, and the second draft is where it starts to drift. By the third, it's writing for a completely different business.</p>
+        <p>The problem isn't the AI. The problem is that there's no one in the loop to notice.</p>
+        <p class="text-zinc-200">We built Fast Web Guru so that someone is always in the loop. The AI does what it's genuinely good at — volume, speed, first drafts. The human does what AI isn't good at — judgment, nuance, knowing when something is almost right but not quite.</p>
+        <p class="text-zinc-200">That combination is what makes the output usable. And it's what makes a $40/month service produce results that businesses spending ten times that amount aren't getting.</p>
+      </div>
+
+      <!-- Builds guarantee -->
+      <div class="mt-10 border border-brand-border-dark rounded-lg p-8">
+        <h3 class="font-bold text-xl text-brand-accent mb-3">The builds guarantee</h3>
+        <p class="text-zinc-400 leading-relaxed">On every Fast Web Guru website build, a minimum of 20% of the total budget is ring-fenced for human specialist review. On a $1,200 build, that's $240 of dedicated specialist time checking every page. This is a hard internal rule. Not a feature we mention when it's convenient. Every single build.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock heading="Want to see what AI-assisted, human-reviewed looks like for your business?" />
+</Layout>

@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Core Plan — $40/month | Fast Web Guru"
+  description="AI-enhanced hosting, same-day updates, and a dedicated Australian support person from $40/month. Full ownership. No lock-in."
+>
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="chip mb-6">$40 / month</div>
+      <h1 class="text-white mb-6">Your website. Done for you. $40/month.</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed mb-8">AI-powered hosting, same-day updates from a real Australian support person, and every login yours from day one. One fixed price. No invoice when something needs changing.</p>
+      <a href="/#assessment" class="btn-primary text-base py-4 px-8">Get Your Free AI Assessment</a>
+    </div>
+  </section>
+
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-4">This plan is for you if…</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed">You run your business yourself — or close to it — and your website is something you worry about rather than something that works for you. You're paying for hosting that "just sits there." You've got a developer you only call when something breaks, and every call comes with a bill. You know AI is happening and you're not sure if you're being left behind. You don't need to understand the tech. You just need it sorted.</p>
+    </div>
+  </section>
+
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-12">What's included — all of it</h2>
+        <div class="space-y-10">
+          {[
+            { title: 'AI-enhanced hosting', body: 'A modern, full-code website on fast, secure infrastructure. Not a shared server managed by a reseller. Not a page builder you have to operate yourself.' },
+            { title: 'Same-day updates via click-and-comment', body: 'Point at what needs changing on your website, leave a comment. We sort it same-day. No email back-and-forth. No invoice. No waiting.' },
+            { title: '1 hour of support per month', body: 'Use it on anything — website changes, content help, AI tool setup, or anything else your business needs. Annual plans: access your full year\'s hours immediately.' },
+            { title: 'Workflow Hub', body: 'Email, social posts, tasks, and communications — all in one connected place. Linked to your AI tools and your support person.' },
+            { title: 'Human in the Loop AI marketing tools', body: 'AI produces content, images, and copy for your business. A human specialist checks every output before it reaches you. Set up for your brand — not generic templates.' },
+            { title: 'Built to survive anything: Triple-redundant backup', body: 'Three copies of your site. Automatic failover. Operates at 90%+ even through power outages or on mobile only.' },
+            { title: '24/7 monitoring, replies within an hour', body: 'Including evenings and weekends. Your support person doesn\'t clock off at 5pm.' },
+            { title: 'Full ownership', body: 'Your site, your domain, all logins. Yours from day one. If you leave, you take everything with you.' },
+          ].map(item => (
+            <div class="flex gap-5 pb-10 border-b border-brand-border last:border-0">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <div>
+                <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+                <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="callout-box mt-10">
+          <p class="font-medium text-brand-dark">What's <em>not</em> included</p>
+          <p class="text-brand-text-secondary mt-2">Building a new website from scratch is a separate once-off investment (from $240). But if your current site is workable, we'll work with it. And if you need more than 1 hour of support per month, Advanced at $240/month gives you 16 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="section-dark py-12">
+    <div class="container max-w-2xl">
+      <figure class="text-center">
+        <blockquote class="text-xl text-zinc-200 italic leading-relaxed mb-4">
+          "Before Fast Web Guru, I was constantly chasing my old provider just to get basic things fixed. Now it just gets done — same day, no drama."
+        </blockquote>
+        <figcaption class="text-zinc-500 text-sm">— HS Auto Parts <span class="text-zinc-600">[Confirm before launch]</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section-light section-pad">
+    <div class="container max-w-2xl">
+      <h2 class="mb-8">Pricing</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <div class="border-2 border-brand-dark rounded-lg p-6 text-center">
+          <div class="font-heading font-extrabold text-4xl mb-1">$40<span class="text-xl font-normal text-brand-text-secondary">/mo</span></div>
+          <p class="text-sm text-brand-text-secondary mb-4">Month-to-month</p>
+          <a href="/pricing" class="btn-secondary w-full justify-center">Get Started</a>
+        </div>
+        <div class="border-2 border-brand-accent bg-orange-50 rounded-lg p-6 text-center">
+          <div class="font-heading font-extrabold text-4xl mb-1">$400<span class="text-xl font-normal text-brand-text-secondary">/yr</span></div>
+          <p class="text-sm text-brand-text-secondary mb-4">2 months free · full year's hours immediately</p>
+          <a href="/pricing" class="btn-primary w-full justify-center">Get Started</a>
+        </div>
+      </div>
+      <p class="text-center text-sm text-zinc-400">Cancel any month. No lock-in. No setup fee.</p>
+      <p class="text-center mt-4">
+        <a href="/#assessment" class="btn-ghost">Or: Get Your Free AI Assessment first →</a>
+      </p>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

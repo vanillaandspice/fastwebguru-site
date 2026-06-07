@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Page Not Found — Fast Web Guru"
+  description="That page doesn't exist. Let's get you somewhere useful."
+>
+  <section class="section-dark min-h-[70vh] flex items-center">
+    <div class="container text-center">
+      <p class="font-heading font-extrabold text-8xl text-brand-accent mb-4">404</p>
+      <h1 class="text-white mb-4">That page doesn't exist.</h1>
+      <p class="text-zinc-400 text-lg mb-10">But your website problems do. Let's sort them.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="btn-primary">Back to home</a>
+        <a href="/contact" class="btn-inverse">Contact us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

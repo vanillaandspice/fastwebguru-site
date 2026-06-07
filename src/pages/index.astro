@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import PlanCard from '../components/PlanCard.astro';
+import CTABlock from '../components/CTABlock.astro';
+
+export const prerender = true;
+
+const features = [
+  {
+    icon: 'M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59',
+    title: 'Click and comment to update your website',
+    body: 'See something that needs updating? Click on it, leave a comment — like a sticky note on the page. Your team sorts it same-day. No phone call. No email chain. No invoice.',
+  },
+  {
+    icon: 'M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z',
+    title: 'Your dedicated support person',
+    body: 'Not a helpdesk. Not a chatbot. A real Australian who knows your business, your brand, and your customers — with a full team and AI toolkit behind them. One person. One number.',
+  },
+  {
+    icon: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01',
+    title: 'Triple-backup hosting',
+    body: 'Three copies of your site, always running. Automatic failover. Operates at 90%+ even through a power outage or on mobile only. Boring tech. Vital insurance.',
+  },
+  {
+    icon: 'M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z',
+    title: 'Full ownership. Always.',
+    body: 'Your site is yours. Your domain is yours. All your logins are yours. We hand you everything at the start — not held back, not used as leverage. Leave anytime with everything.',
+  },
+  {
+    icon: 'M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+    title: 'Workflow Hub',
+    body: 'Email, social posts, tasks, and communications — all in one place. Connected to your AI tools and your support person. Less chasing. More running your business.',
+  },
+  {
+    icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+    title: 'Human in the Loop AI',
+    body: 'Every AI output is reviewed by a real specialist before it reaches you. AI does the heavy lifting; a human makes sure it\'s right for your brand.',
+    link: { label: 'Learn how it works', href: '/about/human-in-the-loop' },
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'Before Fast Web Guru, I was constantly chasing my old provider just to get basic things fixed. Now it just gets done — same day, no drama.',
+    name: 'HS Auto Parts',
+    business: 'Hunter Valley',
+  },
+  {
+    quote: 'They sorted out years of website headaches in the first week. The phone\'s ringing more now and I\'m not spending half my time worrying about the site.',
+    name: 'Ally Fenwick',
+    business: 'Fenwick Hill Group',
+  },
+  {
+    quote: 'I had no idea what I was paying my old web developer for. Fast Web Guru is half the price and I actually get things done.',
+    name: 'Client — to be confirmed',
+    business: 'Australian small business',
+  },
+  {
+    quote: 'I was embarrassed to send people to our old website. Now I actually tell people to look it up.',
+    name: 'Client — to be confirmed',
+    business: 'Australian small business',
+  },
+];
+
+const plans = [
+  {
+    name: 'Core',
+    price: '$40',
+    tagline: 'For businesses that want their website handled without an invoice for every change.',
+    features: [
+      'AI-enhanced full-code hosting',
+      'Same-day updates via click-and-comment',
+      '1 hr dedicated support per month',
+      'Workflow Hub — email, social, tasks',
+      'Human in the Loop AI marketing tools',
+      'Triple-redundant backup hosting',
+      '24/7 monitoring, replies within an hour',
+      'Full ownership: site, domain, all logins',
+    ],
+    cta: 'Get Started',
+    ctaHref: '/services/core',
+    featured: false,
+    note: 'Cancel any month. No lock-in. No setup fee.',
+  },
+  {
+    name: 'Advanced',
+    price: '$240',
+    tagline: 'For ecommerce stores and businesses that need a proper team on the tools every week.',
+    features: [
+      'Everything in Core',
+      '16 hrs dedicated support/month (4 hrs/week)',
+      'Full ecommerce management',
+      'Weekly AI content & marketing production',
+      'Full communications management',
+      'Priority response',
+      'Replaces $1,200–$2,400/mo of freelance dev time',
+    ],
+    cta: 'Get Started',
+    ctaHref: '/services/advanced',
+    featured: true,
+    note: 'Cancel any month. No lock-in. No setup fee.',
+  },
+  {
+    name: 'Website Build',
+    price: 'From $240',
+    period: 'once-off',
+    tagline: 'A new website, built properly, AI-editable from day one.',
+    features: [
+      'Full-code website on modern infrastructure',
+      'Click-and-comment update system at launch',
+      'Mobile-first, speed-optimised, secure',
+      'Human specialist reviews every page',
+      '20% of budget ring-fenced for QA',
+      'All files, hosting, logins handed over',
+    ],
+    cta: 'Get a Quote',
+    ctaHref: '/services/website-builds',
+    featured: false,
+    note: 'Pair with Core or Advanced for ongoing support.',
+  },
+];
+---
+
+<Layout
+  title="Fast Web Guru — AI-Powered Website Team for Australian Small Business | From $40/mo"
+  description="Done-for-you website management, same-day updates, and a dedicated Australian support team from $40/month. Get a free AI assessment of your website — no commitment."
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="section-dark relative overflow-hidden">
+    <!-- Subtle speed-line decoration (echoes logo) -->
+    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+      <svg class="absolute right-0 top-0 h-full w-auto opacity-[0.04]" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="120" x2="400" y2="80"  stroke="#F97316" stroke-width="60"/>
+        <line x1="0" y1="260" x2="400" y2="220" stroke="#F97316" stroke-width="40"/>
+        <line x1="0" y1="380" x2="400" y2="350" stroke="#F97316" stroke-width="25"/>
+      </svg>
+    </div>
+
+    <div class="container relative z-10 py-24 lg:py-36">
+      <!-- Chips -->
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="chip">From $40/month</span>
+        <span class="chip-inverse">Hunter Valley · Newcastle · Sydney · Melbourne · Yarra Valley</span>
+        <span class="chip-inverse">Same-day updates</span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="text-5xl lg:text-7xl font-extrabold font-heading text-white leading-[1.05] text-balance mb-6 max-w-3xl">
+        Your website.<br>Done for you.<br>
+        <span class="text-brand-accent">Today.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg lg:text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl">
+        Fast Web Guru gives Australian small businesses AI-powered hosting, same-day updates from a real person, and one fixed monthly price. No invoice for every change. No chasing. No surprises.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-start gap-4">
+        <a href="#assessment" class="btn-primary text-base py-4 px-8">
+          Get Your Free AI Assessment
+        </a>
+        <a href="/how-it-works" class="btn-ghost-inverse text-base py-4">
+          See how it works →
+        </a>
+      </div>
+
+      <p class="text-zinc-500 text-sm mt-4">
+        30 seconds to fill in. Personalised findings in your inbox within 24 hours.
+      </p>
+    </div>
+
+    <!-- Social proof bar -->
+    <div class="bg-zinc-900 border-t border-brand-border-dark">
+      <div class="container py-4">
+        <p class="text-zinc-400 text-sm text-center flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+          <span>Serving Australian small businesses for 10+ years</span>
+          <span class="text-brand-accent hidden sm:inline" aria-hidden="true">·</span>
+          <span>Hunter Valley · Newcastle · Sydney · Melbourne · Yarra Valley</span>
+          <span class="text-brand-accent hidden sm:inline" aria-hidden="true">·</span>
+          <span>Replies within an hour</span>
+          <span class="text-brand-accent hidden sm:inline" aria-hidden="true">·</span>
+          <span>Same-day updates</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROBLEM ═══ -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-8">Sound familiar?</h2>
+
+        <div class="space-y-5 text-lg text-brand-text-secondary leading-relaxed">
+          <p>You paid good money for a website. The developer took the deposit, built something, went quiet. Now you're chasing them for changes that should take five minutes — and every change comes with an invoice you weren't expecting.</p>
+          <p>Or maybe you've got traffic. But the phone stays quiet and nobody fills out the form. And you don't know why, and there's no one to ask.</p>
+          <p>Or you're just embarrassed by the site. You catch yourself apologising for it when you send the link.</p>
+          <p class="text-brand-dark font-medium">Whatever the version — you're not alone, and it's not your fault. Most Australian small businesses are dealing with exactly this.</p>
+        </div>
+
+        <!-- Pull quote / testimonial -->
+        <figure class="callout-box mt-10">
+          <blockquote class="text-lg font-medium text-brand-dark italic leading-relaxed">
+            "Before Fast Web Guru, I was constantly chasing my old provider just to get basic things fixed. Now it just gets done — same day, no drama."
+          </blockquote>
+          <figcaption class="mt-3 text-sm text-brand-text-secondary font-medium not-italic">— HS Auto Parts</figcaption>
+        </figure>
+
+        <div class="mt-10">
+          <p class="text-brand-dark font-semibold mb-3">Recognised any of that?</p>
+          <a href="#assessment" class="btn-ghost text-base">
+            Get a free look at your own site →
+          </a>
+          <p class="text-zinc-400 text-sm mt-2">No sales call. No commitment. Just honest findings about the website you've already got.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOLUTION ═══ -->
+  <section class="section-warm section-pad">
+    <div class="container">
+      <div class="max-w-3xl mb-12">
+        <h2 class="mb-6">What if your website just worked?</h2>
+        <p class="text-lg text-brand-text-secondary leading-relaxed mb-4">
+          Fast Web Guru isn't a hosting company. We don't hand you a tool and leave you to it. We're your website team.
+        </p>
+        <p class="text-lg text-brand-text-secondary leading-relaxed">
+          We pair AI tools with a real human support person, so your website gets updated today — without a phone call, without an invoice, without spending your weekend in a site builder. One fixed monthly price. Your site, your domain, your logins — always yours.
+        </p>
+        <p class="text-xl font-bold text-brand-dark mt-6">We call it <span class="text-brand-accent">Business in a Box.</span></p>
+      </div>
+
+      <!-- Feature list -->
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 list-none m-0 p-0">
+        {[
+          'A modern, AI-powered website your team can update by clicking and commenting directly on any page',
+          'Same-day updates handled by your support person the moment you flag them',
+          'Your own dedicated support person who gets your business and your brand',
+          'Triple-redundant hosting — your site stays up even through a power outage',
+          'AI tools for marketing, content, and social — set up for you, not by you',
+          'Full ownership: your site, your domain, all your logins. Always.',
+        ].map(item => (
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <span class="text-brand-dark leading-snug">{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Price anchor -->
+      <div class="flex items-baseline gap-2">
+        <span class="font-heading font-extrabold text-5xl text-brand-dark">From $40</span>
+        <span class="text-brand-text-secondary text-lg">/month</span>
+      </div>
+      <a href="/pricing" class="btn-ghost mt-2">See everything that's included →</a>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="section-mid section-pad">
+    <div class="container">
+      <h2 class="mb-16 max-w-xl">Here's what happens when you start</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+        {[
+          {
+            n: '1',
+            title: 'Get your free AI assessment',
+            body: 'Hit the button. Enter your website details. We\'ll send you a personalised look at where your site stands right now — and what the AI era means for your specific business. Takes 30 seconds. In your inbox within 24 hours.',
+          },
+          {
+            n: '2',
+            title: 'We set everything up',
+            body: 'Hosting, AI tools, Workflow Hub, your support person — all done for you. You get full access to everything: your site, your hosting account, all logins. No lock-in, no dependency.',
+          },
+          {
+            n: '3',
+            title: 'Click and comment to update your site',
+            body: 'See something that needs changing? Click on it and leave a comment. Our team picks it up and sorts it same-day. No emails. No invoices.',
+          },
+          {
+            n: '4',
+            title: 'Your team keeps it running',
+            body: '24/7. Replies within an hour. Your support person knows your business. They notice problems before you do and fix them before you have to report them.',
+          },
+        ].map(step => (
+          <div class="flex gap-6">
+            <div class="step-number flex-shrink-0 w-16">{step.n}</div>
+            <div class="pt-2">
+              <h3 class="font-bold text-xl mb-2">{step.title}</h3>
+              <p class="text-brand-text-secondary leading-relaxed">{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-14">
+        <a href="/how-it-works" class="btn-secondary">See the full breakdown →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <h2 class="mb-4">What's inside Business in a Box</h2>
+      <p class="text-brand-text-secondary text-lg mb-12 max-w-2xl">Every plan includes the same core infrastructure. This is what you get from day one.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map(f => <FeatureCard {...f} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="section-dark section-pad">
+    <div class="container">
+      <h2 class="text-white mb-3">What clients say</h2>
+      <p class="text-zinc-400 text-lg mb-12">Real results from Australian small businesses.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {testimonials.map(t => <TestimonialCard {...t} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PLANS ═══ -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-2xl mb-12">
+        <h2 class="mb-4">Same features. Different levels of support.</h2>
+        <p class="text-brand-text-secondary text-lg">Both plans include the same AI stack, the same tech infrastructure, and access to the same support team. The only difference is how many hours of our team's time you get each month. We don't lock features behind expensive plans.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+        {plans.map(p => <PlanCard {...p} />)}
+      </div>
+
+      <p class="text-center mt-8">
+        <a href="/pricing" class="btn-ghost text-base">See full pricing — and everything that's included →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ PARTNER CALLOUT ═══ -->
+  <section class="section-warm py-12 border-t border-brand-border">
+    <div class="container">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <h3 class="font-bold text-xl mb-2">Are you a marketer, designer, or agency?</h3>
+          <p class="text-brand-text-secondary max-w-xl">Fast Web Guru has a wholesale partner program — bring your clients onto our platform, earn wholesale margin on every active client, and we handle all the infrastructure and support.</p>
+        </div>
+        <a href="/partners" class="btn-secondary flex-shrink-0">Partner program →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <CTABlock />
+
+</Layout>

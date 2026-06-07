@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..60,400;12..60,600;12..60,700;12..60,800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-dark:         #1A1A1A;
+    --color-accent:       #F97316;
+    --color-surface:      #FAFAF9;
+    --color-surface-mid:  #F4F4F2;
+    --color-surface-warm: #FFF7ED;
+    --color-text-secondary: #52525B;
+    --color-text-muted:   #A1A1AA;
+    --color-border:       #E4E4E7;
+    --color-border-dark:  #27272A;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body bg-brand-surface text-brand-dark antialiased;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+    line-height: 1.1;
+  }
+
+  h1 { @apply text-4xl lg:text-6xl font-extrabold; }
+  h2 { @apply text-3xl lg:text-5xl font-bold; }
+  h3 { @apply text-xl lg:text-2xl font-bold; }
+  h4 { @apply text-lg font-semibold; }
+
+  p {
+    max-width: 68ch;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-accent text-brand-dark font-bold
+           py-3.5 px-7 rounded-md transition-colors duration-200
+           hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-brand-accent focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border-2 border-brand-dark text-brand-dark font-bold
+           py-3.5 px-7 rounded-md transition-colors duration-200
+           hover:bg-brand-dark hover:text-brand-surface
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-dark;
+  }
+
+  .btn-inverse {
+    @apply inline-flex items-center gap-2 border-2 border-brand-surface text-brand-surface font-bold
+           py-3.5 px-7 rounded-md transition-colors duration-200
+           hover:bg-brand-surface hover:text-brand-dark
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-surface;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1 text-brand-accent font-semibold
+           hover:underline transition-all duration-200;
+  }
+
+  .btn-ghost-inverse {
+    @apply inline-flex items-center gap-1 text-brand-surface font-semibold
+           hover:text-brand-accent transition-colors duration-200;
+  }
+
+  /* Layout */
+  .container {
+    @apply max-w-6xl mx-auto px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-20 lg:py-28;
+  }
+
+  /* Section backgrounds */
+  .section-dark  { @apply bg-brand-dark text-brand-surface; }
+  .section-light { @apply bg-brand-surface text-brand-dark; }
+  .section-mid   { @apply bg-brand-surface-mid text-brand-dark; }
+  .section-warm  { @apply bg-brand-surface-warm text-brand-dark; }
+
+  /* Callout box — orange left border */
+  .callout-box {
+    @apply border-l-4 border-brand-accent bg-brand-surface-warm p-6 rounded-r-lg;
+  }
+
+  /* Chip / badge */
+  .chip {
+    @apply inline-block bg-brand-accent text-brand-dark text-sm font-semibold
+           px-3 py-1 rounded-full;
+  }
+
+  .chip-inverse {
+    @apply inline-block border border-brand-border-dark text-brand-text-muted text-sm font-medium
+           px-3 py-1 rounded-full;
+  }
+
+  /* Input fields */
+  .input {
+    @apply w-full border border-brand-border bg-white text-brand-dark rounded-md
+           px-4 py-3 text-base placeholder:text-zinc-400
+           focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent
+           transition-shadow duration-200;
+  }
+
+  .input-dark {
+    @apply w-full border border-brand-border-dark bg-zinc-900 text-brand-surface rounded-md
+           px-4 py-3 text-base placeholder:text-zinc-600
+           focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent;
+  }
+
+  /* Feature card */
+  .feature-card {
+    @apply bg-brand-surface rounded-lg p-6 shadow-sm border border-brand-border;
+  }
+
+  /* Testimonial */
+  .testimonial-card {
+    @apply bg-zinc-900 rounded-lg p-8 border border-brand-border-dark;
+  }
+
+  /* Divider */
+  .divider-accent {
+    @apply h-1 w-16 bg-brand-accent rounded-full;
+  }
+
+  /* Prose override */
+  .prose-fwg p {
+    @apply text-brand-text-secondary leading-relaxed;
+    max-width: 68ch;
+  }
+
+  /* Step number watermark */
+  .step-number {
+    @apply font-heading font-extrabold text-brand-accent leading-none select-none;
+    font-size: clamp(4rem, 10vw, 7rem);
+    opacity: 0.15;
+    line-height: 1;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+}

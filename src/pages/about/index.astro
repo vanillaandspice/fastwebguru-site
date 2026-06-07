@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="About — Fast Web Guru | Australian. Straightforward. Actually."
+  description="Fast Web Guru is an Australian web and AI service built for small businesses that have been let down by the industry. New ownership. New values. Built for the businesses that keep getting left behind."
+>
+  <!-- HERO -->
+  <section class="section-light py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-balance mb-0">We're Fast Web Guru. We're Australian. And we reckon small businesses deserve better than what they're getting.</h1>
+    </div>
+  </section>
+
+  <!-- THE HONEST VERSION -->
+  <section class="section-mid py-16">
+    <div class="container max-w-3xl">
+      <div class="space-y-5 text-lg text-brand-text-secondary leading-relaxed">
+        <p>For over a decade, Fast Web Guru has been keeping websites running for small businesses across Australia. In that time we've seen how the industry treats the people it's supposed to be serving.</p>
+        <p>Developers who take the deposit and go quiet. Sites that get handed over with no access, no instructions, and no one to call. Hosting that "just sits there" — and an invoice every time someone wants to change a word.</p>
+        <p class="text-brand-dark font-medium text-xl">It's not good enough. And when we rebuilt Fast Web Guru from the ground up, we did it specifically because it's not good enough.</p>
+        <p>New tech. New ownership. New values. Built for the businesses that keep getting left behind.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BELIEVE -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-12">A few things we won't budge on</h2>
+      <div class="space-y-10">
+        {[
+          { lead: 'Your website is yours.', body: 'Your site, your domain, your logins — handed over at the start, not used as leverage later. If you leave, you take everything. Full stop.' },
+          { lead: 'Done for you. Not done to you.', body: 'We don\'t give you a tool and leave you to figure it out. We\'re the team. Your job is to run your business; ours is to run your website.' },
+          { lead: 'One fixed price. No surprises.', body: '$40/month is $40/month. No setup fees billed separately. No "that\'s extra." No pricing that looks cheap and then becomes expensive after 48 months.' },
+          { lead: 'Australian. Actually.', body: 'Not a locale selector on a global website. We\'re based in the Hunter Valley and serve businesses across Australia — Hunter Valley, Newcastle, Sydney, Melbourne, Yarra Valley, and everywhere in between.' },
+          { lead: 'Plain language. Always.', body: 'If we can\'t explain something in plain English, we probably don\'t understand it well enough ourselves.' },
+        ].map(item => (
+          <div class="border-b border-brand-border pb-10 last:border-0">
+            <p class="text-brand-dark text-xl font-bold mb-3">
+              <span class="text-brand-accent">{item.lead}</span>
+            </p>
+            <p class="text-brand-text-secondary text-lg leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section-mid py-16">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">Who's behind Fast Web Guru</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>Fast Web Guru is part of the Fenwick Hill Group ecosystem — a group of Australian food, retail, and ecommerce businesses that became our first real test cases. Before we sold this to anyone, we built it in real businesses, made the mistakes, and fixed them. The Hunter Valley food and wine industry knows us well.</p>
+        <p><strong class="text-brand-dark">We are a local team, not a faceless Sydney agency.</strong> Our support team operates as a community cooperative where team members are invested stakeholders, not clock-punching contractors with a billable hours target. That changes what "support" looks like in practice.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE WE ARE -->
+  <section class="section-dark py-12">
+    <div class="container max-w-3xl">
+      <h3 class="font-bold text-lg text-white mb-3">Australia-wide, with an initial focus on the communities we know best</h3>
+      <p class="text-zinc-400 text-lg">Hunter Valley · Newcastle · Sydney · Melbourne · Yarra Valley</p>
+    </div>
+  </section>
+
+  <CTABlock heading="Want to see what we'd do for your business?" />
+</Layout>

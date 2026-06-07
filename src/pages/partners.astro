@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Partner Program — Fast Web Guru | Wholesale Web Infrastructure for Agencies"
+  description="Marketers, designers, and agencies: earn wholesale margin on every client you bring to Fast Web Guru. We handle all infrastructure and support. You keep the relationship."
+>
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Build a real income reselling the web infrastructure Australian businesses actually need.</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">If you're a marketer, copywriter, designer, or agency — and you're tired of managing client websites that don't pay you properly — there's a conversation worth having.</p>
+    </div>
+  </section>
+
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">The straight version</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>Most agencies and freelancers spend enormous time managing client websites. Chasing developers. Fielding hosting complaints at inconvenient hours. Doing the infrastructure work that's necessary but nobody pays for properly.</p>
+        <p>Fast Web Guru fixes that. We're the infrastructure and the support team. You're the relationship.</p>
+        <p>We handle everything once your client is on board — hosting, updates, AI tools, Workflow Hub, support person. Your client gets a better service than most agencies can deliver at double the price. You earn wholesale margin on every one of them, every month.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-12">How it works</h2>
+      <div class="space-y-10">
+        {[
+          {
+            title: 'Bring your clients onto Fast Web Guru',
+            body: 'We handle everything: hosting, updates, AI tools, support. Your clients get same-day website updates, a real support person, and one fixed monthly price.',
+          },
+          {
+            title: 'Earn wholesale margin on every active client',
+            body: 'Partners bringing in 4+ clients/month earn $2,000–$4,000 in monthly wholesale margin. Ongoing, as long as the clients stay active. This is a serious infrastructure resale arrangement — not an affiliate referral.',
+          },
+          {
+            title: 'Keep the client relationship',
+            body: 'You\'re not handing your clients to us. Fast Web Guru is the engine. You\'re the front door. Your clients are your clients.',
+          },
+        ].map((item, i) => (
+          <div class="flex gap-6 pb-10 border-b border-brand-border last:border-0">
+            <div class="step-number flex-shrink-0 w-16">{i + 1}</div>
+            <div>
+              <h3 class="font-bold text-xl mb-3">{item.title}</h3>
+              <p class="text-brand-text-secondary text-lg leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-mid py-16">
+    <div class="container max-w-3xl">
+      <h2 class="mb-4">You're not working for us. You're using us.</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>Fast Web Guru Advocates are self-employed. Your loyalty is to your clients, not to us. We're the infrastructure, the support team, and the wholesale engine behind your business.</p>
+        <p>Some Advocates use the Red Envelope campaign — a personalised, locally-rooted outreach approach that creates genuine curiosity without a single sales pitch. We'll explain it when you get in touch.</p>
+        <p>You'll also get access to your own Fast Web Guru plan — so you run your own business on the same platform your clients use, and you can speak about it from actual experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light py-16">
+    <div class="container max-w-3xl">
+      <h2 class="mb-8">Who's a good fit</h2>
+      <ul class="space-y-4 list-none p-0">
+        {[
+          'Digital marketers who keep getting asked "can you sort my website?"',
+          'Copywriters and designers whose clients need ongoing web support',
+          'Web developers who want a white-label hosting and management solution',
+          'Systems integrators looking for a reliable AI-capable platform to resell',
+          'Anyone building a local network — especially in Hunter Valley, Newcastle, Sydney, Melbourne, or Yarra Valley',
+        ].map(item => (
+          <li class="flex items-start gap-3 text-lg">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span class="text-brand-text-secondary">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section-dark py-16">
+    <div class="container max-w-2xl text-center">
+      <h2 class="text-white mb-4">Interested? Let's talk directly.</h2>
+      <p class="text-zinc-400 text-lg mb-8">No lengthy application. Just a straight conversation about whether it's a fit.</p>
+      <a href="/contact" class="btn-primary text-base py-4 px-10">Get in touch about the partner program →</a>
+    </div>
+  </section>
+</Layout>
