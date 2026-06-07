@@ -91,25 +91,28 @@ export const prerender = true;
 
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
-  form?.addEventListener('submit', async (e) => {
+  form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
 
-    const data = new FormData(form);
-    try {
-      const res = await fetch('/api/contact', { method: 'POST', body: data });
-      if (res.ok) {
-        form.innerHTML = `<div class="text-center py-12">
-          <p class="text-brand-accent text-5xl mb-4">✓</p>
-          <h3 class="font-heading font-bold text-2xl mb-2">Got it — thanks.</h3>
-          <p class="text-brand-text-secondary">We'll be in touch within 24 hours.</p>
-        </div>`;
-      } else throw new Error();
-    } catch {
-      btn.disabled = false;
-      btn.textContent = 'Send it through';
-    }
+    const name    = (form.querySelector('[name="name"]')    as HTMLInputElement)?.value.trim();
+    const email   = (form.querySelector('[name="email"]')   as HTMLInputElement)?.value.trim();
+    const business= (form.querySelector('[name="business"]')as HTMLInputElement)?.value.trim();
+    const topic   = (form.querySelector('[name="topic"]')   as HTMLSelectElement)?.value;
+    const message = (form.querySelector('[name="message"]') as HTMLTextAreaElement)?.value.trim();
+
+    if (!name || !email) return;
+
+    // TODO: Replace with live email API endpoint
+    const subject = encodeURIComponent(`FWG Contact: ${topic || 'General enquiry'}`);
+    const body    = encodeURIComponent(
+      `Name: ${name}\nBusiness: ${business || '—'}\nEmail: ${email}\nTopic: ${topic || '—'}\n\n${message || ''}`
+    );
+    window.location.href = `mailto:hello@fastwebguru.com?subject=${subject}&body=${body}`;
+
+    form.innerHTML = `<div class="text-center py-12">
+      <p class="text-brand-accent text-5xl mb-4">✓</p>
+      <h3 class="font-heading font-bold text-2xl mb-2">Got it — thanks.</h3>
+      <p class="text-brand-text-secondary">We'll be in touch within 24 hours.</p>
+    </div>`;
   });
 </script>

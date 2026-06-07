@@ -8,9 +8,6 @@ const { id = 'assessment', dark = true } = Astro.props;
 
 <form
   id={id}
-  name="assessment"
-  method="POST"
-  action="/api/assessment"
   class="space-y-4"
   novalidate
 >
@@ -92,44 +89,46 @@ const { id = 'assessment', dark = true } = Astro.props;
 </form>
 
 <script>
-  const forms = document.querySelectorAll('form[name="assessment"]');
-  forms.forEach(form => {
-    form.addEventListener('submit', async (e) => {
+  // Collect all assessment forms on the page
+  document.querySelectorAll('form[id]').forEach(el => {
+    const form = el as HTMLFormElement;
+    if (!form.querySelector('select[name="business_type"]')) return;
+
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-      if (!btn) return;
 
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
+      // Basic validation
+      const name  = (form.querySelector('[name="name"]') as HTMLInputElement)?.value.trim();
+      const email = (form.querySelector('[name="email"]') as HTMLInputElement)?.value.trim();
+      const url   = (form.querySelector('[name="url"]') as HTMLInputElement)?.value.trim();
+      const type  = (form.querySelector('[name="business_type"]') as HTMLSelectElement)?.value;
 
-      const data = new FormData(form as HTMLFormElement);
-
-      try {
-        const res = await fetch('/api/assessment', {
-          method: 'POST',
-          body: data,
-        });
-        if (res.ok) {
-          (form as HTMLElement).innerHTML = `
-            <div class="text-center py-8">
-              <div class="text-brand-accent text-4xl mb-4">✓</div>
-              <h3 class="font-heading font-bold text-xl mb-2">You're in the queue.</h3>
-              <p class="text-zinc-400 text-sm">We'll have your personalised assessment in your inbox within 24 hours.</p>
-            </div>`;
-        } else {
-          throw new Error('Server error');
-        }
-      } catch {
-        btn.disabled = false;
-        btn.textContent = 'Get Your Free AI Assessment';
-        const err = form.querySelector('.form-error') as HTMLElement || (() => {
+      if (!name || !email || !url || !type) {
+        const existing = form.querySelector('.form-error') as HTMLElement;
+        const err = existing || (() => {
           const el = document.createElement('p');
-          el.className = 'form-error text-red-400 text-sm text-center mt-2';
+          el.className = 'form-error text-red-400 text-sm text-center';
           form.appendChild(el);
           return el;
         })();
-        err.textContent = 'Something went wrong — please try again or email us directly.';
+        err.textContent = 'Please fill in all fields before submitting.';
+        return;
       }
+
+      // TODO: Replace with live Claude API + PageSpeed assessment endpoint
+      // For now: show confirmation and open mailto as fallback
+      const subject = encodeURIComponent('Free AI Assessment Request');
+      const body    = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nWebsite: ${url}\nBusiness type: ${type}`
+      );
+      window.location.href = `mailto:hello@fastwebguru.com?subject=${subject}&body=${body}`;
+
+      form.innerHTML = `
+        <div class="text-center py-8">
+          <div class="text-brand-accent text-5xl mb-4 font-heading font-black">✓</div>
+          <h3 class="font-heading font-bold text-xl mb-2 text-brand-surface">You're in the queue.</h3>
+          <p class="text-zinc-400 text-sm">We'll have your personalised assessment in your inbox within 24 hours.</p>
+        </div>`;
     });
   });
 </script>
