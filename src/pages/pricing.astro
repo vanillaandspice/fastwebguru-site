@@ -13,7 +13,7 @@ const faqs = [
   { q: 'What does "same-day update" actually mean?', a: 'Comment on your website by 4pm and it\'ll be done same day. We\'re available 6am–10pm, including weekends.' },
   { q: 'What happens if the internet goes down?', a: 'Your site keeps running. Three complete copies run simultaneously with automatic failover. Operates at 90%+ even through a power outage or on mobile-only connectivity.' },
   { q: 'Is the AI content reviewed by a real person?', a: 'Every AI output is reviewed by a human specialist before it reaches you. The AI does the production; a person makes sure it\'s right for your brand.' },
-  { q: 'Who is my dedicated support person — are they Australian?', a: 'Yes. Your support person is Australian, available until 10pm on weekdays and all day on weekends.' },
+  { q: 'Who is my dedicated support person — are they Australian?', a: 'You have the option of employing an Australian based Business Advocate - an experienced Marketer as your key support person (rates from $56 p.h.) or the option most people use for day to day work is the online support team (mainly based in the Philippines) - they are university qualified graduates specifically trained by Fast Web Guru in the type of marketing and web activities needed to produce high quality work. Our Australian based senior marketers are often involved in tasks behind the scenes doing further quality control as well. We do not run a huge help desk, we have a highly specialised small team dedicated to getting you results, not wasting your time.' },
   { q: 'I already have a WordPress site — do I have to start again?', a: 'No. We migrate what you have or work with it as-is. Most migrations happen with zero downtime.' },
   { q: 'Is there a free trial?', a: 'No free trial — but no lock-in either. Month-to-month means you can cancel any time. Start with a free AI assessment of your current site instead.' },
 ];
@@ -47,10 +47,10 @@ const faqs = [
       <div class="space-y-4 max-w-2xl">
         {[
           { arrow: '→', text: 'I just want my website handled without invoices for every change', plan: 'Core ($40/mo)', href: '/services/core' },
-          { arrow: '→', text: 'I want AI tools connected to my business + a digital marketing brain', plan: 'Core + AI Add-on ($60/mo)', href: '/services/core' },
-          { arrow: '→', text: 'I need updates, content, and ecommerce management every week', plan: 'Advanced ($240/mo — AI included)', href: '/services/advanced' },
-          { arrow: '→', text: 'I want the full AI marketing system — research, strategy, and monthly workflows', plan: 'Advanced + AI Extender ($690/mo)', href: '/services/advanced' },
-          { arrow: '→', text: 'I don\'t have a website yet, or mine needs replacing', plan: 'Website Build (from $240 once-off)', href: '/services/website-builds' },
+          { arrow: '→', text: 'Add On an AI digital marketing brain trained on my business and linked to my website', plan: 'Core + AI Add-on ($60/mo)', href: '/services/core' },
+          { arrow: '→', text: 'I need complex website updates, marketing workflows implemented and a daily support team', plan: 'Advanced ($240/mo — AI included)', href: '/services/advanced' },
+          { arrow: '→', text: 'Take me to the next level - multiple automated ai agents and workflows, help me scale fast...', plan: 'Advanced + AI Extender ($690/mo)', href: '/services/advanced' },
+          { arrow: '→', text: 'I don\'t have a website yet, or mine needs replacing', plan: 'Website Build (DIY or Full Support)', href: '/services/website-builds' },
         ].map(row => (
           <a href={row.href} class="flex items-center gap-4 p-5 bg-brand-surface border border-brand-border rounded-lg hover:border-brand-accent transition-colors group">
             <span class="text-brand-accent font-bold text-xl">{row.arrow}</span>
@@ -79,7 +79,7 @@ const faqs = [
 
           <ul class="space-y-3 mb-6 list-none p-0">
             {[
-              'AI-enhanced full-code hosting (not a shared server, not a page builder)',
+              'Enhanced Analysis and reporting of core KPI\'s - Speed, Uptime, Search Rankings.',
               'Same-day website updates via click-and-comment — no quote, no invoice',
               '1 hour of dedicated support per month (use it on anything)',
               'Workflow Hub — email, social, tasks, communications, all connected',
@@ -167,6 +167,10 @@ const faqs = [
               'Business in a Box Digital Brain — trained on your brand, audience, and goals',
               'Brand DNA foundation built and loaded at setup',
               'Monthly support time to get you started and keep the AI working',
+              'A complete, customised library of marketing plans built specifically for your business — not templates',
+              'Your Digital Brain — an internal AI resource to consult anytime on marketing, advertising, and website strategy',
+              'Active monthly marketing workflows, ready to implement when you are',
+              'Strategic direction that evolves with your business month by month',
             ].map(f => (
               <li class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
@@ -188,11 +192,7 @@ const faqs = [
           <p class="text-sm text-brand-text-secondary italic mb-4">Your online marketing companion — all the research, strategy, and active workflows you need to lift your online presence to a new level.</p>
           <ul class="space-y-2 list-none p-0">
             {[
-              'A complete, customised library of marketing plans built specifically for your business — not templates',
-              'Your Digital Brain — an internal AI resource to consult anytime on marketing, advertising, and website strategy',
-              'Active monthly marketing workflows, ready to implement when you are',
-              'Strategic direction that evolves with your business month by month',
-              'AI Add-on fully included — no extra $20/month charge',
+              'A complete Multi Agent Tool-Kit setup, effectively your own AI workforce, with daily, weekly and on demand tasks that just work, taking care of the admin and improving your communication speed and quality with custom designed workflows carefully crafted to lift not only your brand image, but boost your bottom line',
             ].map(f => (
               <li class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
