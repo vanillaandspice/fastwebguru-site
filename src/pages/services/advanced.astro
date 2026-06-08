@@ -12,7 +12,7 @@ export const prerender = true;
     <div class="container max-w-3xl">
       <div class="chip mb-6">$240 / month</div>
       <h1 class="text-white mb-6">Your ecommerce store and marketing. Sorted. Every week.</h1>
-      <p class="text-zinc-400 text-xl leading-relaxed mb-8">Fast Web Guru Advanced gives you 16 hours of dedicated team time per month — enough to run your online presence, manage your store, produce consistent marketing content, and never fall behind.</p>
+      <p class="text-zinc-400 text-xl leading-relaxed mb-8">Fast Web Guru Advanced gives you 16 hours of dedicated team time per month — plus AI tools included at no extra charge — enough to run your online presence, manage your store, produce consistent marketing content, and never fall behind.</p>
       <a href="/#assessment" class="btn-primary text-base py-4 px-8">Get Your Free AI Assessment</a>
     </div>
   </section>
@@ -24,7 +24,7 @@ export const prerender = true;
       <div class="callout-box">
         <p class="font-bold text-brand-dark text-lg mb-3">Replaces $1,200–$2,400/month of freelance dev time</p>
         <p class="text-brand-text-secondary leading-relaxed">A freelance web developer in Australia charges $75–$150 per hour. At that rate, 16 hours is $1,200–$2,400 per month — for someone who probably isn't available on weekends, doesn't know your brand, and invoices every job separately.</p>
-        <p class="text-brand-text-secondary leading-relaxed mt-3 font-medium">Fast Web Guru Advanced: 16 hours, plus a full AI toolkit, plus 24/7 backup infrastructure, plus all the Core features. For $240/month.</p>
+        <p class="text-brand-text-secondary leading-relaxed mt-3 font-medium">Fast Web Guru Advanced: 16 hours, plus AI tools included (the $20 AI Add-on at no extra charge), plus 24/7 backup infrastructure, plus all the Core features. For $240/month.</p>
       </div>
     </div>
   </section>
@@ -44,7 +44,8 @@ export const prerender = true;
 
       <div class="space-y-10">
         {[
-          { title: 'Everything in Core', body: 'AI-enhanced hosting, click-and-comment updates, Workflow Hub, Human in the Loop AI tools, triple-redundant backup, 24/7 monitoring, full ownership.' },
+          { title: 'Everything in Core', body: 'AI-enhanced hosting, click-and-comment updates, Workflow Hub, triple-redundant backup, 24/7 monitoring, full ownership.' },
+          { title: 'AI Add-on included — no extra charge', body: 'Your chosen AI connected to your website and platforms. Business in a Box Digital Brain set up with your brand DNA. All included in the $240/month price — no additional $20/month.' },
           { title: '16 hours of dedicated support per month (4 hrs/week)', body: 'A proper allocation of team time every week. Use it for ecommerce management, content production, website updates, AI tool implementation — whatever your business needs most that week.' },
           { title: 'Full ecommerce management', body: 'Product edits, new listings, stock updates, order support, platform maintenance. Done by a team that actually understands WooCommerce and ecommerce — not a VA who needs a tutorial every time.' },
           { title: 'Human in the Loop AI content and marketing production', body: 'Social posts, email copy, product descriptions, landing page content — produced by AI, reviewed by a human specialist, delivered ready to publish. Weekly.' },
@@ -69,11 +70,34 @@ export const prerender = true;
     </div>
   </section>
 
-  <!-- Add-on -->
-  <section class="section-mid py-12">
-    <div class="container max-w-2xl">
-      <h3 class="font-bold text-xl mb-3">Optional: AI Extender — +$450/month</h3>
-      <p class="text-brand-text-secondary leading-relaxed">For businesses going deep on AI: advanced automation, AI content at scale, custom integrations. Strictly AI-related, not additional labour. Available on Advanced plan only.</p>
+  <!-- AI Extender add-on -->
+  <section class="section-warm section-pad">
+    <div class="container max-w-3xl">
+      <div class="flex flex-wrap items-center gap-3 mb-2">
+        <h2 class="text-2xl font-bold">AI Extender: Your Digital Business in a Box</h2>
+        <span class="chip">+$450/month</span>
+      </div>
+      <p class="text-brand-text-secondary text-lg italic mb-8">Your online marketing companion — all the research, strategy, and active workflows you need to lift your online presence to a new level, delivered every month.</p>
+
+      <div class="space-y-6 mb-10">
+        {[
+          { title: 'Customised marketing plan library', body: 'A complete library of marketing plans built specifically for your business. Not templates, not generic guides — strategies developed around your products, your audience, and your market.' },
+          { title: 'Your Digital Brain', body: 'An internal AI resource you and your team can consult anytime for guidance on marketing, advertising, website copy, and strategy. It knows your business and gives you direction, not search results.' },
+          { title: 'Active monthly marketing workflows', body: 'Ready to implement when you are. Each month, you get practical workflows that move your marketing forward — not a strategy doc that sits in a folder.' },
+          { title: 'Strategic direction that evolves', body: 'As your business grows and changes, your AI Extender evolves with it. This isn\'t a one-off setup — it\'s an ongoing marketing companion.' },
+          { title: 'AI Add-on fully included', body: 'The $20/month AI Add-on (Digital Brain, AI connections, brand DNA) is included in the AI Extender at no extra charge.' },
+        ].map(item => (
+          <div class="flex gap-5">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <div>
+              <h3 class="font-bold mb-1">{item.title}</h3>
+              <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-sm text-brand-text-secondary italic">The AI Extender is the difference between having AI available and having AI working for your business. Each month, it moves you forward.</p>
     </div>
   </section>
 
@@ -93,18 +117,37 @@ export const prerender = true;
   <section class="section-light section-pad">
     <div class="container max-w-2xl">
       <h2 class="mb-8">Pricing</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+
+      <!-- Advanced (AI included) -->
+      <h3 class="text-lg font-semibold mb-4 text-brand-text-secondary">Advanced — AI Add-on included</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
         <div class="border-2 border-brand-dark rounded-lg p-6 text-center">
           <div class="font-heading font-extrabold text-4xl mb-1">$240<span class="text-xl font-normal text-brand-text-secondary">/mo</span></div>
-          <p class="text-sm text-brand-text-secondary mb-4">Month-to-month</p>
+          <p class="text-sm text-brand-text-secondary mb-4">Month-to-month · AI included</p>
           <a href="/pricing" class="btn-secondary w-full justify-center">Get Started</a>
         </div>
         <div class="border-2 border-brand-accent bg-orange-50 rounded-lg p-6 text-center">
           <div class="font-heading font-extrabold text-4xl mb-1">$2,400<span class="text-xl font-normal text-brand-text-secondary">/yr</span></div>
+          <p class="text-sm text-brand-text-secondary mb-4">2 months free · AI included</p>
+          <a href="/pricing" class="btn-primary w-full justify-center">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Advanced + AI Extender -->
+      <h3 class="text-lg font-semibold mb-4 text-brand-text-secondary">Advanced + AI Extender — full Digital Business in a Box</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <div class="border-2 border-brand-dark rounded-lg p-6 text-center">
+          <div class="font-heading font-extrabold text-4xl mb-1">$690<span class="text-xl font-normal text-brand-text-secondary">/mo</span></div>
+          <p class="text-sm text-brand-text-secondary mb-4">Month-to-month</p>
+          <a href="/pricing" class="btn-secondary w-full justify-center">Get Started</a>
+        </div>
+        <div class="border-2 border-brand-accent bg-orange-50 rounded-lg p-6 text-center">
+          <div class="font-heading font-extrabold text-4xl mb-1">$6,900<span class="text-xl font-normal text-brand-text-secondary">/yr</span></div>
           <p class="text-sm text-brand-text-secondary mb-4">2 months free</p>
           <a href="/pricing" class="btn-primary w-full justify-center">Get Started</a>
         </div>
       </div>
+
       <p class="text-center text-sm text-zinc-400">Cancel any month. No lock-in. No setup fee.</p>
       <p class="text-center mt-4"><a href="/#assessment" class="btn-ghost">Or: Get Your Free AI Assessment first →</a></p>
     </div>
