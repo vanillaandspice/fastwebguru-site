@@ -65,7 +65,8 @@ const faqs = [
   <!-- PLAN CARDS -->
   <section class="section-light section-pad">
     <div class="container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      <!-- Core + Core+AI Enhanced side by side -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
 
         <!-- Core -->
         <div class="bg-brand-surface border border-brand-border rounded-lg p-8">
@@ -77,7 +78,7 @@ const faqs = [
           </div>
           <p class="text-sm text-brand-text-secondary mb-8">or $400/year — 2 months free, full year's hours immediately</p>
 
-          <ul class="space-y-3 mb-6 list-none p-0">
+          <ul class="space-y-3 mb-8 list-none p-0">
             {[
               'Enhanced Analysis and reporting of core KPI\'s - Speed, Uptime, Search Rankings.',
               'Same-day website updates via click-and-comment — no quote, no invoice',
@@ -94,57 +95,84 @@ const faqs = [
             ))}
           </ul>
 
-          <div class="border border-brand-accent bg-orange-50 rounded-lg p-4 mb-6">
-            <p class="text-sm font-semibold text-brand-dark mb-1">Want AI tools connected to your business? <span class="text-brand-accent">+$20/month</span></p>
-            <p class="text-xs text-brand-text-secondary">Your chosen AI connected to your website and platforms. Business in a Box Digital Brain set up with your brand DNA. <a href="/services/core#ai-add-on" class="underline hover:text-brand-accent">See what's included →</a></p>
-          </div>
-
           <div class="space-y-3">
             <a href="/services/core" class="btn-secondary w-full justify-center">Get Started — $40/month</a>
-            <a href="/services/core" class="btn-primary w-full justify-center">Get Started with AI — $60/month</a>
             <a href="/#assessment" class="btn-ghost w-full justify-center text-sm">Get Free AI Assessment first →</a>
           </div>
           <p class="text-xs text-center text-zinc-400 mt-3">Cancel any month. No lock-in. No setup fee.</p>
         </div>
 
-        <!-- Advanced -->
-        <div class="bg-brand-dark border border-brand-border-dark rounded-lg p-8">
-          <span class="chip text-xs mb-4 inline-block">Most popular</span>
-          <h2 class="text-2xl font-bold text-white mb-1">Advanced</h2>
-          <p class="text-zinc-400 mb-6">For ecommerce stores and businesses that need a proper team on the tools every week.</p>
+        <!-- Core + AI Enhanced -->
+        <div class="bg-brand-surface-mid border border-brand-accent rounded-lg p-8">
+          <span class="chip text-xs mb-4 inline-block">AI Enabled</span>
+          <h2 class="text-2xl font-bold mb-1">Core + AI Enhanced</h2>
+          <p class="text-brand-text-secondary mb-6">Everything in Core, plus your AI digital marketing brain connected and working for your business.</p>
           <div class="flex items-baseline gap-1 mb-2">
-            <span class="font-heading font-extrabold text-5xl text-white">$240</span>
-            <span class="text-zinc-400">/month</span>
+            <span class="font-heading font-extrabold text-5xl">$60</span>
+            <span class="text-brand-text-secondary">/month</span>
           </div>
-          <p class="text-sm text-zinc-500 mb-1">or $2,400/year — 2 months free</p>
-          <p class="text-xs text-brand-accent font-semibold mb-4">AI Add-on included — no extra charge</p>
-
-          <div class="callout-box mb-6">
-            <p class="text-sm font-medium text-brand-dark">Replaces $1,200–$2,400/month of freelance dev time</p>
-            <p class="text-xs text-brand-text-secondary mt-1">A freelance developer charges $75–$150/hr. 16 hours is $1,200–$2,400 — for someone not available on weekends, who invoices per job. Fast Web Guru Advanced: same time, plus AI tools included, plus 24/7 backup. $240/month.</p>
-          </div>
+          <p class="text-sm text-brand-text-secondary mb-8">Core $40 + AI Add-on $20 — or $600/year, 2 months free</p>
 
           <ul class="space-y-3 mb-8 list-none p-0">
             {[
               'Everything in Core',
-              'AI Add-on included — Digital Brain, AI connections, brand DNA setup',
-              '16 hours of dedicated support per month (4 hrs/week)',
-              'Full ecommerce management — products, stock, orders, campaigns',
-              'Human in the Loop AI content production — social, email, copy — weekly',
-              'Full communications management — email, reviews, social comments',
-              'You keep full visibility and control at all times',
-              'Priority response',
+              'Your chosen AI chat engine connected to your website and platforms',
+              'Business in a Box Digital Brain — trained on your brand, audience, and goals',
+              'Brand DNA foundation built and loaded at setup',
+              'Monthly support time to get you started and keep the AI working',
+              'A complete, customised library of marketing plans built specifically for your business — not templates',
+              'Your Digital Brain — an internal AI resource to consult anytime on marketing, advertising, and website strategy',
+              'Active monthly marketing workflows, ready to implement when you are',
+              'Strategic direction that evolves with your business month by month',
             ].map(f => (
               <li class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                <span class="text-sm text-zinc-300">{f}</span>
+                <span class="text-sm text-brand-text-secondary">{f}</span>
               </li>
             ))}
           </ul>
 
-          <a href="/services/advanced" class="btn-primary w-full justify-center mb-3">Get Started — $240/month</a>
-          <p class="text-xs text-center text-zinc-500">Cancel any month. No lock-in. No setup fee.</p>
+          <a href="/services/core" class="btn-primary w-full justify-center mb-3">Get Started with AI — $60/month</a>
+          <p class="text-xs text-center text-zinc-400 mt-3">Cancel any month. No lock-in. No setup fee.</p>
         </div>
+      </div>
+
+      <!-- Advanced — full width -->
+      <div class="bg-brand-dark border border-brand-border-dark rounded-lg p-8 mb-16">
+        <span class="chip text-xs mb-4 inline-block">Most popular</span>
+        <h2 class="text-2xl font-bold text-white mb-1">Built to Scale — AI Core + 16 hrs of marketing &amp; web support monthly</h2>
+        <p class="text-zinc-400 mb-6">For ecommerce stores and businesses that need a proper team on the tools every week.</p>
+        <div class="flex items-baseline gap-1 mb-2">
+          <span class="font-heading font-extrabold text-5xl text-white">$240</span>
+          <span class="text-zinc-400">/month</span>
+        </div>
+        <p class="text-sm text-zinc-500 mb-1">or $2,400/year — 2 months free</p>
+        <p class="text-xs text-brand-accent font-semibold mb-4">AI Add-on included — no extra charge</p>
+
+        <div class="callout-box mb-6">
+          <p class="text-sm font-medium text-brand-dark">Replaces $1,200–$2,400/month of freelance dev time</p>
+          <p class="text-xs text-brand-text-secondary mt-1">A freelance developer charges $75–$150/hr. 16 hours is $1,200–$2,400 — for someone not available on weekends, who invoices per job. Fast Web Guru Advanced: same time, plus AI tools included, plus 24/7 backup. $240/month.</p>
+        </div>
+
+        <ul class="space-y-3 mb-8 list-none p-0 grid grid-cols-1 lg:grid-cols-2 gap-x-8">
+          {[
+            'Everything in Core + AI Enhanced',
+            '16 hours of dedicated support per month (4 hrs/week)',
+            'Full ecommerce management — products, stock, orders, campaigns',
+            'Human in the Loop AI content production — social, email, copy — weekly',
+            'Full communications management — email, reviews, social comments',
+            'You keep full visibility and control at all times',
+            'Priority response',
+          ].map(f => (
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-sm text-zinc-300">{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a href="/services/advanced" class="btn-primary justify-center mb-3">Get Started — $240/month</a>
+        <p class="text-xs text-center text-zinc-500 mt-3">Cancel any month. No lock-in. No setup fee.</p>
       </div>
 
       <!-- Add-ons -->
