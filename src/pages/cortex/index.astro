@@ -8,17 +8,17 @@ const faqs = [
   { q: 'What\'s the Business DNA Workshop and how long does it take?', a: 'Your AI Specialist runs a short onboarding session — usually 45 minutes — where we ingest your existing documents: product descriptions, style guides, past copy, brand notes. We build your Brand DNA file from these. Most clients have it done in the first week. From that point, every Cortex output is trained on your specific brand.' },
   { q: 'Who is the "AI Specialist" — is it a chatbot?', a: 'No. A real person. Your 1 hour per month of AI Specialist time is with an actual human who reviews your Cortex outputs, refines your Brand DNA, and prepares workflow data for your business. They\'re your quality controller for the AI layer.' },
   { q: 'What are the 20 workflows — are they templates?', a: "They're not templates. Cortex Ops Grid builds each workflow from your Business DNA — a café in the Hunter Valley and a plumber in Melbourne get completely different workflows. Each one is a complete, step-by-step blueprint. Examples: a 6-email win-back sequence for past customers, a local SEO landing page structure, a lead magnet setup built around your specific audience." },
-  { q: "What if I can't use all 20 workflows in a month?", a: "Keep them. Your workflow library accumulates. Some workflows are one-time setup (e.g. your SEO foundation); others are ongoing (e.g. a monthly email sequence). You don't have to execute all of them immediately — even one properly executed workflow typically delivers more value than $30." },
+  { q: "How quickly do I need to work through the 20 workflows?", a: "At your own pace — there's no deadline. Most teams work through them over 2–4 months, picking up one or two at a time. Your workflow library stays available for as long as you're on Cortex, and new workflows are added regularly. We also run periodic workshops to help your team and leaders build capability as they go — so even one properly executed workflow typically delivers more than the cost of the whole subscription." },
   { q: 'Can I cancel anytime?', a: 'Yes. Month-to-month. No lock-in. No fee. Cancel from your account dashboard.' },
   { q: 'Can Cortex work alongside the AI tools I already use?', a: "Yes. Cortex Team Stack creates your Brand DNA as a portable document you can also load into whatever AI tool you already use. Your Digital Marketing Brain is Cortex-native, but your Business DNA belongs to you and is portable." },
   { q: 'Is Cortex only for FWG hosting clients?', a: 'No. Cortex is available to any website, on any host. When combined with FWG hosting, all three pillars run at full capacity. On your own host, you get Team Stack and Ops Grid in full — with partial Host Systems capability.' },
-  { q: 'What happens in my first week with Cortex?', a: 'Day 1: Welcome from your AI Specialist. Days 2–3: Business DNA Workshop (45 min session — we gather your documents and build your Brand DNA). Days 5–7: Your Brand DNA is live, your Digital Marketing Brain is ready, first workflows in production. Week 2: First 20 growth workflows delivered.' },
+  { q: 'What happens in my first week with Cortex?', a: 'Day 1: Welcome from your AI Specialist. Days 2–3: Business DNA Workshop (45 min session — we gather your documents and build your Brand DNA). Days 5–7: Your Brand DNA is live, your Digital Marketing Brain is ready, first workflows in production. Week 2: Your 20 growth workflows are delivered — ready to start working through with your team. New workflows and workshops are added as you progress.' },
 ];
 ---
 
 <Layout
   title="Cortex by Fast Web Guru — AI Add-On for Any Website | $30/Month"
-  description="Cortex adds AI-native site editing, a brand-trained digital brain, and 20 bespoke monthly growth workflows to any website. Three pillars at $10 each. Works on your existing host. Australian AI Specialist included. Cancel anytime."
+  description="Cortex adds AI-native site editing, a brand-trained digital brain, and 20 bespoke growth workflows to any website. Work through them with your team — more added regularly, plus workshops to build your team's capability. Three pillars at $10 each."
 >
 
   <!-- HERO -->
@@ -135,7 +135,7 @@ const faqs = [
             <span class="chip text-xs flex-shrink-0 ml-2">$10/month</span>
           </div>
           <h4 class="font-semibold text-lg mb-3">Stop getting strategies. Start getting workflows you can actually run.</h4>
-          <p class="text-brand-text-secondary leading-relaxed mb-4 flex-1">Here's the problem with most AI tools: they'll help you write a plan. Then you have to execute it. Cortex Ops Grid goes further. Every month, you receive <strong>20 bespoke growth workflows</strong> — complete, step-by-step blueprints built specifically for your business DNA. Not templates. Actual instructions you can follow, assign, or hand to Cortex.</p>
+          <p class="text-brand-text-secondary leading-relaxed mb-4 flex-1">Here's the problem with most AI tools: they'll help you write a plan. Then you have to execute it. Cortex Ops Grid goes further. You get <strong>20 bespoke growth workflows</strong> — complete, step-by-step blueprints built from your Business DNA. Work through them with your team over the coming months. New workflows and workshops added regularly.</p>
           <ul class="space-y-2 list-none p-0 mb-6">
             {[
               '20 custom growth workflows monthly, built from your Business DNA',
@@ -188,7 +188,7 @@ const faqs = [
               { feature: 'Business DNA Workshop', any: true, fwg: true },
               { feature: 'Digital Marketing Brain', any: true, fwg: true },
               { feature: 'AI Specialist (1 hr/mo)', any: true, fwg: true },
-              { feature: '20 Growth Workflows', any: true, fwg: true },
+              { feature: '20 Growth Workflows + ongoing additions', any: true, fwg: true },
               { feature: 'Talk-to-Edit (AI site editing)', any: false, partial: true, fwg: true },
             ].map(row => (
               <tr class="border-b border-brand-border">
@@ -292,7 +292,7 @@ const faqs = [
             {[
               { pillar: 'Cortex Host Systems', desc: 'AI-native infrastructure + Talk-to-Edit site editing', price: '$10/mo' },
               { pillar: 'Cortex Team Stack', desc: 'Business DNA + Digital Marketing Brain + 1 hr/mo AI Specialist', price: '$10/mo' },
-              { pillar: 'Cortex Ops Grid', desc: '20 bespoke growth workflows per month, built from your DNA', price: '$10/mo' },
+              { pillar: 'Cortex Ops Grid', desc: '20 bespoke growth workflows built from your DNA — work through with your team, more added regularly', price: '$10/mo' },
             ].map((row, i) => (
               <tr class:list={['border-t border-brand-border', i % 2 === 0 ? 'bg-brand-surface' : 'bg-brand-surface-mid']}>
                 <td class="py-4 px-5 font-semibold text-brand-dark">{row.pillar}</td>

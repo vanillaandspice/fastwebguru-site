@@ -4,9 +4,9 @@ import CTABlock from '../components/CTABlock.astro';
 export const prerender = true;
 
 const faqs = [
-  { q: 'What\'s the difference between Core ($40/mo) and Core + Cortex ($70/mo)?', a: 'Core gives you the hosting, same-day updates, and your support person. Cortex ($30/mo more) adds three AI pillars: AI-native hosting with Talk-to-Edit, a Business DNA workshop that trains an AI brain on your specific brand, 20 bespoke monthly growth workflows, and 1 hour of dedicated AI Specialist time. If you want AI actively working for your business — not just in the background — Cortex is the upgrade. Advanced clients get Cortex automatically at no extra charge.' },
-  { q: 'What exactly is Cortex?', a: 'Cortex is FWG\'s AI ecosystem add-on — three pillars at $10 each. Host Systems upgrades your hosting to AI-native infrastructure with Talk-to-Edit. Team Stack builds your Business DNA and trains a personalised AI brain on it (plus 1 hr/mo AI Specialist). Ops Grid delivers 20 bespoke growth workflows monthly. See the full Cortex page for details.' },
-  { q: 'Can I get Cortex without being on FWG hosting?', a: 'Yes. Cortex Team Stack (Brand DNA + AI brain + Specialist) and Cortex Ops Grid (20 workflows) work on any website, on any host. Host Systems\' Talk-to-Edit capability runs at full power on FWG\'s AI-native infrastructure. If you\'re on another host, you get the intelligence and execution pillars immediately — Host Systems upgrades when you move to FWG hosting.' },
+  { q: 'What\'s the difference between Core ($40/mo) and Core + Cortex ($70/mo)?', a: 'Core gives you the hosting, same-day updates, and your support person. Cortex ($30/mo more) adds three AI pillars: AI-native hosting with Talk-to-Edit, a Business DNA workshop that trains an AI brain on your specific brand, 20 bespoke growth workflows to work through with your team (more added regularly, plus workshops to skill up your leaders), and 1 hour of dedicated AI Specialist time. If you want AI actively working for your business — not just in the background — Cortex is the upgrade. Advanced clients get Cortex automatically at no extra charge.' },
+  { q: 'What exactly is Cortex?', a: 'Cortex is FWG\'s AI ecosystem add-on — three pillars at $10 each. Host Systems upgrades your hosting to AI-native infrastructure with Talk-to-Edit. Team Stack builds your Business DNA and trains a personalised AI brain on it (plus 1 hr/mo AI Specialist). Ops Grid gives you 20 bespoke growth workflows to work through with your team — more added regularly, plus workshops to build your team\'s capability. See the full Cortex page for details.' },
+  { q: 'Can I get Cortex without being on FWG hosting?', a: 'Yes. Cortex Team Stack (Brand DNA + AI brain + Specialist) and Cortex Ops Grid (20 workflows + ongoing additions) work on any website, on any host. Host Systems\' Talk-to-Edit capability runs at full power on FWG\'s AI-native infrastructure. If you\'re on another host, you get the intelligence and execution pillars immediately — Host Systems upgrades when you move to FWG hosting.' },
   { q: 'Is $40/month the real price, or does it go up later?', a: '$40/month is the real price. It doesn\'t increase after 12 months. It doesn\'t have a "renewal rate." Month-to-month plans cost $40/month. That\'s it.' },
   { q: 'Is there a minimum commitment?', a: 'No minimum. Month one is month one. You can cancel at the end of any month with no fee and no questions.' },
   { q: 'What if I need more than 1 hour of support per month?', a: 'You can purchase additional hours at our standard rate, or upgrade to Advanced. Annual clients can also pool hours across the year.' },
@@ -129,7 +129,7 @@ const faqs = [
             {[
               'Everything in Core',
               '16 hours of dedicated support per month (4 hrs/week)',
-              'Cortex included — AI-native infrastructure, Brand DNA + AI Specialist, 20 monthly growth workflows (no extra charge)',
+              'Cortex included — AI-native infrastructure, Brand DNA + AI Specialist, 20 growth workflows + ongoing additions (no extra charge)',
               'Full ecommerce management — products, stock, orders, campaigns',
               'AI content and marketing production — social, email, product descriptions — weekly',
               'Full communications management — incoming email, autoreplies, reviews, social',
@@ -179,7 +179,7 @@ const faqs = [
               {
                 name: 'Cortex Ops Grid',
                 price: '$10/mo',
-                desc: '20 bespoke growth workflows per month — built from your Business DNA. Step-by-step blueprints you can run yourself, hand to your team, or let Cortex execute.',
+                desc: '20 bespoke growth workflows built from your Business DNA — work through with your team over the coming months, more added regularly.',
               },
             ].map(pillar => (
               <div class="bg-brand-surface border border-brand-border rounded-lg p-5">
