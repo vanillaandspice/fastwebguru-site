@@ -69,31 +69,25 @@ export const prerender = true;
         {[
           {
             title: 'Cortex Host Systems',
-            price: '$10/mo',
             body: 'Update your site by telling it what you want. No code, no builder, no developer. Point at any part of the page, type what you need, Cortex handles it.',
           },
           {
             title: 'Cortex Team Stack',
-            price: '$10/mo',
             body: 'We run a Business DNA Workshop — ingesting your documents, tone of voice, and product details — and build a personalised AI brain trained only on your brand. Plus 1 hour/month of a real AI Specialist who reviews outputs and keeps your AI on-brand.',
           },
           {
             title: 'Cortex Ops Grid',
-            price: '$10/mo',
             body: '20 bespoke, step-by-step growth workflows built from your Business DNA — work through them with your team over the coming months. Email sequences, SEO maps, lead magnets and more. New workflows and team workshops added regularly.',
           },
         ].map(item => (
           <div class="bg-brand-surface border border-brand-border rounded-lg p-6">
-            <div class="flex items-center gap-3 mb-2">
-              <h3 class="font-bold text-lg">{item.title}</h3>
-              <span class="text-brand-accent font-semibold text-sm">{item.price}</span>
-            </div>
+            <h3 class="font-bold text-lg mb-2">{item.title}</h3>
             <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
           </div>
         ))}
       </div>
 
-      <p class="text-brand-dark font-bold text-lg mb-6">$10 + $10 + $10 = $30/month.</p>
+      <p class="text-brand-dark font-bold text-lg mb-6">$30/month — all three pillars as a complete bundle.</p>
 
       <div class="bg-brand-surface border border-brand-border rounded-lg p-6 mb-6">
         <p class="text-sm text-brand-text-secondary mb-4">Already on Advanced? Cortex is included at no extra charge. Want to go even deeper? The <a href="/services/advanced" class="text-brand-accent hover:underline">AI Extender (+$450/month)</a> adds a complete Digital Business in a Box: customised marketing library, Digital Brain, and active monthly workflows.</p>

@@ -5,7 +5,7 @@ export const prerender = true;
 
 const faqs = [
   { q: 'What\'s the difference between Core ($40/mo) and Core + Cortex ($70/mo)?', a: 'Core gives you the hosting, same-day updates, and your support person. Cortex ($30/mo more) adds three AI pillars: AI-native hosting with Talk-to-Edit, a Business DNA workshop that trains an AI brain on your specific brand, 20 bespoke growth workflows to work through with your team (more added regularly, plus workshops to skill up your leaders), and 1 hour of dedicated AI Specialist time. If you want AI actively working for your business — not just in the background — Cortex is the upgrade. Advanced clients get Cortex automatically at no extra charge.' },
-  { q: 'What exactly is Cortex?', a: 'Cortex is FWG\'s AI ecosystem add-on — three pillars at $10 each. Host Systems upgrades your hosting to AI-native infrastructure with Talk-to-Edit. Team Stack builds your Business DNA and trains a personalised AI brain on it (plus 1 hr/mo AI Specialist). Ops Grid gives you 20 bespoke growth workflows to work through with your team — more added regularly, plus workshops to build your team\'s capability. See the full Cortex page for details.' },
+  { q: 'What exactly is Cortex?', a: 'Cortex is FWG\'s AI ecosystem add-on — $30/month as a complete bundle, three pillars working together. Host Systems gives you AI-native infrastructure with Talk-to-Edit. Team Stack builds your Business DNA and trains a personalised AI brain on it (plus 1 hr/mo AI Specialist). Ops Grid gives you 20 bespoke growth workflows to work through with your team — more added regularly, plus workshops to build your team\'s capability. The pillars are only available as a bundle — each one makes the others more effective. See the full Cortex page for details.' },
   { q: 'Can I get Cortex without being on FWG hosting?', a: 'Yes. Cortex Team Stack (Brand DNA + AI brain + Specialist) and Cortex Ops Grid (20 workflows + ongoing additions) work on any website, on any host. Host Systems\' Talk-to-Edit capability runs at full power on FWG\'s AI-native infrastructure. If you\'re on another host, you get the intelligence and execution pillars immediately — Host Systems upgrades when you move to FWG hosting.' },
   { q: 'Is $40/month the real price, or does it go up later?', a: '$40/month is the real price. It doesn\'t increase after 12 months. It doesn\'t have a "renewal rate." Month-to-month plans cost $40/month. That\'s it.' },
   { q: 'Is there a minimum commitment?', a: 'No minimum. Month one is month one. You can cancel at the end of any month with no fee and no questions.' },
@@ -162,31 +162,25 @@ const faqs = [
           </div>
           <p class="text-brand-text-secondary mb-6">Three AI pillars. One ecosystem. Add it to your existing plan — or to any website on any host.</p>
 
-          <p class="text-brand-dark font-bold mb-4">$10 + $10 + $10 = $30/month.</p>
+          <p class="text-brand-dark font-bold mb-4">$30/month. All three pillars. Bundle only.</p>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {[
               {
                 name: 'Cortex Host Systems',
-                price: '$10/mo',
                 desc: 'AI-native hosting with Talk-to-Edit. Update your site by describing what you want. No builders, no code, no waiting for a developer.',
               },
               {
                 name: 'Cortex Team Stack',
-                price: '$10/mo',
                 desc: 'Your Business DNA ingested at setup. A personalised Digital Marketing Brain trained on your brand — not generic AI. Plus 1 hour a month of a real AI Specialist.',
               },
               {
                 name: 'Cortex Ops Grid',
-                price: '$10/mo',
                 desc: '20 bespoke growth workflows built from your Business DNA — work through with your team over the coming months, more added regularly.',
               },
             ].map(pillar => (
               <div class="bg-brand-surface border border-brand-border rounded-lg p-5">
-                <div class="flex items-center justify-between mb-2">
-                  <h4 class="font-semibold text-sm">{pillar.name}</h4>
-                  <span class="chip text-xs">{pillar.price}</span>
-                </div>
+                <h4 class="font-semibold text-sm mb-2">{pillar.name}</h4>
                 <p class="text-xs text-brand-text-secondary leading-relaxed">{pillar.desc}</p>
               </div>
             ))}
