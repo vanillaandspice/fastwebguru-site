@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoLight from '../assets/logo-light.png';
+
 const year = new Date().getFullYear();
 
 const links = {
@@ -26,7 +29,7 @@ const links = {
       <!-- Brand + CTA -->
       <div class="lg:col-span-1">
         <a href="/" aria-label="Fast Web Guru home">
-          <img src="/logo-light.png" alt="Fast Web Guru" class="h-8 w-auto mb-6" width="196" height="32" />
+          <Image src={logoLight} alt="Fast Web Guru" class="h-8 w-auto mb-6" width={256} height={64} loading="lazy" decoding="async" />
         </a>
         <p class="text-zinc-400 text-sm leading-relaxed mb-6 max-w-xs">
           AI-powered website hosting and support for Australian small businesses. Done for you. From $40/month.
