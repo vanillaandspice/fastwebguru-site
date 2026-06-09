@@ -1,0 +1,174 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Cortex Host Systems — AI-Native Hosting with Talk-to-Edit | Fast Web Guru"
+  description="Update your website by describing what you want. Cortex Host Systems is AI-native infrastructure with Talk-to-Edit built in. Part of Cortex ($30/mo). Works best on FWG hosting."
+>
+
+  <!-- HERO -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="chip">Cortex Host Systems</span>
+        <span class="chip-inverse">$10/month</span>
+        <span class="chip-inverse">Part of Cortex — $30/month total</span>
+      </div>
+      <nav class="text-xs text-zinc-500 mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-zinc-300">Home</a>
+        <span class="mx-2">›</span>
+        <a href="/cortex" class="hover:text-zinc-300">Cortex AI</a>
+        <span class="mx-2">›</span>
+        <span class="text-zinc-400">Host Systems</span>
+      </nav>
+      <h1 class="text-white mb-6">Your website. Edited in seconds. No developer needed.</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed mb-8">Cortex Host Systems is the infrastructure layer of Cortex — AI-native hosting with Talk-to-Edit built in. Point at any part of your site, type what you want, and the AI handles it. No code, no builders, no waiting.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/#assessment" class="btn-primary text-base py-4 px-8">Add Cortex to Your Website — $30/Month</a>
+        <a href="/#assessment" class="btn-ghost-inverse text-base py-4">Or get a free AI assessment of your current site →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">Every change on your website involves a person you have to chase.</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>Updating a price takes three emails and a week. Fixing a typo requires logging into something you can't remember. Changing a headline means waiting for your developer to fit it into their schedule — or paying for an hour of their time to change four words.</p>
+        <p>None of this should be this hard.</p>
+        <p class="text-brand-dark font-semibold">Your website is your most visible business asset. It shouldn't be the thing you're most reluctant to touch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">Talk to your website. Cortex handles the rest.</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-8">Cortex Host Systems rebuilds what your hosting actually does. Instead of a server that stores files and waits, you get AI-native infrastructure that listens to what you need and acts on it.</p>
+
+      <div class="callout-box mb-10">
+        <p class="font-semibold text-brand-dark mb-3">Talk-to-Edit in practice:</p>
+        <div class="space-y-3 text-brand-text-secondary">
+          <p>You want to update the price on a product. You navigate to the product page, point at the price, and type what you want it to say. Cortex updates it.</p>
+          <p>You want to rearrange a section on your homepage. You describe what you want in plain language. Cortex handles the change.</p>
+          <p>You spot a typo at 9pm on a Saturday. You fix it in 30 seconds without calling anyone.</p>
+        </div>
+      </div>
+
+      <p class="text-brand-text-secondary text-lg leading-relaxed">This is what AI-native hosting means in practice. Not marketing language — a different kind of relationship with your own website.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-12">What Host Systems gives you</h2>
+      <div class="space-y-10">
+        {[
+          { title: 'Talk-to-Edit', body: 'Update any text, layout, or content on your website by describing what you want. Powered by the AI layer built into your hosting infrastructure — not a separate app, not a plugin. Built in.' },
+          { title: 'AI-native infrastructure', body: 'Your website runs on cognitive, ultra-fast hosting designed to support AI-driven operations. Faster load times. Better performance under traffic. A foundation built for the AI layer on top of it.' },
+          { title: 'Server-level security and performance', body: 'Hardened security and performance optimisation at the infrastructure level — particularly suited to image-heavy and media-rich sites. Engineered from the foundation, not bolted on.' },
+          { title: 'FWG support team integration', body: 'Talk-to-Edit works independently — you can make changes yourself without any team involvement. Or flag it for your support person and they handle it. Your choice, every time.' },
+        ].map(item => (
+          <div class="flex gap-5 pb-10 border-b border-brand-border last:border-0">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <div>
+              <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+              <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS WITH YOUR HOST -->
+  <section class="section-warm section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">Can I use Host Systems on my current website?</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-8">Talk-to-Edit runs at full power on Fast Web Guru's AI-native hosting infrastructure. If you're on another host, you get partial Host Systems capability — the intelligence and execution layers of Cortex (Team Stack and Ops Grid) work fully regardless of your host. Most Cortex clients start with Team Stack and Ops Grid and move to FWG hosting when they want the full Talk-to-Edit experience. No pressure to switch.</p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-sm border-collapse border border-brand-border rounded-lg overflow-hidden">
+          <thead>
+            <tr class="bg-brand-dark text-white">
+              <th class="text-left py-3 px-5 font-semibold">Feature</th>
+              <th class="text-center py-3 px-4 font-semibold">Any host</th>
+              <th class="text-center py-3 px-4 font-semibold text-brand-accent">FWG hosting</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { feature: 'Talk-to-Edit', any: 'Partial', fwg: true },
+              { feature: 'AI-native infrastructure', any: false, fwg: true },
+              { feature: 'Security and performance optimisation', any: false, fwg: true },
+              { feature: 'FWG support team integration', any: false, fwg: true },
+            ].map((row, i) => (
+              <tr class:list={['border-t border-brand-border', i % 2 === 0 ? 'bg-brand-surface' : 'bg-brand-surface-mid']}>
+                <td class="py-3 px-5 text-brand-dark">{row.feature}</td>
+                <td class="py-3 px-4 text-center">{typeof row.any === 'string' ? <span class="text-zinc-500 text-xs">{row.any}</span> : row.any ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
+                <td class="py-3 px-4 text-center bg-orange-50">{row.fwg ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- THIS IS PART OF CORTEX -->
+  <section class="section-light py-14">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-6">Host Systems is one of three Cortex pillars.</h2>
+      <p class="text-brand-text-secondary mb-8">Cortex Host Systems is $10/month — but it's part of Cortex, the $30/month AI ecosystem. All three pillars come together:</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div class="bg-brand-accent rounded-lg p-5 text-brand-dark">
+          <p class="font-bold mb-1">Cortex Host Systems ($10)</p>
+          <p class="text-sm">This pillar. AI-native hosting. Talk-to-Edit.</p>
+        </div>
+        <a href="/cortex/team-stack" class="bg-brand-surface-mid border border-brand-border rounded-lg p-5 hover:border-brand-accent transition-colors">
+          <p class="font-bold mb-1">Cortex Team Stack ($10)</p>
+          <p class="text-sm text-brand-text-secondary">Business DNA + Digital Marketing Brain + AI Specialist.</p>
+          <p class="text-brand-accent text-xs mt-2">Learn more →</p>
+        </a>
+        <a href="/cortex/ops-grid" class="bg-brand-surface-mid border border-brand-border rounded-lg p-5 hover:border-brand-accent transition-colors">
+          <p class="font-bold mb-1">Cortex Ops Grid ($10)</p>
+          <p class="text-sm text-brand-text-secondary">20 bespoke growth workflows monthly.</p>
+          <p class="text-brand-accent text-xs mt-2">Learn more →</p>
+        </a>
+      </div>
+      <a href="/cortex" class="btn-ghost">See the full Cortex page →</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section-dark py-12">
+    <div class="container max-w-2xl">
+      <figure class="text-center">
+        <blockquote class="text-xl text-zinc-200 italic leading-relaxed mb-4">
+          "I used to dread updating my own website. Now I just tell it what I need."
+        </blockquote>
+        <figcaption class="text-zinc-500 text-sm">— [Client name], [Business type], [City] <span class="text-zinc-600">[Testimonial to be confirmed]</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section-light section-pad">
+    <div class="container max-w-2xl">
+      <h2 class="mb-6">Pricing</h2>
+      <p class="text-brand-text-secondary text-lg mb-8"><strong>Cortex — $30/month</strong> (Host Systems included)<br/>Or add Cortex to FWG Core hosting: <strong>$70/month total</strong></p>
+      <div class="flex flex-wrap gap-3 mb-6">
+        <a href="/#assessment" class="btn-primary">Add Cortex to Your Website — $30/Month</a>
+        <a href="/#assessment" class="btn-ghost">Or: Get Your Free AI Assessment →</a>
+      </div>
+      <p class="text-sm text-zinc-500">Month-to-month. No setup fee. Cancel anytime.<br/>Runs on FWG hosting for full capability. Partial capability on any host.</p>
+    </div>
+  </section>
+
+</Layout>

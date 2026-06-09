@@ -10,7 +10,12 @@ const services = [
   { label: 'Core Plan — $40/mo',        href: '/services/core' },
   { label: 'Advanced Plan — $240/mo',   href: '/services/advanced' },
   { label: 'Website Builds',            href: '/services/website-builds' },
-  { label: 'Human in the Loop',         href: '/about/human-in-the-loop' },
+];
+
+const cortexItems = [
+  { label: 'Host Systems',  href: '/cortex/host-systems' },
+  { label: 'Team Stack',    href: '/cortex/team-stack' },
+  { label: 'Ops Grid',      href: '/cortex/ops-grid' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -26,7 +31,6 @@ const currentPath = Astro.url.pathname;
 
       <!-- Logo -->
       <a href="/" class="flex-shrink-0 flex items-center" aria-label="Fast Web Guru — home">
-        <!-- Light logo for dark nav (always shown — nav is dark) -->
         <img
           src="/logo-light.svg"
           alt="Fast Web Guru"
@@ -68,7 +72,7 @@ const currentPath = Astro.url.pathname;
           </button>
 
           <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-            <ul class="bg-zinc-900 border border-brand-border-dark rounded-lg shadow-xl py-2 w-64 list-none m-0 p-0">
+            <ul class="bg-zinc-900 border border-brand-border-dark rounded-lg shadow-xl py-2 w-72 list-none m-0 p-0">
               {services.map(s => (
                 <li>
                   <a
@@ -79,6 +83,36 @@ const currentPath = Astro.url.pathname;
                   </a>
                 </li>
               ))}
+              <!-- Cortex AI group -->
+              <li class="border-t border-brand-border-dark mt-1 pt-1">
+                <a
+                  href="/cortex"
+                  class="block px-4 py-2.5 text-sm text-brand-accent font-semibold hover:text-white hover:bg-zinc-800 transition-colors duration-150"
+                >
+                  Cortex AI
+                  <span class="block text-xs text-zinc-500 font-normal mt-0.5">Add AI to your website — $30/month</span>
+                </a>
+                <ul class="list-none m-0 p-0">
+                  {cortexItems.map(c => (
+                    <li>
+                      <a
+                        href={c.href}
+                        class="block pl-8 pr-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors duration-150"
+                      >
+                        ↳ {c.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li class="border-t border-brand-border-dark pt-1 mt-1">
+                <a
+                  href="/about/human-in-the-loop"
+                  class="block px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors duration-150"
+                >
+                  Human in the Loop
+                </a>
+              </li>
             </ul>
           </div>
         </li>
@@ -133,6 +167,23 @@ const currentPath = Astro.url.pathname;
               </a>
             </li>
           ))}
+          <li>
+            <a href="/cortex" class="block py-3 text-base text-brand-accent font-semibold hover:text-white border-b border-brand-border-dark pl-2">
+              Cortex AI — $30/mo
+            </a>
+          </li>
+          {cortexItems.map(c => (
+            <li>
+              <a href={c.href} class="block py-2.5 text-sm text-zinc-400 hover:text-white border-b border-brand-border-dark pl-6">
+                ↳ {c.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="/about/human-in-the-loop" class="block py-3 text-base text-zinc-300 hover:text-white border-b border-brand-border-dark pl-2">
+              Human in the Loop
+            </a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -166,14 +217,12 @@ const currentPath = Astro.url.pathname;
   const iconOpen  = document.getElementById('icon-open');
   const iconClose = document.getElementById('icon-close');
 
-  // Scroll detection
   function onScroll() {
     if (nav) nav.dataset.scrolled = window.scrollY > 20 ? 'true' : 'false';
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Mobile menu toggle
   btn?.addEventListener('click', () => {
     const isOpen = menu?.classList.contains('hidden') === false;
     if (isOpen) {
@@ -193,7 +242,6 @@ const currentPath = Astro.url.pathname;
     }
   });
 
-  // Close mobile menu on nav link click
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.add('hidden');

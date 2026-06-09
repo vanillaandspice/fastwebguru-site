@@ -4,16 +4,18 @@ import CTABlock from '../components/CTABlock.astro';
 export const prerender = true;
 
 const faqs = [
-  { q: 'What\'s the difference between Core ($40/mo) and Core + AI ($60/mo)?', a: 'Core gives you the hosting, same-day updates, and your support person. The AI Add-on ($20/mo more) connects your chosen AI assistant to your website and platforms, sets up your Business in a Box Digital Brain with your brand DNA, and gives you monthly support time to put it to work. Advanced clients get this automatically at no extra charge.' },
+  { q: 'What\'s the difference between Core ($40/mo) and Core + Cortex ($70/mo)?', a: 'Core gives you the hosting, same-day updates, and your support person. Cortex ($30/mo more) adds three AI pillars: AI-native hosting with Talk-to-Edit, a Business DNA workshop that trains an AI brain on your specific brand, 20 bespoke monthly growth workflows, and 1 hour of dedicated AI Specialist time. If you want AI actively working for your business — not just in the background — Cortex is the upgrade. Advanced clients get Cortex automatically at no extra charge.' },
+  { q: 'What exactly is Cortex?', a: 'Cortex is FWG\'s AI ecosystem add-on — three pillars at $10 each. Host Systems upgrades your hosting to AI-native infrastructure with Talk-to-Edit. Team Stack builds your Business DNA and trains a personalised AI brain on it (plus 1 hr/mo AI Specialist). Ops Grid delivers 20 bespoke growth workflows monthly. See the full Cortex page for details.' },
+  { q: 'Can I get Cortex without being on FWG hosting?', a: 'Yes. Cortex Team Stack (Brand DNA + AI brain + Specialist) and Cortex Ops Grid (20 workflows) work on any website, on any host. Host Systems\' Talk-to-Edit capability runs at full power on FWG\'s AI-native infrastructure. If you\'re on another host, you get the intelligence and execution pillars immediately — Host Systems upgrades when you move to FWG hosting.' },
   { q: 'Is $40/month the real price, or does it go up later?', a: '$40/month is the real price. It doesn\'t increase after 12 months. It doesn\'t have a "renewal rate." Month-to-month plans cost $40/month. That\'s it.' },
   { q: 'Is there a minimum commitment?', a: 'No minimum. Month one is month one. You can cancel at the end of any month with no fee and no questions.' },
-  { q: 'What if I need more than 1 hour of support per month?', a: 'You can purchase additional hours at our standard rate, or upgrade to Advanced. Annual clients can pool hours across the year.' },
+  { q: 'What if I need more than 1 hour of support per month?', a: 'You can purchase additional hours at our standard rate, or upgrade to Advanced. Annual clients can also pool hours across the year.' },
   { q: 'What happens to unused hours?', a: 'Monthly hours are use-it-or-lose-it each calendar month. Annual plans pool for the year — use them in any combination.' },
   { q: 'Do I own my website and domain?', a: 'Yes. Your site is yours. Your domain is yours. You get full login access to everything from day one. If you ever leave, you take it all with you.' },
   { q: 'What does "same-day update" actually mean?', a: 'Comment on your website by 4pm and it\'ll be done same day. We\'re available 6am–10pm, including weekends.' },
-  { q: 'What happens if the internet goes down?', a: 'Your site keeps running. Three complete copies run simultaneously with automatic failover. Operates at 90%+ even through a power outage or on mobile-only connectivity.' },
+  { q: 'What happens if the internet goes down?', a: 'Your site keeps running. Three complete copies of your website run simultaneously, with automatic failover. The system operates at 90%+ capacity even through a power outage or on mobile-only connectivity.' },
   { q: 'Is the AI content reviewed by a real person?', a: 'Every AI output is reviewed by a human specialist before it reaches you. The AI does the production; a person makes sure it\'s right for your brand.' },
-  { q: 'Who is my dedicated support person — are they Australian?', a: 'You have the option of employing an Australian based Business Advocate - an experienced Marketer as your key support person (rates from $56 p.h.) or the option most people use for day to day work is the online support team (mainly based in the Philippines) - they are university qualified graduates specifically trained by Fast Web Guru in the type of marketing and web activities needed to produce high quality work. Our Australian based senior marketers are often involved in tasks behind the scenes doing further quality control as well. We do not run a huge help desk, we have a highly specialised small team dedicated to getting you results, not wasting your time.' },
+  { q: 'Who is my dedicated support person — are they Australian?', a: 'You have the option of employing an Australian based Business Advocate — an experienced Marketer as your key support person (rates from $56 p.h.) or the option most people use for day to day work is the online support team (mainly based in the Philippines) — university qualified graduates specifically trained by Fast Web Guru. Our Australian based senior marketers are often involved behind the scenes doing further quality control.' },
   { q: 'I already have a WordPress site — do I have to start again?', a: 'No. We migrate what you have or work with it as-is. Most migrations happen with zero downtime.' },
   { q: 'Is there a free trial?', a: 'No free trial — but no lock-in either. Month-to-month means you can cancel any time. Start with a free AI assessment of your current site instead.' },
 ];
@@ -21,13 +23,13 @@ const faqs = [
 
 <Layout
   title="Pricing — Fast Web Guru | From $40/month, No Invoice Per Change"
-  description="Core from $40/mo, Advanced from $240/mo (AI included). Add full AI enablement for $20/mo. No invoice per change. No lock-in. No surprises. See exactly what's included."
+  description="Core from $40/mo, Advanced from $240/mo (Cortex AI included). Add Cortex — three AI pillars — for $30/mo. No invoice per change. No lock-in. See exactly what's included."
 >
   <!-- HERO -->
   <section class="section-dark py-20 lg:py-28">
     <div class="container">
       <div class="max-w-3xl">
-        <h1 class="text-white mb-6">One simple choice — Enhanced or Core. Everything included. No surprises.</h1>
+        <h1 class="text-white mb-6">One fixed price. Everything included. No surprises.</h1>
         <p class="text-zinc-400 text-xl leading-relaxed">Same infrastructure. Same support team. You choose how much support time you need — and whether you want AI tools connected to your business. No feature-locking. Nothing hidden.</p>
       </div>
 
@@ -35,7 +37,6 @@ const faqs = [
       <div class="callout-box mt-10 max-w-2xl">
         <p class="font-heading font-bold text-xl text-brand-dark mb-3">"Hang on — is $40 really the price?"</p>
         <p class="text-brand-text-secondary leading-relaxed">Yes. Here's everything that's included. No setup fee. No per-change fees. No upsells required to make it work. No 48-month lock-in that becomes expensive later. $40 a month, month-to-month, and you can cancel anytime.</p>
-        <p class="text-brand-text-secondary leading-relaxed mt-3">The only choice is whether you want AI — a Marketing Brain and initial workflows for those wanting active reporting and marketing using the latest tools. Or, if you already know what you're doing and have your AI sorted, just go for Core.</p>
         <p class="text-brand-text-secondary leading-relaxed mt-3">We say this upfront because we know how many times Australian small businesses have been stung by pricing that turns into something else. That's not us.</p>
       </div>
     </div>
@@ -47,14 +48,15 @@ const faqs = [
       <h2 class="text-2xl font-bold mb-6">Which plan is right for me?</h2>
       <div class="space-y-4 max-w-2xl">
         {[
-          { arrow: '→', text: 'I just want my website handled without invoices for every change', plan: 'Core ($40/mo)', href: '/services/core' },
-          { arrow: '→', text: 'Add On an AI digital marketing brain trained on my business and linked to my website', plan: 'Core + AI Add-on ($60/mo)', href: '/services/core' },
-          { arrow: '→', text: 'I need complex website updates, marketing workflows implemented and a daily support team', plan: 'Advanced ($240/mo — AI included)', href: '/services/advanced' },
-          { arrow: '→', text: 'Take me to the next level - multiple automated ai agents and workflows, help me scale fast...', plan: 'Advanced + AI Extender ($690/mo)', href: '/services/advanced' },
-          { arrow: '→', text: 'I don\'t have a website yet, or mine needs replacing', plan: 'Website Build (DIY or Full Support)', href: '/services/website-builds' },
+          { text: 'I just want my website handled without invoices for every change', plan: 'Core ($40/mo)', href: '/services/core' },
+          { text: 'I want AI tools connected to my business + a digital brain trained on my brand', plan: 'Core + Cortex ($70/mo)', href: '/services/core' },
+          { text: 'I need updates, content, and ecommerce management every week', plan: 'Advanced ($240/mo, Cortex included)', href: '/services/advanced' },
+          { text: 'I want the full AI marketing system — research, strategy, and monthly workflows at scale', plan: 'Advanced + AI Extender ($690/mo)', href: '/services/advanced' },
+          { text: "I don't have a website yet, or mine needs replacing", plan: 'Website Build (from $240 once-off)', href: '/services/website-builds' },
+          { text: 'I just want the AI layer — keeping my existing host', plan: 'Cortex only ($30/mo)', href: '/cortex' },
         ].map(row => (
           <a href={row.href} class="flex items-center gap-4 p-5 bg-brand-surface border border-brand-border rounded-lg hover:border-brand-accent transition-colors group">
-            <span class="text-brand-accent font-bold text-xl">{row.arrow}</span>
+            <span class="text-brand-accent font-bold text-xl">→</span>
             <span class="text-brand-text-secondary flex-1">{row.text}</span>
             <span class="font-bold text-brand-dark group-hover:text-brand-accent transition-colors">{row.plan}</span>
           </a>
@@ -66,7 +68,7 @@ const faqs = [
   <!-- PLAN CARDS -->
   <section class="section-light section-pad">
     <div class="container">
-      <!-- Core + Core+AI Enhanced side by side -->
+      <!-- Core + Core+Cortex side by side -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
 
         <!-- Core -->
@@ -81,13 +83,13 @@ const faqs = [
 
           <ul class="space-y-3 mb-8 list-none p-0">
             {[
-              'Enhanced Analysis and reporting of core KPI\'s - Speed, Uptime, Search Rankings.',
+              'AI-enhanced full-code hosting (not a shared server, not a page builder)',
               'Same-day website updates via click-and-comment — no quote, no invoice',
               '1 hour of dedicated support per month (use it on anything)',
-              'Workflow Hub — email, social, tasks, communications, all connected',
-              'Triple-redundant backup with automatic failover',
+              'Workflow Hub — email management, social, tasks, communications, all connected',
+              'Triple-redundant backup (3 copies of your site, automatic failover)',
               '24/7 monitoring, replies within an hour',
-              'Full ownership: site, domain, all logins from day one',
+              'Full ownership: your site, your domain, all logins. Yours from day one.',
             ].map(f => (
               <li class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
@@ -96,123 +98,114 @@ const faqs = [
             ))}
           </ul>
 
+          <p class="text-sm text-brand-text-secondary mb-5"><strong class="text-brand-dark">Want AI actively working for your business?</strong> Add Cortex for $30/month — three AI pillars, brand-trained brain, 20 monthly workflows. See below.</p>
+
           <div class="space-y-3">
             <a href="/services/core" class="btn-secondary w-full justify-center">Get Started — $40/month</a>
+            <a href="/services/core#cortex" class="btn-primary w-full justify-center">Get Started with Cortex AI — $70/month</a>
             <a href="/#assessment" class="btn-ghost w-full justify-center text-sm">Get Free AI Assessment first →</a>
           </div>
           <p class="text-xs text-center text-zinc-400 mt-3">Cancel any month. No lock-in. No setup fee.</p>
         </div>
 
-        <!-- Core + AI Enhanced -->
-        <div class="bg-brand-surface-mid border border-brand-accent rounded-lg p-8">
-          <span class="chip text-xs mb-4 inline-block">AI Enabled</span>
-          <h2 class="text-2xl font-bold mb-1">Core + AI Enhanced</h2>
-          <p class="text-brand-text-secondary mb-6">Everything in Core, plus your AI digital marketing brain connected and working for your business.</p>
+        <!-- Advanced -->
+        <div class="bg-brand-dark border border-brand-border-dark rounded-lg p-8">
+          <span class="chip text-xs mb-4 inline-block">Most popular</span>
+          <h2 class="text-2xl font-bold text-white mb-1">Advanced</h2>
+          <p class="text-zinc-400 mb-2">For ecommerce stores and businesses that need a proper team on the tools every week.</p>
+          <p class="text-xs text-brand-accent font-semibold mb-6">Cortex included — no extra charge</p>
           <div class="flex items-baseline gap-1 mb-2">
-            <span class="font-heading font-extrabold text-5xl">$60</span>
-            <span class="text-brand-text-secondary">/month</span>
+            <span class="font-heading font-extrabold text-5xl text-white">$240</span>
+            <span class="text-zinc-400">/month</span>
           </div>
-          <p class="text-sm text-brand-text-secondary mb-8">Core $40 + AI Add-on $20 — or $600/year, 2 months free</p>
+          <p class="text-sm text-zinc-500 mb-8">or $2,400/year — 2 months free</p>
 
-          <ul class="space-y-3 mb-8 list-none p-0">
+          <div class="callout-box mb-6">
+            <p class="text-sm font-medium text-brand-dark">Replaces $1,200–$2,400/month of freelance dev time</p>
+            <p class="text-xs text-brand-text-secondary mt-1">A freelance developer charges $75–$150/hr. 16 hours is $1,200–$2,400 — for someone not available on weekends, who invoices per job. Fast Web Guru Advanced: same time, plus Cortex AI included, plus 24/7 backup. $240/month.</p>
+          </div>
+
+          <ul class="space-y-3 mb-8 list-none p-0 grid grid-cols-1 lg:grid-cols-2 gap-x-8">
             {[
               'Everything in Core',
-              'Your chosen AI chat engine connected to your website and platforms',
-              'Business in a Box Digital Brain — trained on your brand, audience, and goals',
-              'Brand DNA foundation built and loaded at setup',
-              'Monthly support time to get you started and keep the AI working',
-              'A complete, customised library of marketing plans built specifically for your business — not templates',
-              'Your Digital Brain — an internal AI resource to consult anytime on marketing, advertising, and website strategy',
-              'Active monthly marketing workflows, ready to implement when you are',
-              'Strategic direction that evolves with your business month by month',
+              '16 hours of dedicated support per month (4 hrs/week)',
+              'Cortex included — AI-native infrastructure, Brand DNA + AI Specialist, 20 monthly growth workflows (no extra charge)',
+              'Full ecommerce management — products, stock, orders, campaigns',
+              'AI content and marketing production — social, email, product descriptions — weekly',
+              'Full communications management — incoming email, autoreplies, reviews, social',
+              'Priority response',
             ].map(f => (
               <li class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                <span class="text-sm text-brand-text-secondary">{f}</span>
+                <span class="text-sm text-zinc-300">{f}</span>
               </li>
             ))}
           </ul>
 
-          <a href="/services/core" class="btn-primary w-full justify-center mb-3">Get Started with AI — $60/month</a>
-          <p class="text-xs text-center text-zinc-400 mt-3">Cancel any month. No lock-in. No setup fee.</p>
+          <a href="/services/advanced" class="btn-primary w-full justify-center mb-3">Get Started — $240/month</a>
+          <p class="text-xs text-center text-zinc-500 mt-3">Cancel any month. No lock-in. No setup fee.</p>
         </div>
-      </div>
-
-      <!-- Advanced — full width -->
-      <div class="bg-brand-dark border border-brand-border-dark rounded-lg p-8 mb-16">
-        <span class="chip text-xs mb-4 inline-block">Most popular</span>
-        <h2 class="text-2xl font-bold text-white mb-1">Built to Scale — AI Core + 16 hrs of marketing &amp; web support monthly</h2>
-        <p class="text-zinc-400 mb-6">For ecommerce stores and businesses that need a proper team on the tools every week.</p>
-        <div class="flex items-baseline gap-1 mb-2">
-          <span class="font-heading font-extrabold text-5xl text-white">$240</span>
-          <span class="text-zinc-400">/month</span>
-        </div>
-        <p class="text-sm text-zinc-500 mb-1">or $2,400/year — 2 months free</p>
-        <p class="text-xs text-brand-accent font-semibold mb-4">AI Add-on included — no extra charge</p>
-
-        <div class="callout-box mb-6">
-          <p class="text-sm font-medium text-brand-dark">Replaces $1,200–$2,400/month of freelance dev time</p>
-          <p class="text-xs text-brand-text-secondary mt-1">A freelance developer charges $75–$150/hr. 16 hours is $1,200–$2,400 — for someone not available on weekends, who invoices per job. Fast Web Guru Advanced: same time, plus AI tools included, plus 24/7 backup. $240/month.</p>
-        </div>
-
-        <ul class="space-y-3 mb-8 list-none p-0 grid grid-cols-1 lg:grid-cols-2 gap-x-8">
-          {[
-            'Everything in Core + AI Enhanced',
-            '16 hours of dedicated support per month (4 hrs/week)',
-            'Full ecommerce management — products, stock, orders, campaigns',
-            'Human in the Loop AI content production — social, email, copy — weekly',
-            'Full communications management — email, reviews, social comments',
-            'You keep full visibility and control at all times',
-            'Priority response',
-          ].map(f => (
-            <li class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-              <span class="text-sm text-zinc-300">{f}</span>
-            </li>
-          ))}
-        </ul>
-
-        <a href="/services/advanced" class="btn-primary justify-center mb-3">Get Started — $240/month</a>
-        <p class="text-xs text-center text-zinc-500 mt-3">Cancel any month. No lock-in. No setup fee.</p>
       </div>
 
       <!-- Add-ons -->
       <div class="space-y-6 mb-16">
         <h2 class="text-2xl font-bold">Add-ons</h2>
 
-        <!-- AI Add-on -->
-        <div id="ai-add-on" class="bg-brand-surface-mid border border-brand-border rounded-lg p-8">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
+        <!-- Cortex -->
+        <div id="cortex" class="bg-brand-surface-mid border border-brand-accent rounded-lg p-8">
+          <div class="flex flex-wrap items-center gap-3 mb-1">
             <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400">Available on Core · Included free with Advanced</p>
           </div>
-          <div class="flex items-baseline gap-2 mb-3">
-            <h3 class="font-bold text-xl">AI Add-on</h3>
-            <span class="text-brand-accent font-bold">+$20/month</span>
+          <div class="flex items-baseline gap-2 mb-1">
+            <h3 class="font-bold text-xl">Cortex</h3>
+            <span class="text-brand-accent font-bold">+$30/month</span>
           </div>
-          <p class="text-brand-text-secondary mb-5">Connect your preferred AI — Claude, ChatGPT, or your choice — directly to your website and core business platforms. Your Business in a Box Digital Brain is set up with your brand DNA, so every AI interaction is grounded in who you are and what you do.</p>
-          <ul class="space-y-2 list-none p-0">
+          <p class="text-brand-text-secondary mb-6">Three AI pillars. One ecosystem. Add it to your existing plan — or to any website on any host.</p>
+
+          <p class="text-brand-dark font-bold mb-4">$10 + $10 + $10 = $30/month.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {[
-              'Your chosen AI chat engine connected to your website and platforms',
-              'Business in a Box Digital Brain — trained on your brand, audience, and goals',
-              'Brand DNA foundation built and loaded at setup',
-              'Monthly support time to get you started and keep the AI working',
-              'A complete, customised library of marketing plans built specifically for your business — not templates',
-              'Your Digital Brain — an internal AI resource to consult anytime on marketing, advertising, and website strategy',
-              'Active monthly marketing workflows, ready to implement when you are',
-              'Strategic direction that evolves with your business month by month',
-            ].map(f => (
-              <li class="flex items-start gap-2.5">
-                <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                <span class="text-sm text-brand-text-secondary">{f}</span>
-              </li>
+              {
+                name: 'Cortex Host Systems',
+                price: '$10/mo',
+                desc: 'AI-native hosting with Talk-to-Edit. Update your site by describing what you want. No builders, no code, no waiting for a developer.',
+              },
+              {
+                name: 'Cortex Team Stack',
+                price: '$10/mo',
+                desc: 'Your Business DNA ingested at setup. A personalised Digital Marketing Brain trained on your brand — not generic AI. Plus 1 hour a month of a real AI Specialist.',
+              },
+              {
+                name: 'Cortex Ops Grid',
+                price: '$10/mo',
+                desc: '20 bespoke growth workflows per month — built from your Business DNA. Step-by-step blueprints you can run yourself, hand to your team, or let Cortex execute.',
+              },
+            ].map(pillar => (
+              <div class="bg-brand-surface border border-brand-border rounded-lg p-5">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-semibold text-sm">{pillar.name}</h4>
+                  <span class="chip text-xs">{pillar.price}</span>
+                </div>
+                <p class="text-xs text-brand-text-secondary leading-relaxed">{pillar.desc}</p>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          <p class="text-xs text-brand-text-secondary italic mb-6">All three pillars run at full capacity on FWG hosting. Host Systems partial capability on external hosts — Team Stack and Ops Grid work fully on any host. Already on Advanced? Cortex is included — nothing extra to pay.</p>
+
+          <p class="text-xs text-brand-text-secondary mb-4">Already on another host? Cortex works there too. <a href="/cortex" class="text-brand-accent hover:underline">Learn more →</a></p>
+
+          <div class="flex flex-wrap gap-3">
+            <a href="/services/core#cortex" class="btn-primary">Add Cortex to Your Plan — $30/month</a>
+            <a href="/cortex" class="text-brand-accent font-semibold hover:underline self-center">Or see the full Cortex page →</a>
+          </div>
         </div>
 
         <!-- AI Extender -->
         <div class="bg-brand-surface-mid border border-brand-border rounded-lg p-8">
           <div class="flex flex-wrap items-center gap-3 mb-4">
-            <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400">Advanced plan only · AI Add-on included</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400">Advanced plan only · Cortex included</p>
           </div>
           <div class="flex items-baseline gap-2 mb-1">
             <h3 class="font-bold text-xl">AI Extender: Your Digital Business in a Box</h3>
@@ -221,7 +214,11 @@ const faqs = [
           <p class="text-sm text-brand-text-secondary italic mb-4">Your online marketing companion — all the research, strategy, and active workflows you need to lift your online presence to a new level.</p>
           <ul class="space-y-2 list-none p-0">
             {[
-              'A complete Multi Agent Tool-Kit setup, effectively your own AI workforce, with daily, weekly and on demand tasks that just work, taking care of the admin and improving your communication speed and quality with custom designed workflows carefully crafted to lift not only your brand image, but boost your bottom line',
+              'A complete, customised library of marketing plans built specifically for your business — not templates',
+              'Your Digital Brain — an internal AI resource to consult anytime on marketing, advertising, and website strategy',
+              'Active monthly marketing workflows, ready to implement when you are',
+              'Strategic direction that evolves with your business month by month',
+              'Cortex fully included (no extra charge)',
             ].map(f => (
               <li class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
@@ -242,7 +239,7 @@ const faqs = [
             <h4 class="font-semibold mb-4 text-brand-text-secondary uppercase text-xs tracking-widest">Standard Websites</h4>
             <ul class="space-y-3 list-none p-0">
               {[
-                { price: '$240', desc: 'Quick \'n Easy - 24 hr turn-around or quicker!' },
+                { price: '$240', desc: "Quick 'n Easy - 24 hr turn-around or quicker!" },
                 { price: '$1,200', desc: 'Most business websites — most common starting point' },
                 { price: '$2,400', desc: 'Complex sites with integrations or custom functionality' },
               ].map(row => (
@@ -293,7 +290,7 @@ const faqs = [
     <div class="container max-w-3xl">
       <h2 class="mb-12">Pricing FAQ</h2>
       <div class="space-y-0 divide-y divide-brand-border">
-        {faqs.map((faq, i) => (
+        {faqs.map((faq) => (
           <details class="group py-5" name="pricing-faq">
             <summary class="flex items-start justify-between gap-4 cursor-pointer list-none font-semibold text-brand-dark hover:text-brand-accent transition-colors">
               {faq.q}

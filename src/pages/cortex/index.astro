@@ -1,0 +1,423 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+
+const faqs = [
+  { q: 'Does Cortex work on my existing WordPress site?', a: 'Yes. Cortex Team Stack and Cortex Ops Grid work on any website, on any host. Talk-to-Edit in Host Systems runs at full capacity on FWG\'s AI-native hosting — on your own host, you get partial Host Systems and full Team Stack and Ops Grid from day one.' },
+  { q: 'What\'s the Business DNA Workshop and how long does it take?', a: 'Your AI Specialist runs a short onboarding session — usually 45 minutes — where we ingest your existing documents: product descriptions, style guides, past copy, brand notes. We build your Brand DNA file from these. Most clients have it done in the first week. From that point, every Cortex output is trained on your specific brand.' },
+  { q: 'Who is the "AI Specialist" — is it a chatbot?', a: 'No. A real person. Your 1 hour per month of AI Specialist time is with an actual human who reviews your Cortex outputs, refines your Brand DNA, and prepares workflow data for your business. They\'re your quality controller for the AI layer.' },
+  { q: 'What are the 20 workflows — are they templates?', a: "They're not templates. Cortex Ops Grid builds each workflow from your Business DNA — a café in the Hunter Valley and a plumber in Melbourne get completely different workflows. Each one is a complete, step-by-step blueprint. Examples: a 6-email win-back sequence for past customers, a local SEO landing page structure, a lead magnet setup built around your specific audience." },
+  { q: "What if I can't use all 20 workflows in a month?", a: "Keep them. Your workflow library accumulates. Some workflows are one-time setup (e.g. your SEO foundation); others are ongoing (e.g. a monthly email sequence). You don't have to execute all of them immediately — even one properly executed workflow typically delivers more value than $30." },
+  { q: 'Can I cancel anytime?', a: 'Yes. Month-to-month. No lock-in. No fee. Cancel from your account dashboard.' },
+  { q: 'Can Cortex work alongside the AI tools I already use?', a: "Yes. Cortex Team Stack creates your Brand DNA as a portable document you can also load into whatever AI tool you already use. Your Digital Marketing Brain is Cortex-native, but your Business DNA belongs to you and is portable." },
+  { q: 'Is Cortex only for FWG hosting clients?', a: 'No. Cortex is available to any website, on any host. When combined with FWG hosting, all three pillars run at full capacity. On your own host, you get Team Stack and Ops Grid in full — with partial Host Systems capability.' },
+  { q: 'What happens in my first week with Cortex?', a: 'Day 1: Welcome from your AI Specialist. Days 2–3: Business DNA Workshop (45 min session — we gather your documents and build your Brand DNA). Days 5–7: Your Brand DNA is live, your Digital Marketing Brain is ready, first workflows in production. Week 2: First 20 growth workflows delivered.' },
+];
+---
+
+<Layout
+  title="Cortex by Fast Web Guru — AI Add-On for Any Website | $30/Month"
+  description="Cortex adds AI-native site editing, a brand-trained digital brain, and 20 bespoke monthly growth workflows to any website. Three pillars at $10 each. Works on your existing host. Australian AI Specialist included. Cancel anytime."
+>
+
+  <!-- HERO -->
+  <section class="section-dark relative overflow-hidden">
+    <div class="container relative z-10 py-24 lg:py-36">
+      <div class="flex flex-wrap gap-2 mb-8">
+        <span class="chip">$30/month</span>
+        <span class="chip-inverse">Works with your existing website</span>
+        <span class="chip-inverse">Cancel anytime</span>
+      </div>
+
+      <h1 class="text-5xl lg:text-7xl font-extrabold font-heading text-white leading-[1.05] text-balance mb-6 max-w-3xl">
+        Your website just grew a brain.
+      </h1>
+
+      <p class="text-lg lg:text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl">
+        Cortex is three AI upgrades for your business, at $10 each. AI-editable infrastructure. A digital brain trained on your brand. Twenty growth workflows built for your business every month. Add it to your existing website — or combine it with FWG hosting for the full thing.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-start gap-4">
+        <a href="/#assessment" class="btn-primary text-base py-4 px-8">
+          Add Cortex to Your Website — $30/Month
+        </a>
+        <a href="/#assessment" class="btn-ghost-inverse text-base py-4">
+          Or start with a free AI assessment of your current site →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-8">Your website is doing one job. It should be doing three.</h2>
+        <div class="space-y-5 text-lg text-brand-text-secondary leading-relaxed">
+          <p>Right now, your website sits on a server and waits. It can't edit itself. It doesn't know anything specific about your business. And the marketing strategy you were given last quarter? Still sitting in a folder, unexecuted, because there was never a system to run it.</p>
+          <p>That's not a website problem. It's an infrastructure problem.</p>
+          <p>Most businesses don't need a new website. They need their existing one to start earning its keep.</p>
+          <p class="text-brand-dark font-medium">That's what Cortex does.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE PILLARS -->
+  <section class="section-warm section-pad">
+    <div class="container">
+      <h2 class="mb-4 text-center">Three pillars. $10 each. One ecosystem.</h2>
+      <p class="text-brand-text-secondary text-lg text-center mb-12 max-w-2xl mx-auto">Each pillar solves a different problem. Together, they transform what your website does for your business.</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Host Systems -->
+        <div class="bg-brand-surface border border-brand-border rounded-lg p-8 flex flex-col">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-xl">Cortex Host Systems</h3>
+              <p class="text-xs text-brand-text-secondary italic mt-1">The Infrastructure Layer</p>
+            </div>
+            <span class="chip text-xs flex-shrink-0 ml-2">$10/month</span>
+          </div>
+          <h4 class="font-semibold text-lg mb-3">You know what needs updating on your site. You just have nowhere to put it without a developer.</h4>
+          <p class="text-brand-text-secondary leading-relaxed mb-4 flex-1">Cortex Host Systems fixes this. Point at any part of your site and type what you want. The AI handles it — no code, no builders, no quoting. Standard web hosting keeps your website on a server. Cortex Host Systems changes what that means.</p>
+          <ul class="space-y-2 list-none p-0 mb-6">
+            {[
+              'AI-native hosting infrastructure — cognitive, ultra-fast',
+              'Talk-to-Edit — update your site by telling it what to change',
+              'Server-level security and performance for image-heavy sites',
+              'Seamless integration with your FWG support team',
+            ].map(f => (
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                <span class="text-sm text-brand-text-secondary">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/cortex/host-systems" class="btn-ghost text-sm">Learn more about Cortex Host Systems →</a>
+        </div>
+
+        <!-- Team Stack -->
+        <div class="bg-brand-surface border border-brand-accent rounded-lg p-8 flex flex-col">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-xl">Cortex Team Stack</h3>
+              <p class="text-xs text-brand-text-secondary italic mt-1">The Intelligence Layer</p>
+            </div>
+            <span class="chip text-xs flex-shrink-0 ml-2">$10/month</span>
+          </div>
+          <h4 class="font-semibold text-lg mb-3">A digital brain that actually knows your business.</h4>
+          <p class="text-brand-text-secondary leading-relaxed mb-4 flex-1">Generic AI tools don't know your brand. They've read the whole internet, and none of it is specifically about you. Cortex Team Stack fixes this. We ingest your actual documents and build your <strong>Business DNA</strong> — a custom AI brain trained on your business, not the internet. And because we know AI is hard to use without support: this tier includes <strong>1 hour a month of a real AI Specialist</strong>.</p>
+          <ul class="space-y-2 list-none p-0 mb-6">
+            {[
+              'Business DNA Workshop — your brand ingested at setup',
+              'Your Digital Marketing Brain — trained only on your brand',
+              '1 hr/month dedicated AI Specialist (human review and data prep)',
+            ].map(f => (
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                <span class="text-sm text-brand-text-secondary">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/cortex/team-stack" class="btn-ghost text-sm">Learn more about Cortex Team Stack →</a>
+        </div>
+
+        <!-- Ops Grid -->
+        <div class="bg-brand-surface border border-brand-border rounded-lg p-8 flex flex-col">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-bold text-xl">Cortex Ops Grid</h3>
+              <p class="text-xs text-brand-text-secondary italic mt-1">The Execution Layer</p>
+            </div>
+            <span class="chip text-xs flex-shrink-0 ml-2">$10/month</span>
+          </div>
+          <h4 class="font-semibold text-lg mb-3">Stop getting strategies. Start getting workflows you can actually run.</h4>
+          <p class="text-brand-text-secondary leading-relaxed mb-4 flex-1">Here's the problem with most AI tools: they'll help you write a plan. Then you have to execute it. Cortex Ops Grid goes further. Every month, you receive <strong>20 bespoke growth workflows</strong> — complete, step-by-step blueprints built specifically for your business DNA. Not templates. Actual instructions you can follow, assign, or hand to Cortex.</p>
+          <ul class="space-y-2 list-none p-0 mb-6">
+            {[
+              '20 custom growth workflows monthly, built from your Business DNA',
+              'Each workflow: complete, step-by-step, executable without a consultant',
+              'Run it yourself, hand to your team, or let Cortex execute',
+              'Foundation architecture for future autonomous execution',
+            ].map(f => (
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                <span class="text-sm text-brand-text-secondary">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/cortex/ops-grid" class="btn-ghost text-sm">Learn more about Cortex Ops Grid →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- $30 EQUATION -->
+  <section class="bg-brand-dark py-16">
+    <div class="container text-center">
+      <p class="font-heading font-extrabold text-4xl lg:text-6xl text-white mb-6">
+        $10 + $10 + $10 = $30/month.
+      </p>
+      <p class="text-zinc-400 text-lg max-w-2xl mx-auto mb-4">AI-editable infrastructure. A brand-trained digital brain. Twenty actionable workflows.</p>
+      <p class="text-zinc-500 max-w-xl mx-auto">Infrastructure ($10). Intelligence ($10). Execution ($10). Most businesses spend more than this on streaming services. And nothing in their Netflix queue makes the phone ring.</p>
+    </div>
+  </section>
+
+  <!-- WORKS WITH YOUR SETUP -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-4">Already on a host? Cortex works there.</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">You don't have to switch hosting to use Cortex. Add it to your existing WordPress site, your current host, or whatever setup you're running on.</p>
+      <p class="text-brand-text-secondary mb-8">You'll get Team Stack (Business DNA + AI Specialist) and Ops Grid (20 workflows) fully working from day one. The Talk-to-Edit feature from Host Systems runs at full power on Fast Web Guru's AI-native infrastructure. On your own host, you get partial Host Systems benefits — and the full intelligence and execution layers immediately.</p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b-2 border-brand-border">
+              <th class="text-left py-3 pr-4 font-semibold text-brand-dark">Feature</th>
+              <th class="text-center py-3 px-4 font-semibold text-brand-dark">Any host</th>
+              <th class="text-center py-3 px-4 font-semibold text-brand-accent bg-orange-50 rounded-t">FWG hosting</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { feature: 'Business DNA Workshop', any: true, fwg: true },
+              { feature: 'Digital Marketing Brain', any: true, fwg: true },
+              { feature: 'AI Specialist (1 hr/mo)', any: true, fwg: true },
+              { feature: '20 Growth Workflows', any: true, fwg: true },
+              { feature: 'Talk-to-Edit (AI site editing)', any: false, partial: true, fwg: true },
+            ].map(row => (
+              <tr class="border-b border-brand-border">
+                <td class="py-3 pr-4 text-brand-dark">{row.feature}</td>
+                <td class="py-3 px-4 text-center">{row.partial ? <span class="text-zinc-500 text-xs">Partial</span> : row.any ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
+                <td class="py-3 px-4 text-center bg-orange-50">{row.fwg ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box">
+        <p class="font-semibold text-brand-dark mb-1">Want the full thing?</p>
+        <p class="text-brand-text-secondary text-sm">When Cortex runs on Fast Web Guru hosting, all three pillars work at full capacity. <a href="/pricing" class="text-brand-accent hover:underline">See FWG hosting plans →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-8">Cortex is for you if...</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+          <ul class="space-y-4 list-none p-0">
+            {[
+              'You want AI working for your business — but you don\'t want to become an AI expert',
+              "You've tried ChatGPT or similar tools and the output doesn't sound like your brand",
+              'Your website is sitting there passively when it should be generating leads and enquiries',
+              'You have good ideas for marketing and no reliable system to execute them',
+              "You're spending money on tools and none of them talk to each other or know your business",
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                <span class="text-brand-dark">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-brand-text-secondary mb-4">Cortex is probably not for you if...</p>
+          <p class="text-brand-text-secondary leading-relaxed">You want to manage your own AI infrastructure entirely, or you're genuinely happy with the status quo. Both are fine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-dark py-12">
+    <div class="container max-w-3xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-zinc-900 rounded-lg p-8 border border-brand-border-dark">
+          <blockquote class="text-zinc-200 italic leading-relaxed mb-4">
+            "I've tried three different AI tools and they all wrote the same generic rubbish. Cortex actually sounds like us."
+          </blockquote>
+          <p class="text-zinc-500 text-sm">— [Client name], [Business type], [City] <span class="text-zinc-600">[Testimonial to be confirmed]</span></p>
+        </div>
+        <div class="bg-zinc-900 rounded-lg p-8 border border-brand-border-dark">
+          <blockquote class="text-zinc-200 italic leading-relaxed mb-4">
+            "The workflows are the thing. Every month I get 20 things I can actually do — not just a strategy doc I have to figure out myself."
+          </blockquote>
+          <p class="text-zinc-500 text-sm">— [Client name], [Business type], [City] <span class="text-zinc-600">[Testimonial to be confirmed]</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="cortex-pricing" class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-4">Simple pricing. Everything included.</h2>
+      <p class="text-brand-text-secondary text-lg mb-8">Three pillars. Full AI ecosystem. Add to any website.</p>
+
+      <!-- Annual toggle -->
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-sm font-medium text-brand-dark" id="toggle-monthly-label">Monthly ($30/mo)</span>
+        <button
+          id="annual-toggle"
+          class="relative inline-flex h-6 w-11 items-center rounded-full bg-brand-border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+          role="switch"
+          aria-checked="false"
+          aria-labelledby="toggle-annual-label"
+        >
+          <span id="toggle-knob" class="inline-block h-4 w-4 translate-x-1 rounded-full bg-white shadow transition-transform duration-200"></span>
+        </button>
+        <span class="text-sm font-medium text-brand-text-secondary" id="toggle-annual-label">Annual ($300/yr — 2 months free)</span>
+      </div>
+
+      <!-- Pricing table -->
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-sm border-collapse border border-brand-border rounded-lg overflow-hidden">
+          <thead>
+            <tr class="bg-brand-dark text-white">
+              <th class="text-left py-4 px-5 font-semibold">Pillar</th>
+              <th class="text-left py-4 px-5 font-semibold">What it does</th>
+              <th class="text-right py-4 px-5 font-semibold">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { pillar: 'Cortex Host Systems', desc: 'AI-native infrastructure + Talk-to-Edit site editing', price: '$10/mo' },
+              { pillar: 'Cortex Team Stack', desc: 'Business DNA + Digital Marketing Brain + 1 hr/mo AI Specialist', price: '$10/mo' },
+              { pillar: 'Cortex Ops Grid', desc: '20 bespoke growth workflows per month, built from your DNA', price: '$10/mo' },
+            ].map((row, i) => (
+              <tr class:list={['border-t border-brand-border', i % 2 === 0 ? 'bg-brand-surface' : 'bg-brand-surface-mid']}>
+                <td class="py-4 px-5 font-semibold text-brand-dark">{row.pillar}</td>
+                <td class="py-4 px-5 text-brand-text-secondary">{row.desc}</td>
+                <td class="py-4 px-5 text-right font-bold text-brand-accent">{row.price}</td>
+              </tr>
+            ))}
+            <tr class="bg-brand-dark text-white border-t-2 border-brand-accent">
+              <td class="py-4 px-5 font-bold">Total</td>
+              <td class="py-4 px-5" id="pricing-desc">Month-to-month. Cancel anytime. No setup fee.</td>
+              <td class="py-4 px-5 text-right font-extrabold text-brand-accent text-lg" id="pricing-total">$30/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 mb-6">
+        <a href="/#assessment" class="btn-primary text-base py-4 px-8">
+          Add Cortex to Your Website — $30/Month
+        </a>
+        <a href="/#assessment" class="btn-ghost text-base py-4">
+          Or: Get Your Free AI Assessment First — No Commitment
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500">
+        <span>Month-to-month</span>
+        <span>·</span>
+        <span>No setup fee</span>
+        <span>·</span>
+        <span>Cancel anytime</span>
+        <span>·</span>
+        <span>Works on your existing host</span>
+      </div>
+
+      <p class="text-sm text-brand-text-secondary mt-6">
+        <strong>Best on Fast Web Guru hosting:</strong> All three pillars at full capacity. <a href="/pricing" class="text-brand-accent hover:underline">See hosting plans →</a>
+        <br />
+        <strong>On FWG Core or Advanced already?</strong> Add Cortex from your account dashboard. Advanced clients: Cortex is already included.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-12">Frequently asked questions</h2>
+      <div class="space-y-0 divide-y divide-brand-border">
+        {faqs.map((faq) => (
+          <details class="group py-5" name="cortex-faq">
+            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none font-semibold text-brand-dark hover:text-brand-accent transition-colors">
+              {faq.q}
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-brand-accent transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-3 text-brand-text-secondary leading-relaxed">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section-dark py-20">
+    <div class="container max-w-2xl text-center">
+      <h2 class="text-white mb-4">Ready to find out what Cortex would do for your business?</h2>
+      <p class="text-zinc-400 text-lg leading-relaxed mb-8">Start with our free AI assessment — we'll look at your website and tell you specifically how Cortex would apply to your type of business. Takes 30 seconds. Personalised findings in your inbox within 24 hours.</p>
+      <a href="/#assessment" class="btn-primary text-base py-4 px-8 mb-4 inline-block">
+        Get Your Free AI Assessment
+      </a>
+      <p class="text-zinc-500 text-sm mt-4">No sales call. No commitment. Just honest findings about your site and what AI can actually do for it.</p>
+    </div>
+  </section>
+
+  <!-- Sticky mobile CTA -->
+  <div
+    id="sticky-cortex-cta"
+    class="fixed bottom-0 left-0 right-0 z-40 bg-brand-accent py-4 px-6 flex items-center justify-between shadow-lg lg:hidden"
+    style="display: none;"
+  >
+    <span class="font-bold text-brand-dark">Add Cortex — $30/mo</span>
+    <a href="#cortex-pricing" class="bg-brand-dark text-white font-semibold py-2 px-5 rounded-md text-sm">
+      Get started →
+    </a>
+  </div>
+
+</Layout>
+
+<script>
+  // Annual pricing toggle
+  const toggle = document.getElementById('annual-toggle');
+  const knob = document.getElementById('toggle-knob');
+  const totalEl = document.getElementById('pricing-total');
+  const descEl = document.getElementById('pricing-desc');
+  let isAnnual = false;
+
+  toggle?.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    toggle.setAttribute('aria-checked', String(isAnnual));
+    toggle.style.backgroundColor = isAnnual ? '#F97316' : '';
+    if (knob) knob.style.transform = isAnnual ? 'translateX(1.375rem)' : 'translateX(0.25rem)';
+    if (totalEl) totalEl.textContent = isAnnual ? '$300/yr' : '$30/mo';
+    if (descEl) descEl.textContent = isAnnual ? '2 months free. Cancel anytime. No setup fee.' : 'Month-to-month. Cancel anytime. No setup fee.';
+  });
+
+  // Sticky mobile CTA: show after 300px scroll, hide when primary CTA is visible
+  const stickyCta = document.getElementById('sticky-cortex-cta');
+  const primaryCta = document.querySelector('#cortex-pricing .btn-primary') as HTMLElement | null;
+
+  function updateStickyCta() {
+    if (!stickyCta) return;
+    if (window.scrollY < 300) {
+      stickyCta.style.display = 'none';
+      return;
+    }
+    if (primaryCta) {
+      const rect = primaryCta.getBoundingClientRect();
+      const inViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
+      stickyCta.style.display = inViewport ? 'none' : 'flex';
+    } else {
+      stickyCta.style.display = 'flex';
+    }
+  }
+
+  window.addEventListener('scroll', updateStickyCta, { passive: true });
+  updateStickyCta();
+</script>

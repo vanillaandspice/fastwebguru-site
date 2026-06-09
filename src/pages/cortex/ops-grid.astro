@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Cortex Ops Grid — 20 Monthly Growth Workflows for Your Business | Fast Web Guru"
+  description="Cortex Ops Grid delivers 20 bespoke, step-by-step growth workflows every month — built from your Business DNA. Run them yourself, hand to your team, or let Cortex execute. $30/mo total."
+>
+
+  <!-- HERO -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="chip">Cortex Ops Grid</span>
+        <span class="chip-inverse">$10/month</span>
+        <span class="chip-inverse">Part of Cortex — $30/month total</span>
+      </div>
+      <nav class="text-xs text-zinc-500 mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-zinc-300">Home</a>
+        <span class="mx-2">›</span>
+        <a href="/cortex" class="hover:text-zinc-300">Cortex AI</a>
+        <span class="mx-2">›</span>
+        <span class="text-zinc-400">Ops Grid</span>
+      </nav>
+      <h1 class="text-white mb-6">Stop planning. Start executing.</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed mb-8">Cortex Ops Grid delivers 20 bespoke, step-by-step growth workflows every month — built specifically from your Business DNA, not generic templates. Run them yourself, hand them to your team, or let Cortex execute them.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/#assessment" class="btn-primary text-base py-4 px-8">Add Cortex to Your Website — $30/Month</a>
+        <a href="/#assessment" class="btn-ghost-inverse text-base py-4">Or get a free AI assessment first →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">You've had the strategy. Nothing happened.</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>You've paid for a marketing strategy. You've had the AI write you a plan. You've got a folder of "growth ideas" that are still sitting there from eight months ago.</p>
+        <p>The problem isn't that you don't know what to do. The problem is that knowing and doing are two very different things — and between them sits a wall of execution friction.</p>
+        <p class="text-brand-dark font-semibold">Most AI tools stop at the strategy. Cortex Ops Grid goes to the other side of the wall.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">20 complete workflows. Built for your business. Every month.</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-8">A workflow isn't a strategy document. A workflow is a complete, step-by-step instruction set — specific enough that you can follow it without a consultant, hand it to a team member without a briefing, or give it to Cortex to run semi-autonomously. Every month, Cortex Ops Grid delivers 20 of them.</p>
+
+      <div class="bg-brand-surface-mid border border-brand-border rounded-lg p-8 mb-8">
+        <h3 class="font-bold text-lg mb-4">What a workflow looks like:</h3>
+        <p class="text-brand-text-secondary mb-4 font-medium">A 6-email win-back sequence for customers who bought more than 6 months ago:</p>
+        <ul class="space-y-2 list-none p-0">
+          {[
+            'Email 1: Subject line options + body copy + send timing',
+            'Email 2: Follow-up variation + A/B subject line to test',
+            'Emails 3–6: Sequence logic + specific copy for each touchpoint',
+            'Automation trigger logic (if you\'re using email automation)',
+            'Suggested segmentation (which customers get which version)',
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-sm text-brand-text-secondary">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-brand-dark font-semibold mt-4">That's one workflow. You get 20 a month.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE WAYS TO RUN -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-10">You decide what happens next</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { n: '1', title: 'Run it yourself', body: 'Every workflow is written in plain English. No tech knowledge required. Clear instructions, step by step. If you have 30 minutes and want to take ownership of execution, you can run most workflows yourself.' },
+          { n: '2', title: 'Hand it to your team', body: "Each workflow is designed to be handed off without a briefing. Your team member reads it, follows the steps, and it gets done. No back-and-forth about what you meant." },
+          { n: '3', title: 'Let Cortex execute it', body: 'For workflows that involve your Cortex tools or FWG support team, you can approve the workflow and let Cortex run it semi-autonomously. You review the output before anything goes live.' },
+        ].map(option => (
+          <div class="bg-brand-surface border border-brand-border rounded-lg p-6">
+            <div class="step-number mb-3" style="font-size:2rem;opacity:0.2;">{option.n}</div>
+            <h3 class="font-bold text-lg mb-2">{option.title}</h3>
+            <p class="text-brand-text-secondary leading-relaxed">{option.body}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-brand-text-secondary mt-6">You choose the model for each workflow. Some you run yourself. Some you hand off. The choice is always yours.</p>
+    </div>
+  </section>
+
+  <!-- TYPES OF WORKFLOWS -->
+  <section class="section-warm section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-8">What kinds of workflows does Cortex Ops Grid build?</h2>
+      <p class="text-brand-text-secondary mb-8">Workflows are specific to your Business DNA — so your 20 are different from every other Cortex client's 20. Common workflow types include:</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            category: 'Content and marketing',
+            items: [
+              'Email sequences (win-back, welcome, upsell, re-engagement)',
+              'Social content calendars (specific post copy, not just topics)',
+              'Blog or landing page briefs (SEO-structured, audience-matched)',
+              'Promotional campaign blueprints (launch, seasonal, product-specific)',
+            ],
+          },
+          {
+            category: 'Lead generation',
+            items: [
+              'Local SEO landing page blueprints (built for your suburb, your category)',
+              'Lead magnet creation guides (topic, format, distribution, and follow-up)',
+              'Google Business Profile update sequences',
+              'Review and testimonial request campaigns',
+            ],
+          },
+          {
+            category: 'Operations and retention',
+            items: [
+              'Customer onboarding sequences',
+              'Post-purchase follow-up campaigns',
+              'Referral program setup blueprints',
+              'Loyalty re-engagement sequences',
+            ],
+          },
+        ].map(group => (
+          <div>
+            <h4 class="font-semibold text-brand-dark mb-4">{group.category}</h4>
+            <ul class="space-y-2 list-none p-0">
+              {group.items.map(item => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  <span class="text-sm text-brand-text-secondary">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-12">What Ops Grid gives you</h2>
+      <div class="space-y-10">
+        {[
+          { title: '20 bespoke growth workflows per month', body: 'Built from your Business DNA by your AI Specialist and the Cortex system. Every workflow is complete, step-by-step, and specific to your business.' },
+          { title: 'Cumulative workflow library', body: "Workflows you don't execute this month stay in your library. Some are evergreen (set up once, use repeatedly). Some are seasonal (you activate them when relevant). Your library grows over time." },
+          { title: 'Flexible execution model', body: 'Run it, hand it off, or let Cortex run it. Your choice per workflow, every month.' },
+          { title: 'Built to scale', body: "The Ops Grid architecture is the foundation for future autonomous execution. As Cortex evolves, workflows you're currently running manually will become increasingly automated. You're building the system now." },
+        ].map(item => (
+          <div class="flex gap-5 pb-10 border-b border-brand-border last:border-0">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <div>
+              <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+              <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THIS IS PART OF CORTEX -->
+  <section class="section-mid py-14">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-6">Ops Grid is one of three Cortex pillars.</h2>
+      <p class="text-brand-text-secondary mb-4">Cortex Ops Grid is $10/month — part of Cortex, the $30/month AI ecosystem. Without Team Stack (your Business DNA), Ops Grid produces generic workflows. With it, they're specific to your business. The three pillars aren't independent — they work as a system.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <a href="/cortex/host-systems" class="bg-brand-surface-mid border border-brand-border rounded-lg p-5 hover:border-brand-accent transition-colors">
+          <p class="font-bold mb-1">Cortex Host Systems ($10)</p>
+          <p class="text-sm text-brand-text-secondary">AI-native hosting. The infrastructure your content deploys into.</p>
+          <p class="text-brand-accent text-xs mt-2">Learn more →</p>
+        </a>
+        <a href="/cortex/team-stack" class="bg-brand-surface-mid border border-brand-border rounded-lg p-5 hover:border-brand-accent transition-colors">
+          <p class="font-bold mb-1">Cortex Team Stack ($10)</p>
+          <p class="text-sm text-brand-text-secondary">Business DNA + AI brain + Specialist. The intelligence your workflows are built from.</p>
+          <p class="text-brand-accent text-xs mt-2">Learn more →</p>
+        </a>
+        <div class="bg-brand-accent rounded-lg p-5 text-brand-dark">
+          <p class="font-bold mb-1">Cortex Ops Grid ($10)</p>
+          <p class="text-sm">This pillar. 20 bespoke workflows. Execution on your terms.</p>
+        </div>
+      </div>
+      <a href="/cortex" class="btn-ghost">See the full Cortex page →</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section-dark py-12">
+    <div class="container max-w-2xl">
+      <figure class="text-center">
+        <blockquote class="text-xl text-zinc-200 italic leading-relaxed mb-4">
+          "The workflows are the thing. Every month I get 20 things I can actually do — not just a strategy doc I have to figure out myself."
+        </blockquote>
+        <figcaption class="text-zinc-500 text-sm">— [Client name], [Business type], [City] <span class="text-zinc-600">[Testimonial to be confirmed]</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section-light section-pad">
+    <div class="container max-w-2xl">
+      <h2 class="mb-6">Pricing</h2>
+      <p class="text-brand-text-secondary text-lg mb-8"><strong>Cortex — $30/month</strong> (Ops Grid included)<br/>Or add Cortex to FWG Core hosting: <strong>$70/month total</strong></p>
+      <div class="flex flex-wrap gap-3 mb-6">
+        <a href="/#assessment" class="btn-primary">Add Cortex to Your Website — $30/Month</a>
+        <a href="/#assessment" class="btn-ghost">Or: Get Your Free AI Assessment →</a>
+      </div>
+      <p class="text-sm text-zinc-500">Month-to-month. No setup fee. Cancel anytime. Works on any website, any host.</p>
+    </div>
+  </section>
+
+</Layout>
