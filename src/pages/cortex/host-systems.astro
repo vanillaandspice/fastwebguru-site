@@ -90,28 +90,36 @@ export const prerender = true;
   <section class="section-warm section-pad">
     <div class="container max-w-3xl">
       <h2 class="mb-6">Can I use Host Systems on my current website?</h2>
-      <p class="text-brand-text-secondary text-lg leading-relaxed mb-8">Talk-to-Edit runs at full power on Fast Web Guru's AI-native hosting infrastructure. If you're on another host, you get partial Host Systems capability — the intelligence and execution layers of Cortex (Team Stack and Ops Grid) work fully regardless of your host. Most Cortex clients start with Team Stack and Ops Grid and move to FWG hosting when they want the full Talk-to-Edit experience. No pressure to switch.</p>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-8">Talk-to-Edit scales with how your site is built. It reaches full power on Fast Web Guru's full-code AI-native build, runs strongly on a headless front end, and works partially within WordPress or on an external host. The other two Cortex pillars (Team Stack and Ops Grid) work fully regardless of platform. Most clients start there and move up the platform path when they want the full Talk-to-Edit experience — and because every FWG platform hosts at the same $40 core price, moving up is about capability, not cost.</p>
 
       <div class="overflow-x-auto mb-8">
         <table class="w-full text-sm border-collapse border border-brand-border rounded-lg overflow-hidden">
           <thead>
             <tr class="bg-brand-dark text-white">
               <th class="text-left py-3 px-5 font-semibold">Feature</th>
-              <th class="text-center py-3 px-4 font-semibold">Any host</th>
-              <th class="text-center py-3 px-4 font-semibold text-brand-accent">FWG hosting</th>
+              <th class="text-center py-3 px-3 font-semibold">External host</th>
+              <th class="text-center py-3 px-3 font-semibold">WordPress</th>
+              <th class="text-center py-3 px-3 font-semibold">Headless</th>
+              <th class="text-center py-3 px-3 font-semibold text-brand-accent">Full Code</th>
             </tr>
           </thead>
           <tbody>
             {[
-              { feature: 'Talk-to-Edit', any: 'Partial', fwg: true },
-              { feature: 'AI-native infrastructure', any: false, fwg: true },
-              { feature: 'Security and performance optimisation', any: false, fwg: true },
-              { feature: 'FWG support team integration', any: false, fwg: true },
+              { feature: 'Talk-to-Edit', cells: ['partial', 'partial', 'strong', 'full'] },
+              { feature: 'AI-native infrastructure', cells: ['none', 'partial', 'strong', 'full'] },
+              { feature: 'Security and performance optimisation', cells: ['none', 'full', 'full', 'full'] },
+              { feature: 'FWG support team integration', cells: ['none', 'full', 'full', 'full'] },
             ].map((row, i) => (
               <tr class:list={['border-t border-brand-border', i % 2 === 0 ? 'bg-brand-surface' : 'bg-brand-surface-mid']}>
                 <td class="py-3 px-5 text-brand-dark">{row.feature}</td>
-                <td class="py-3 px-4 text-center">{typeof row.any === 'string' ? <span class="text-zinc-500 text-xs">{row.any}</span> : row.any ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
-                <td class="py-3 px-4 text-center bg-orange-50">{row.fwg ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
+                {row.cells.map((c, ci) => (
+                  <td class:list={['py-3 px-3 text-center', ci === 3 ? 'bg-orange-50' : '']}>
+                    {c === 'full' ? <span class="text-brand-accent font-bold">{ci === 3 ? 'Full' : '✓'}</span>
+                      : c === 'strong' ? <span class="text-brand-dark text-xs font-semibold">Strong</span>
+                      : c === 'partial' ? <span class="text-zinc-500 text-xs">Partial</span>
+                      : <span class="text-zinc-400">—</span>}
+                  </td>
+                ))}
               </tr>
             ))}
           </tbody>

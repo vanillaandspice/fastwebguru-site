@@ -161,31 +161,38 @@ const faqs = [
   <!-- WORKS WITH YOUR SETUP -->
   <section class="section-light section-pad">
     <div class="container max-w-3xl">
-      <h2 class="mb-4">Already on a host? Cortex works there.</h2>
-      <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">You don't have to switch hosting to use Cortex. Add it to your existing WordPress site, your current host, or whatever setup you're running on.</p>
-      <p class="text-brand-text-secondary mb-8">You'll get Team Stack (Business DNA + AI Specialist) and Ops Grid (20 workflows) fully working from day one. The Talk-to-Edit feature from Host Systems runs at full power on Fast Web Guru's AI-native infrastructure. On your own host, you get partial Host Systems benefits — and the full intelligence and execution layers immediately.</p>
+      <h2 class="mb-4">Whatever you're running, Cortex works there.</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">You don't have to switch hosting to use Cortex. Add it to your existing WordPress site, your current host, or whatever setup you're running on. Team Stack (Business DNA + AI Specialist) and Ops Grid (20 workflows) work fully from day one, on every platform — those two pillars don't care what you're built on.</p>
+      <p class="text-brand-text-secondary mb-8">The third pillar — Host Systems' Talk-to-Edit — <em>scales with your platform.</em> It reaches full power on our full-code AI build, runs strongly on a headless front end, and works partially within WordPress' structure. The more AI-native your build, the more your site edits itself.</p>
 
       <div class="overflow-x-auto mb-8">
         <table class="w-full text-sm border-collapse">
           <thead>
             <tr class="border-b-2 border-brand-border">
-              <th class="text-left py-3 pr-4 font-semibold text-brand-dark">Feature</th>
-              <th class="text-center py-3 px-4 font-semibold text-brand-dark">Any host</th>
-              <th class="text-center py-3 px-4 font-semibold text-brand-accent bg-orange-50 rounded-t">FWG hosting</th>
+              <th class="text-left py-3 pr-4 font-semibold text-brand-dark">Cortex pillar</th>
+              <th class="text-center py-3 px-3 font-semibold text-brand-dark">External host</th>
+              <th class="text-center py-3 px-3 font-semibold text-brand-dark">WordPress</th>
+              <th class="text-center py-3 px-3 font-semibold text-brand-dark">Headless</th>
+              <th class="text-center py-3 px-3 font-semibold text-brand-accent bg-orange-50 rounded-t">Full Code</th>
             </tr>
           </thead>
           <tbody>
             {[
-              { feature: 'Business DNA Workshop', any: true, fwg: true },
-              { feature: 'Digital Marketing Brain', any: true, fwg: true },
-              { feature: 'AI Specialist (1 hr/mo)', any: true, fwg: true },
-              { feature: '20 Growth Workflows + ongoing additions', any: true, fwg: true },
-              { feature: 'Talk-to-Edit (AI site editing)', any: false, partial: true, fwg: true },
+              { feature: 'Business DNA Workshop', cells: ['full', 'full', 'full', 'full'] },
+              { feature: 'Digital Marketing Brain', cells: ['full', 'full', 'full', 'full'] },
+              { feature: 'AI Specialist (1 hr/mo)', cells: ['full', 'full', 'full', 'full'] },
+              { feature: '20 Growth Workflows + ongoing additions', cells: ['full', 'full', 'full', 'full'] },
+              { feature: 'Talk-to-Edit (live AI site editing)', cells: ['partial', 'partial', 'strong', 'full'] },
             ].map(row => (
               <tr class="border-b border-brand-border">
                 <td class="py-3 pr-4 text-brand-dark">{row.feature}</td>
-                <td class="py-3 px-4 text-center">{row.partial ? <span class="text-zinc-500 text-xs">Partial</span> : row.any ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
-                <td class="py-3 px-4 text-center bg-orange-50">{row.fwg ? <span class="text-brand-accent font-bold">✓</span> : <span class="text-zinc-400">—</span>}</td>
+                {row.cells.map((c, i) => (
+                  <td class:list={['py-3 px-3 text-center', i === 3 ? 'bg-orange-50' : '']}>
+                    {c === 'full' ? <span class="text-brand-accent font-bold">{i === 3 ? 'Full' : '✓'}</span>
+                      : c === 'strong' ? <span class="text-brand-dark text-xs font-semibold">Strong</span>
+                      : <span class="text-zinc-500 text-xs">Partial</span>}
+                  </td>
+                ))}
               </tr>
             ))}
           </tbody>
@@ -193,8 +200,8 @@ const faqs = [
       </div>
 
       <div class="callout-box">
-        <p class="font-semibold text-brand-dark mb-1">Want the full thing?</p>
-        <p class="text-brand-text-secondary text-sm">When Cortex runs on Fast Web Guru hosting, all three pillars work at full capacity. <a href="/pricing" class="text-brand-accent hover:underline">See FWG hosting plans →</a></p>
+        <p class="font-semibold text-brand-dark mb-1">Want Talk-to-Edit at full power?</p>
+        <p class="text-brand-text-secondary text-sm">It runs fullest on our full-code AI build — and every platform hosts at the same $40 core price, so moving up is about capability, not cost. <a href="/pricing#platforms" class="text-brand-accent hover:underline">See how platforms compare →</a></p>
       </div>
     </div>
   </section>

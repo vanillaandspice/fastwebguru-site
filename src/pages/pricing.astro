@@ -16,14 +16,16 @@ const faqs = [
   { q: 'What happens if the internet goes down?', a: 'Your site keeps running. Three complete copies of your website run simultaneously, with automatic failover. The system operates at 90%+ capacity even through a power outage or on mobile-only connectivity.' },
   { q: 'Is the AI content reviewed by a real person?', a: 'Every AI output is reviewed by a human specialist before it reaches you. The AI does the production; a person makes sure it\'s right for your brand.' },
   { q: 'Who is my dedicated support person — are they Australian?', a: 'You have the option of employing an Australian based Business Advocate — an experienced Marketer as your key support person (rates from $56 p.h.) or the option most people use for day to day work is the online support team (mainly based in the Philippines) — university qualified graduates specifically trained by Fast Web Guru. Our Australian based senior marketers are often involved behind the scenes doing further quality control.' },
-  { q: 'I already have a WordPress site — do I have to start again?', a: 'No. We migrate what you have or work with it as-is. Most migrations happen with zero downtime.' },
+  { q: 'I already have a WordPress site — do I have to start again?', a: 'No. We host and run WordPress sites (standard or WooCommerce) as-is, at the same $40 core price as any other platform — and most migrations happen with zero downtime. You keep the familiar editing you already know, and we handle updates, backups, security, and support. If you ever want a faster, more AI-native front end, we can move you to a headless or full-code build without changing providers.' },
+  { q: 'What platforms can you build and host on?', a: 'Three: WordPress (standard or WooCommerce), Headless WordPress (a full-code front end on your WordPress content), and Full Code (our AI-native flagship build). All three host at the same $40 core price. The difference is how much of Cortex\'s live AI site-editing (Talk-to-Edit) runs on top — full power on full-code, scaling down on headless and WordPress. Cortex\'s brain and workflows run fully on every platform.' },
+  { q: 'How much is ecommerce, and what does it include?', a: 'Ecommerce hosting is $95/month with Cortex AI included — whether your store runs on WooCommerce or a full-code build. It\'s everything in Core, tuned for store traffic and checkout reliability, with product, stock, and order support built into your same-day updates. This replaced our old separate WooCommerce hosting tiers, so there\'s now one clear price for any store. If you need a full team managing the store every week, that\'s Advanced ($240/mo).' },
   { q: 'Is there a free trial?', a: 'No free trial — but no lock-in either. Month-to-month means you can cancel any time. Start with a free AI assessment of your current site instead.' },
 ];
 ---
 
 <Layout
   title="Pricing — Fast Web Guru | From $40/month, No Invoice Per Change"
-  description="Core from $40/mo, Advanced from $240/mo (Cortex AI included). Add Cortex — three AI pillars — for $30/mo. No invoice per change. No lock-in. See exactly what's included."
+  description="One price on every platform — WordPress, headless, or full-code. Core from $40/mo, Ecommerce $95/mo (Cortex included), Advanced $240/mo. Add Cortex AI for $30/mo. No invoice per change. No lock-in. See exactly what's included."
 >
   <!-- HERO -->
   <section class="section-dark py-20 lg:py-28">
@@ -48,11 +50,12 @@ const faqs = [
       <h2 class="text-2xl font-bold mb-6">Which plan is right for me?</h2>
       <div class="space-y-4 max-w-2xl">
         {[
-          { text: 'I just want my website handled without invoices for every change', plan: 'Core ($40/mo)', href: '/services/core' },
+          { text: 'I just want my website handled without invoices for every change', plan: 'Core ($40/mo, any platform)', href: '/services/core' },
           { text: 'I want AI tools connected to my business + a digital brain trained on my brand', plan: 'Core + Cortex ($70/mo)', href: '/services/core' },
+          { text: 'I run an online store and want it hosted and handled', plan: 'Ecommerce ($95/mo, Cortex included)', href: '#ecommerce' },
           { text: 'I need updates, content, and ecommerce management every week', plan: 'Advanced ($240/mo, Cortex included)', href: '/services/advanced' },
           { text: 'I want the full AI marketing system — research, strategy, and monthly workflows at scale', plan: 'Advanced + AI Extender ($690/mo)', href: '/services/advanced' },
-          { text: "I don't have a website yet, or mine needs replacing", plan: 'Website Build (from $240 once-off)', href: '/services/website-builds' },
+          { text: "I don't have a website yet, or mine needs replacing", plan: 'Website Build (from $240 — any framework)', href: '/services/website-builds' },
           { text: 'I just want the AI layer — keeping my existing host', plan: 'Cortex only ($30/mo)', href: '/cortex' },
         ].map(row => (
           <a href={row.href} class="flex items-center gap-4 p-5 bg-brand-surface border border-brand-border rounded-lg hover:border-brand-accent transition-colors group">
@@ -65,11 +68,84 @@ const faqs = [
     </div>
   </section>
 
+  <!-- CHOOSE YOUR PLATFORM -->
+  <section id="platforms" class="section-warm section-pad scroll-mt-20">
+    <div class="container">
+      <div class="max-w-3xl mb-10">
+        <h2 class="mb-4">Every platform. One price. AI that scales with your build.</h2>
+        <p class="text-brand-text-secondary text-lg leading-relaxed">A lot of website companies only work one way — their builder, their stack, take it or leave it. We don't. Already have a WordPress site you don't want to rebuild? We'll host and run it. Want the fastest, most AI-native site we can make? We'll build it full-code. Most businesses sit somewhere in between — and we host every option for the <strong class="text-brand-dark">same $40 core price.</strong> What changes between platforms isn't the price; it's how much of our Cortex AI runs on top.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {[
+          {
+            name: 'WordPress',
+            sub: 'Standard or WooCommerce',
+            best: 'Existing WordPress sites, familiar editing, the widest plugin ecosystem.',
+            bring: 'Yes — we migrate and host it as-is',
+            talk: 'Partial',
+            featured: false,
+          },
+          {
+            name: 'Headless WordPress',
+            sub: 'Full-code front end + WordPress backend',
+            best: 'A fast, modern front end while keeping content editing in WordPress.',
+            bring: 'Yes — we rebuild the front end over your content',
+            talk: 'Strong',
+            featured: false,
+          },
+          {
+            name: 'Full Code',
+            sub: 'FWG-native — our flagship',
+            best: 'Maximum speed, security, and AI capability — built from the ground up.',
+            bring: 'New build (or full migration)',
+            talk: 'Full power',
+            featured: true,
+          },
+        ].map(p => (
+          <div class:list={['rounded-lg p-6 border flex flex-col', p.featured ? 'bg-brand-dark border-brand-accent' : 'bg-brand-surface border-brand-border']}>
+            {p.featured && <span class="chip text-xs mb-3 inline-block self-start">Cortex at full power</span>}
+            <h3 class:list={['font-bold text-lg', p.featured ? 'text-white' : 'text-brand-dark']}>{p.name}</h3>
+            <p class:list={['text-xs italic mb-4', p.featured ? 'text-zinc-400' : 'text-brand-text-secondary']}>{p.sub}</p>
+            <p class:list={['text-sm mb-4 flex-1', p.featured ? 'text-zinc-300' : 'text-brand-text-secondary']}>{p.best}</p>
+            <dl class="space-y-2 text-sm">
+              <div>
+                <dt class:list={['text-xs uppercase tracking-wide', p.featured ? 'text-zinc-500' : 'text-zinc-400']}>Bring your existing site?</dt>
+                <dd class:list={[p.featured ? 'text-zinc-200' : 'text-brand-dark']}>{p.bring}</dd>
+              </div>
+              <div>
+                <dt class:list={['text-xs uppercase tracking-wide', p.featured ? 'text-zinc-500' : 'text-zinc-400']}>Core hosting price</dt>
+                <dd class:list={['font-semibold', p.featured ? 'text-white' : 'text-brand-dark']}>$40/mo</dd>
+              </div>
+              <div>
+                <dt class:list={['text-xs uppercase tracking-wide', p.featured ? 'text-zinc-500' : 'text-zinc-400']}>Cortex Talk-to-Edit</dt>
+                <dd class:list={['font-semibold', p.featured ? 'text-brand-accent' : 'text-brand-dark']}>{p.talk}</dd>
+              </div>
+              <div>
+                <dt class:list={['text-xs uppercase tracking-wide', p.featured ? 'text-zinc-500' : 'text-zinc-400']}>Cortex brain + workflows</dt>
+                <dd class:list={[p.featured ? 'text-zinc-200' : 'text-brand-dark']}>Full on every platform</dd>
+              </div>
+              <div>
+                <dt class:list={['text-xs uppercase tracking-wide', p.featured ? 'text-zinc-500' : 'text-zinc-400']}>Ecommerce option</dt>
+                <dd class:list={[p.featured ? 'text-zinc-200' : 'text-brand-dark']}>$95/mo · Cortex included</dd>
+              </div>
+            </dl>
+          </div>
+        ))}
+      </div>
+
+      <div class="callout-box max-w-3xl">
+        <p class="font-semibold text-brand-dark mb-1">The honest version</p>
+        <p class="text-brand-text-secondary text-sm leading-relaxed">We don't pretend every platform does everything. Full Code is where Cortex runs at full power — Talk-to-Edit anywhere on the page, the fastest load times, the tightest security. WordPress and Headless are fully supported, fully hosted, and fully looked after — Cortex's brain and workflows run at 100% on all of them; only the live AI site-editing scales with how the front end is built. <strong class="text-brand-dark">Pick the platform that fits where your business is today. You can move up later without changing providers.</strong></p>
+      </div>
+    </div>
+  </section>
+
   <!-- PLAN CARDS -->
   <section class="section-light section-pad">
     <div class="container">
-      <!-- Core + Core+Cortex side by side -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <!-- Core + Ecommerce + Advanced -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
 
         <!-- Core -->
         <div class="bg-brand-surface border border-brand-border rounded-lg p-8">
@@ -83,7 +159,7 @@ const faqs = [
 
           <ul class="space-y-3 mb-8 list-none p-0">
             {[
-              'AI-enhanced full-code hosting (not a shared server, not a page builder)',
+              'AI-enhanced hosting on the platform that fits you — WordPress, headless, or full-code (same price on every platform; not a slow shared server)',
               'Same-day website updates via click-and-comment — no quote, no invoice',
               '1 hour of dedicated support per month (use it on anything)',
               'Workflow Hub — email management, social, tasks, communications, all connected',
@@ -105,14 +181,47 @@ const faqs = [
             <a href="/services/core#cortex" class="btn-primary w-full justify-center">Get Started with Cortex AI — $70/month</a>
             <a href="/#assessment" class="btn-ghost w-full justify-center text-sm">Get Free AI Assessment first →</a>
           </div>
-          <p class="text-xs text-center text-zinc-400 mt-3">Cancel any month. No lock-in. No setup fee.</p>
+          <p class="text-xs text-center text-zinc-400 mt-3">Cancel any month. No lock-in. No setup fee. Runs on the platform of your choice.</p>
+        </div>
+
+        <!-- Ecommerce -->
+        <div id="ecommerce" class="bg-brand-surface border border-brand-border rounded-lg p-8 scroll-mt-24">
+          <h2 class="text-2xl font-bold mb-1">Ecommerce</h2>
+          <p class="text-brand-text-secondary mb-2">For online stores that need hosting, updates, and AI — handled, on one fixed price.</p>
+          <p class="text-xs text-brand-accent font-semibold mb-6">Cortex included — no extra charge</p>
+          <div class="flex items-baseline gap-1 mb-2">
+            <span class="font-heading font-extrabold text-5xl">$95</span>
+            <span class="text-brand-text-secondary">/month</span>
+          </div>
+          <p class="text-sm text-brand-text-secondary mb-8">or $950/year — 2 months free</p>
+
+          <p class="text-sm text-brand-text-secondary mb-6">Everything in Core, set up for selling — whether your store runs on <strong class="text-brand-dark">WooCommerce</strong> or a <strong class="text-brand-dark">full-code build.</strong> Product, stock, and order flows are looked after as part of your same-day updates, and Cortex AI is included rather than added on.</p>
+
+          <ul class="space-y-3 mb-8 list-none p-0">
+            {[
+              'Everything in Core (any platform, same-day updates, 1 hr support, triple-redundant backup, full ownership)',
+              'Ecommerce-ready hosting tuned for store traffic and checkout reliability',
+              'Cortex AI included — Talk-to-Edit, Brand DNA + AI Specialist, 20 monthly growth workflows (no extra charge)',
+              'Product, stock, and order support built into your same-day updates',
+            ].map(f => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                <span class="text-sm text-brand-text-secondary">{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p class="text-xs text-brand-text-secondary italic mb-5">Replaces our old separate WooCommerce hosting tiers — one clear price, any ecommerce platform, Cortex in the box.</p>
+
+          <a href="/contact" class="btn-primary w-full justify-center">Get Started — $95/month</a>
+          <p class="text-xs text-center text-zinc-400 mt-3">Cancel any month. No lock-in. Need a full team on the store every week? See Advanced.</p>
         </div>
 
         <!-- Advanced -->
         <div class="bg-brand-dark border border-brand-border-dark rounded-lg p-8">
           <span class="chip text-xs mb-4 inline-block">Most popular</span>
           <h2 class="text-2xl font-bold text-white mb-1">Advanced</h2>
-          <p class="text-zinc-400 mb-2">For ecommerce stores and businesses that need a proper team on the tools every week.</p>
+          <p class="text-zinc-400 mb-2">For stores and businesses that need a proper team on the tools every week — 16 hours of dedicated time.</p>
           <p class="text-xs text-brand-accent font-semibold mb-6">Cortex included — no extra charge</p>
           <div class="flex items-baseline gap-1 mb-2">
             <span class="font-heading font-extrabold text-5xl text-white">$240</span>
@@ -125,9 +234,9 @@ const faqs = [
             <p class="text-xs text-brand-text-secondary mt-1">A freelance developer charges $75–$150/hr. 16 hours is $1,200–$2,400 — for someone not available on weekends, who invoices per job. Fast Web Guru Advanced: same time, plus Cortex AI included, plus 24/7 backup. $240/month.</p>
           </div>
 
-          <ul class="space-y-3 mb-8 list-none p-0 grid grid-cols-1 lg:grid-cols-2 gap-x-8">
+          <ul class="space-y-3 mb-8 list-none p-0">
             {[
-              'Everything in Core',
+              'Everything in Core, on any platform',
               '16 hours of dedicated support per month (4 hrs/week)',
               'Cortex included — AI-native infrastructure, Brand DNA + AI Specialist, 20 growth workflows + ongoing additions (no extra charge)',
               'Full ecommerce management — products, stock, orders, campaigns',
@@ -154,13 +263,13 @@ const faqs = [
         <!-- Cortex -->
         <div id="cortex" class="bg-brand-surface-mid border border-brand-accent rounded-lg p-8">
           <div class="flex flex-wrap items-center gap-3 mb-1">
-            <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400">Available on Core · Included free with Advanced</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400">Available on Core · Included free on Ecommerce &amp; Advanced</p>
           </div>
           <div class="flex items-baseline gap-2 mb-1">
             <h3 class="font-bold text-xl">Cortex</h3>
             <span class="text-brand-accent font-bold">+$30/month</span>
           </div>
-          <p class="text-brand-text-secondary mb-6">Three AI pillars. One ecosystem. Add it to your existing plan — or to any website on any host.</p>
+          <p class="text-brand-text-secondary mb-6">Three AI pillars. One ecosystem. Add it to your existing plan — or to any website, on any platform, on any host.</p>
 
           <p class="text-brand-dark font-bold mb-4">$30/month. All three pillars. Bundle only.</p>
 
@@ -186,7 +295,7 @@ const faqs = [
             ))}
           </div>
 
-          <p class="text-xs text-brand-text-secondary italic mb-6">All three pillars run at full capacity on FWG hosting. Host Systems partial capability on external hosts — Team Stack and Ops Grid work fully on any host. Already on Advanced? Cortex is included — nothing extra to pay.</p>
+          <p class="text-xs text-brand-text-secondary italic mb-6">Team Stack and Ops Grid run at full capacity on every platform and on any host. Host Systems' Talk-to-Edit scales with your build — partial on WordPress and external hosts, full power on our full-code AI hosting. <a href="/pricing#platforms" class="text-brand-accent hover:underline">See how platforms compare →</a> Already on Ecommerce or Advanced? Cortex is included — nothing extra to pay.</p>
 
           <p class="text-xs text-brand-text-secondary mb-4">Already on another host? Cortex works there too. <a href="/cortex" class="text-brand-accent hover:underline">Learn more →</a></p>
 
@@ -226,7 +335,8 @@ const faqs = [
       <!-- Website Builds -->
       <div class="border-2 border-brand-border rounded-lg p-8">
         <h2 class="text-2xl font-bold mb-2">Website Builds — Once-off</h2>
-        <p class="text-brand-text-secondary mb-8">A proper website. AI-editable from day one. Built by humans who review every page.</p>
+        <p class="text-brand-text-secondary mb-3">A proper website. AI-editable from day one. Built by humans who review every page.</p>
+        <p class="text-brand-text-secondary mb-8"><strong class="text-brand-dark">Built in the framework that suits you</strong> — WordPress, Headless WordPress, or full-code. We'll recommend the right one for your goals, and your site hosts at the same core price whichever way we build it.</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
           <div>

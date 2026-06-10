@@ -70,7 +70,7 @@ const plans = [
     price: '$40',
     tagline: 'For businesses that want their website handled without an invoice for every change.',
     features: [
-      'AI-enhanced full-code hosting',
+      'AI-enhanced hosting on any platform — WordPress, headless, or full-code',
       'Same-day updates via click-and-comment',
       '1 hr dedicated support per month',
       'Workflow Hub — email, social, tasks',
@@ -83,6 +83,24 @@ const plans = [
     ctaHref: '/services/core',
     featured: false,
     note: '+ Add Cortex AI for $30/mo more · Cancel any month. No lock-in.',
+  },
+  {
+    name: 'Ecommerce',
+    price: '$95',
+    tagline: 'For online stores — hosted, updated, and handled, with Cortex AI included.',
+    features: [
+      'Everything in Core, built for your store',
+      'WooCommerce or full-code store hosting',
+      'Cortex AI included — no extra charge',
+      'Product, stock & order support in your updates',
+      'Same-day updates via click-and-comment',
+      'Triple-redundant backup hosting',
+      'Full ownership: site, domain, all logins',
+    ],
+    cta: 'Get Started',
+    ctaHref: '/pricing#ecommerce',
+    featured: false,
+    note: 'Cortex included. Cancel any month. No lock-in.',
   },
   {
     name: 'Advanced',
@@ -106,9 +124,9 @@ const plans = [
     name: 'Website Build',
     price: 'From $240',
     period: 'once-off',
-    tagline: 'A new website, built properly, AI-editable from day one.',
+    tagline: 'A new website, built properly in any framework, AI-editable from day one.',
     features: [
-      'Full-code website on modern infrastructure',
+      'Built in your framework — WordPress, headless, or full-code',
       'Click-and-comment update system at launch',
       'Mobile-first, speed-optimised, secure',
       'Human specialist reviews every page',
@@ -125,7 +143,7 @@ const plans = [
 
 <Layout
   title="Fast Web Guru — AI-Powered Website Team for Australian Small Business | From $40/mo"
-  description="Done-for-you website management, same-day updates, and a dedicated Australian support team from $40/month. Add Cortex AI — three AI pillars for $30/mo. Get a free AI assessment — no commitment."
+  description="Done-for-you website management on any platform — WordPress, headless, or full-code — from $40/month, with same-day updates and a dedicated Australian support team. Ecommerce hosting $95/mo. Add Cortex AI for $30/mo. Get a free AI assessment — no commitment."
 >
 
   <!-- ═══ HERO ═══ -->
@@ -334,12 +352,18 @@ const plans = [
   <!-- ═══ PLANS ═══ -->
   <section class="section-light section-pad">
     <div class="container">
-      <div class="max-w-2xl mb-12">
+      <div class="max-w-2xl mb-8">
         <h2 class="mb-4">Same features. Different levels of support.</h2>
-        <p class="text-brand-text-secondary text-lg">Both plans include the same AI stack, the same tech infrastructure, and access to the same support team. The only difference is how many hours of our team's time you get each month. We don't lock features behind expensive plans.</p>
+        <p class="text-brand-text-secondary text-lg">Every plan includes the same AI stack, the same tech infrastructure, and access to the same support team. The difference is how much of our team's time you get each month — and whether you're running a store. We don't lock features behind expensive plans.</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+      <!-- Platform band -->
+      <div class="callout-box mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <p class="text-brand-dark"><strong>One price, every platform.</strong> WordPress (standard or WooCommerce), Headless WordPress, or our full-code AI build — all on the same $40 core hosting price. Running a store? Ecommerce hosting is $95/mo with Cortex AI included.</p>
+        <a href="/pricing#platforms" class="text-brand-accent font-semibold hover:underline whitespace-nowrap">How platforms compare →</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
         {plans.map(p => <PlanCard {...p} />)}
       </div>
 
@@ -357,7 +381,7 @@ const plans = [
         <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">
           Cortex is three AI upgrades for the price of a streaming subscription. A website that edits when you talk to it. An AI brain trained on your brand DNA. And 20 growth workflows built specifically for your business — work through them with your team over the coming months, with more added regularly.
         </p>
-        <p class="text-brand-text-secondary mb-6">Works on your existing website. Works even better on FWG hosting.</p>
+        <p class="text-brand-text-secondary mb-6">Works on any platform — your existing WordPress site, a headless build, or our full-code AI hosting. The brain and workflows run at full power everywhere; Talk-to-Edit scales up with your platform, reaching full power on our full-code build.</p>
         <p class="font-semibold text-brand-dark mb-4">Three pillars. One bundle. $30/month.</p>
         <ul class="space-y-3 mb-8 list-none m-0 p-0">
           <li class="flex items-start gap-3">
