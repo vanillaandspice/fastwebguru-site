@@ -30,7 +30,7 @@ export const prerender = true;
         <h2 class="mb-12">What's included — all of it</h2>
         <div class="space-y-10">
           {[
-            { title: 'AI-enhanced hosting — on the platform that fits you', body: 'A modern website on fast, secure infrastructure — not a slow shared server managed by a reseller. Whatever you\'re running, we host it for the same price: keep your existing WordPress site (standard or WooCommerce), run a Headless WordPress build with a fast full-code front end, or go all-in on our Full Code AI-native flagship — where Cortex runs at full power. Built to run at 90%+ capacity even through a power outage or on mobile only.' },
+            { title: 'AI-enhanced hosting — on the platform that fits you', body: 'A modern website on fast, secure infrastructure — not a slow shared server managed by a reseller. We host all three platform types (traditional WordPress, headless, and full-code) at the same core price — see the breakdown below. Built to run at 90%+ capacity even through a power outage or on mobile only.' },
             { title: 'Same-day updates via click-and-comment', body: 'Point at what needs changing on your website, leave a comment. We sort it same-day. No email back-and-forth. No invoice. No waiting.' },
             { title: '1 hour of support per month', body: "Use it on anything — website changes, content help, setup questions, or anything else your business needs. Annual plans: access your full year's hours immediately." },
             { title: 'Workflow Hub', body: 'Email, social posts, tasks, and communications — all in one connected place. Linked to your support person.' },
@@ -52,6 +52,57 @@ export const prerender = true;
           <p class="font-medium text-brand-dark">What's <em>not</em> included</p>
           <p class="text-brand-text-secondary mt-2">Building a new website from scratch is a separate once-off investment (from $240) — and we'll build it in whichever framework suits you. If your current site is workable, we'll work with it. Running an online store? <a href="/pricing#ecommerce" class="text-brand-accent hover:underline">Ecommerce hosting is $95/month with Cortex included.</a> Need more than 1 hour of support per month? Advanced at $240/month gives you 16 hours — with Cortex included.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOSTING PLATFORMS -->
+  <section id="platforms" class="section-mid section-pad scroll-mt-20">
+    <div class="container">
+      <div class="max-w-3xl mb-10">
+        <h2 class="mb-4">Traditional, headless, or full-code — all part of your core hosting</h2>
+        <p class="text-brand-text-secondary text-lg leading-relaxed">Looking for hosting, you're probably weighing up what to run it on. Good news: your $40 core hosting package covers <strong class="text-brand-dark">all three</strong> — the same price whatever you choose. Keep the familiar WordPress setup you already have, run a fast headless build, or go all-in on our full-code AI flagship. The only thing that changes between them is how much of our Cortex AI runs on top.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {[
+          {
+            name: 'Traditional Hosting',
+            sub: 'WordPress — standard or WooCommerce',
+            body: 'The familiar, widely-compatible option. Keep the CMS and plugins you already know — we migrate and host your existing site as-is, then handle the updates, backups, and security.',
+            talk: 'Partial',
+            featured: false,
+          },
+          {
+            name: 'Headless Hosting',
+            sub: 'Full-code front end + WordPress backend',
+            body: 'A fast, modern front end sitting on a WordPress content backend. The speed and polish of a custom build, with content editing your team already understands.',
+            talk: 'Strong',
+            featured: false,
+          },
+          {
+            name: 'Full-Code Hosting',
+            sub: 'FWG-native — our flagship',
+            body: 'Our AI-native build from the ground up. The fastest, most secure option — and where Cortex Talk-to-Edit runs at full power, letting you change anything on the page by describing it.',
+            talk: 'Full power',
+            featured: true,
+          },
+        ].map(p => (
+          <div class:list={['rounded-lg p-6 border flex flex-col', p.featured ? 'bg-brand-dark border-brand-accent' : 'bg-brand-surface border-brand-border']}>
+            {p.featured && <span class="chip text-xs mb-3 inline-block self-start">Cortex at full power</span>}
+            <h3 class:list={['font-bold text-lg', p.featured ? 'text-white' : 'text-brand-dark']}>{p.name}</h3>
+            <p class:list={['text-xs italic mb-4', p.featured ? 'text-zinc-400' : 'text-brand-text-secondary']}>{p.sub}</p>
+            <p class:list={['text-sm mb-4 flex-1', p.featured ? 'text-zinc-300' : 'text-brand-text-secondary']}>{p.body}</p>
+            <div class:list={['flex items-baseline justify-between pt-4 border-t', p.featured ? 'border-brand-border-dark' : 'border-brand-border']}>
+              <span class:list={['text-sm font-semibold', p.featured ? 'text-white' : 'text-brand-dark']}>$40/mo core price</span>
+              <span class:list={['text-sm font-semibold', p.featured ? 'text-brand-accent' : 'text-brand-dark']}>Talk-to-Edit: {p.talk}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="callout-box max-w-3xl">
+        <p class="text-brand-text-secondary text-sm leading-relaxed">Every option includes everything above — same-day updates, triple-redundant backup, your support hour, and full ownership. Cortex's brain and 20 growth workflows run at full power on <em>all three</em>; only the live AI site-editing scales with how the front end is built. Running a store? <a href="/pricing#ecommerce" class="text-brand-accent font-semibold hover:underline">Ecommerce hosting is $95/mo with Cortex included.</a> <a href="/pricing#platforms" class="text-brand-accent font-semibold hover:underline">See the full platform comparison →</a></p>
       </div>
     </div>
   </section>
