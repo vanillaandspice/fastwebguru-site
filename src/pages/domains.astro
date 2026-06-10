@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Why Your Business Needs a Domain Name | Fast Web Guru"
+  description="Why every Australian business needs its own domain name — and what to look for when registering one."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Why every business needs a domain name</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">A domain name is your permanent address on the internet. It's how customers find you, how you build credibility, and how you protect your brand online.</p>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl space-y-10">
+
+        {[
+          {
+            title: 'Accessibility — findable any time, from any search',
+            body: 'Your website is available 24 hours a day, 7 days a week, to anyone with an internet connection. A domain name makes you findable in search engines, shareable on business cards, and easy to remember. Without one, you don\'t have a permanent online address.',
+          },
+          {
+            title: 'Sales generation — 24/7 online shop or enquiry capability',
+            body: 'Your website works while you sleep. Whether you\'re running an online store or just capturing enquiries, a domain-backed website means potential customers can find you and take action at any time — not just during business hours.',
+          },
+          {
+            title: 'Brand protection — register before someone else does',
+            body: 'Domain names are registered on a first-come, first-served basis. If your business name is available as a .com.au, register it now. Someone else could register it first — and once it\'s gone, getting it back is expensive and often impossible.',
+          },
+          {
+            title: 'Marketing — consistent address across all channels',
+            body: 'Your domain becomes the anchor for everything — your email address, your social media bios, your printed materials. A consistent, branded address builds recognition and trust across every touchpoint.',
+          },
+        ].map(item => (
+          <div class="flex gap-5 pb-10 border-b border-brand-border last:border-0">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <div>
+              <h2 class="font-bold text-xl mb-3 text-brand-dark">{item.title}</h2>
+              <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+
+      </div>
+
+      <div class="callout-box max-w-3xl mt-10">
+        <p class="font-medium text-brand-dark mb-2">Domain registration included</p>
+        <p class="text-brand-text-secondary">Domain registration is included in all Fast Web Guru hosting plans. We handle the registration, renewal, and DNS management so you never have to worry about it.</p>
+        <a href="/pricing" class="inline-block mt-4 text-brand-accent font-semibold hover:underline">See hosting plans →</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

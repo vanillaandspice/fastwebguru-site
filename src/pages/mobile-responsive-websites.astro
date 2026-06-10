@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Mobile-Responsive Websites for Australian Small Business | Fast Web Guru"
+  description="More than half of visitors are on mobile. Fast Web Guru builds and hosts mobile-first websites that work on every device."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="chip mb-6">50%+ of traffic is mobile</div>
+      <h1 class="text-white mb-6">Is your website working for mobile visitors?</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">More than half of your website visitors are on a phone or tablet. If your site isn't built mobile-first, you're losing customers before they even read a word.</p>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-6">What a non-mobile-friendly site costs you</h2>
+      <div class="space-y-4">
+        {[
+          'Text too small to read without pinching and zooming',
+          'Buttons too close together to tap accurately',
+          'Forms that are frustrating to fill in on a small screen',
+          'Slow load times that send mobile visitors straight to a competitor',
+          'Google penalties for non-mobile-friendly sites in mobile search results',
+        ].map(issue => (
+          <div class="flex gap-3">
+            <svg class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            <p class="text-brand-text-secondary">{issue}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How FWG handles it -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-10">How Fast Web Guru handles mobile</h2>
+        <div class="space-y-8">
+          {[
+            { title: 'Mobile-first design on all builds', body: 'Every website we build is designed for mobile first, then scaled up for desktop — not the other way around. That means your most common visitor type gets the best experience.' },
+            { title: 'Speed-optimised for mobile networks', body: 'Mobile visitors are often on 4G or slower connections. We optimise images, code, and server response so your site loads fast even on a phone with a weak signal.' },
+            { title: 'Click-and-comment from any device', body: 'Our same-day update system works from your phone. See something that needs changing? Screenshot it, comment on it, and we handle it — same day.' },
+            { title: 'Regular mobile monitoring', body: 'We check that your site continues to perform well on mobile as your content and features evolve. Mobile performance doesn\'t just stay good — it needs active attention.' },
+          ].map(item => (
+            <div class="flex gap-5 pb-8 border-b border-brand-border last:border-0">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <div>
+                <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+                <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTAs -->
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl">
+      <div class="flex flex-wrap gap-4">
+        <a href="/services/website-builds" class="btn-primary">See Website Builds →</a>
+        <a href="/#assessment" class="btn-secondary">Get a Free Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

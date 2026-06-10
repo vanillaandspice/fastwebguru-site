@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Our Story — Fast Web Guru | Australian Web Support for Small Business"
+  description="How Fast Web Guru started and why Australian small businesses deserve better than what the web industry has given them."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">How Fast Web Guru started</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Many Australian small businesses are missing out on what the internet can do for them. Not because they don't care — but because the tools are confusing, the help is expensive, and the industry has never made it easy.</p>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-8">The pattern we kept seeing</h2>
+      <div class="space-y-6">
+        {[
+          { title: 'No time', body: 'Business owners are running their business. They don\'t have hours to spend learning website builders, chasing developers, or figuring out why their site is slow.' },
+          { title: 'Too complex', body: 'The web industry loves jargon. Hosting plans, DNS, plugins, frameworks — it\'s all unnecessarily complicated for someone who just needs a website that works.' },
+          { title: 'Developers who disappear', body: 'A website gets built, the developer moves on, and suddenly every small change requires tracking someone down — and paying them for an hour of work.' },
+        ].map(item => (
+          <div class="flex gap-5">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <div>
+              <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+              <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">Our answer: Business in a Box</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">Fast Web Guru pairs AI with real human support. One fixed monthly price. No invoice when something needs changing. A dedicated Australian support person who actually knows your business.</p>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">We've spent over a decade working in the Asia Pacific digital market — building websites, running campaigns, and watching what actually works for small businesses versus what the industry tries to sell them. We built FWG because we knew there was a better way.</p>
+      <a href="/how-it-works" class="btn-secondary">See how it works →</a>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-8">Who we are</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>Australian-owned with specialists across web, design, content, marketing, and AI. We operate as a cooperative team — not a one-person band, not a faceless corporation.</p>
+        <p>Deep experience in the Asia Pacific digital market, with an initial focus on:</p>
+        <ul class="list-none space-y-2 pl-4">
+          {['Hunter Valley', 'Newcastle', 'Sydney', 'Melbourne', 'Yarra Valley'].map(loc => (
+            <li class="flex gap-3 items-center">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span>{loc}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section class="section-warm section-pad">
+    <div class="container">
+      <h2 class="mb-10 text-center">Our plans</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {[
+          { name: 'Core', price: '$40/mo', href: '/services/core', desc: 'Hosting, same-day updates, 1 hr support, full ownership.' },
+          { name: 'Ecommerce', price: '$95/mo', href: '/services/ecommerce', desc: 'Everything in Core plus ecommerce hosting and Cortex AI.' },
+          { name: 'Advanced', price: '$240/mo', href: '/services/advanced', desc: '16 hrs/month dedicated time, Cortex AI, and full team management.' },
+        ].map(plan => (
+          <a href={plan.href} class="block bg-brand-surface border border-brand-border rounded-lg p-6 hover:border-brand-accent transition-colors duration-150">
+            <p class="font-bold text-brand-dark text-lg mb-1">{plan.name}</p>
+            <p class="text-brand-accent font-semibold text-xl mb-3">{plan.price}</p>
+            <p class="text-brand-text-secondary text-sm">{plan.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

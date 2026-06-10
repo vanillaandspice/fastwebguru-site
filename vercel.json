@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    { "source": "/thrive-plugins", "destination": "/services/core", "permanent": true },
+    { "source": "/thrive-plugins/", "destination": "/services/core", "permanent": true },
+    { "source": "/secure-certificate", "destination": "/services/core", "permanent": true },
+    { "source": "/secure-certificate/", "destination": "/services/core", "permanent": true },
+    { "source": "/website-templates", "destination": "/services/website-builds", "permanent": true },
+    { "source": "/website-templates/", "destination": "/services/website-builds", "permanent": true },
+    { "source": "/web-design-packages", "destination": "/pricing", "permanent": true },
+    { "source": "/web-design-packages/", "destination": "/pricing", "permanent": true },
+    { "source": "/fast-easy-website/small-business-website", "destination": "/pricing", "permanent": true },
+    { "source": "/fast-easy-website/small-business-website/", "destination": "/pricing", "permanent": true },
+    { "source": "/fast-easy-website/online-marketing-and-website", "destination": "/pricing", "permanent": true },
+    { "source": "/fast-easy-website/online-marketing-and-website/", "destination": "/pricing", "permanent": true },
+    { "source": "/content-marketing-specialist/content-booster-starter", "destination": "/services/advanced", "permanent": true },
+    { "source": "/content-marketing-specialist/content-booster-starter/", "destination": "/services/advanced", "permanent": true },
+    { "source": "/content-marketing-specialist/content-creator-professional", "destination": "/services/advanced", "permanent": true },
+    { "source": "/content-marketing-specialist/content-creator-professional/", "destination": "/services/advanced", "permanent": true },
+    { "source": "/content-marketing-specialist/content-pro-marketer", "destination": "/services/advanced", "permanent": true },
+    { "source": "/content-marketing-specialist/content-pro-marketer/", "destination": "/services/advanced", "permanent": true },
+    { "source": "/hosting/marketing-adwords-support", "destination": "/pricing", "permanent": true },
+    { "source": "/hosting/marketing-adwords-support/", "destination": "/pricing", "permanent": true },
+    { "source": "/reseller", "destination": "/partners", "permanent": true },
+    { "source": "/reseller/", "destination": "/partners", "permanent": true }
+  ]
+}

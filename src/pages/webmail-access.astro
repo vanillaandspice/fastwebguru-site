@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Webmail Access & Email Setup — Fast Web Guru Client Support"
+  description="Access your Fast Web Guru email account via webmail, or configure email on iPhone, Android, or Outlook."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Webmail Access & Email Setup</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">For Fast Web Guru clients. Access your email account online, or configure it on your iPhone, Android device, or Outlook.</p>
+    </div>
+  </section>
+
+  <!-- Recommendation -->
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl">
+      <div class="callout-box">
+        <p class="font-medium text-brand-dark mb-2">Our recommendation: Google Workspace</p>
+        <p class="text-brand-text-secondary leading-relaxed mb-4">We recommend Google Workspace (Gmail on your domain) for all primary business email. It runs on separate infrastructure from your web hosting — so if there's ever a hosting issue, your email is unaffected. It has better spam filtering, excellent deliverability, and it's the interface your team already knows.</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/emails" class="text-brand-accent font-semibold hover:underline">Learn about business email options →</a>
+          <span class="text-brand-text-secondary">·</span>
+          <a href="/contact" class="text-brand-accent font-semibold hover:underline">Talk to us about switching →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Server email settings -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-8">Email Setup — Manual Device Settings</h2>
+      <p class="text-brand-text-secondary mb-8">If you're using server-based email (included with your hosting plan), use these settings to configure your email client or device. Replace <code class="bg-zinc-100 px-1.5 py-0.5 rounded text-sm font-mono">yourdomain.com</code> with your actual domain.</p>
+
+      <!-- Settings block -->
+      <div class="bg-zinc-900 text-zinc-100 rounded-lg p-6 font-mono text-sm mb-10 overflow-x-auto">
+        <p class="text-zinc-400 mb-4">// Secure SSL settings</p>
+        <div class="space-y-2">
+          <p><span class="text-brand-accent">Incoming server:</span>  mail.yourdomain.com</p>
+          <p><span class="text-brand-accent">IMAP port:</span>        993</p>
+          <p><span class="text-brand-accent">POP3 port:</span>        995</p>
+          <p><span class="text-brand-accent">Outgoing server:</span>  mail.yourdomain.com</p>
+          <p><span class="text-brand-accent">SMTP port:</span>        465</p>
+          <p><span class="text-brand-accent">Authentication:</span>   Required (IMAP, POP3, and SMTP)</p>
+          <p><span class="text-brand-accent">SSL/TLS:</span>          Yes — required</p>
+        </div>
+      </div>
+
+      <!-- iPhone -->
+      <div class="mb-10">
+        <h3 class="text-lg font-bold text-brand-dark mb-4">Setting up on iPhone</h3>
+        <ol class="space-y-3 list-none m-0 p-0">
+          {[
+            'Go to Settings → Mail → Accounts → Add Account',
+            'Choose "Other" → "Add Mail Account"',
+            'Enter your name, email address, password, and a description',
+            'Select IMAP (recommended) or POP',
+            'Enter the incoming and outgoing server details above',
+            'Tap Next — your iPhone will verify the settings',
+            'Enable Mail and any other services you want, then tap Save',
+          ].map((step, i) => (
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-accent text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+              <p class="text-brand-text-secondary text-sm">{step}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Android -->
+      <div class="mb-10">
+        <h3 class="text-lg font-bold text-brand-dark mb-4">Setting up on Android</h3>
+        <ol class="space-y-3 list-none m-0 p-0">
+          {[
+            'Open the Gmail app (or your email app) → Add account',
+            'Choose "Other" or "Personal (IMAP)"',
+            'Enter your email address and tap Next',
+            'Choose IMAP and enter your password',
+            'Enter the incoming server settings above and tap Next',
+            'Enter the outgoing (SMTP) server settings and tap Next',
+            'Set your sync preferences and tap Next to finish',
+          ].map((step, i) => (
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-accent text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+              <p class="text-brand-text-secondary text-sm">{step}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Outlook -->
+      <div>
+        <h3 class="text-lg font-bold text-brand-dark mb-4">Setting up in Outlook</h3>
+        <ol class="space-y-3 list-none m-0 p-0">
+          {[
+            'Open Outlook → File → Add Account',
+            'Enter your email address and click Connect',
+            'Choose IMAP from the account type options',
+            'Enter the incoming server (mail.yourdomain.com, port 993, SSL)',
+            'Enter the outgoing server (mail.yourdomain.com, port 465, SSL)',
+            'Enter your email password and click Connect',
+            'Outlook will verify and add the account',
+          ].map((step, i) => (
+            <li class="flex gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-accent text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+              <p class="text-brand-text-secondary text-sm">{step}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Support CTA -->
+      <div class="mt-12 p-6 bg-brand-surface border border-brand-border rounded-lg">
+        <p class="font-medium text-brand-dark mb-2">Need help?</p>
+        <p class="text-brand-text-secondary text-sm mb-3">Email our support team and we'll walk you through it.</p>
+        <a href="mailto:support@fastwebguru.com" class="btn-secondary text-sm">support@fastwebguru.com</a>
+      </div>
+    </div>
+  </section>
+</Layout>

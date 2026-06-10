@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Ecommerce Hosting — Fast Web Guru | $95/month, Cortex AI Included"
+  description="Ecommerce hosting for Australian online stores — WooCommerce or full-code. $95/mo with Cortex AI included, same-day product updates, dedicated Australian support. No invoice per change."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="chip mb-6">$95 / month · Cortex AI included</div>
+      <h1 class="text-white mb-6">Your online store. Handled. $95/month.</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed mb-8">Ecommerce hosting on any platform — WooCommerce or full-code — with Cortex AI included as standard. Same-day product updates, dedicated Australian support, and no invoice every time something changes.</p>
+      <a href="/#assessment" class="btn-primary text-base py-4 px-8">Get Your Free AI Assessment</a>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-4">This plan is for you if…</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed">You run an online store and you're tired of managing the tech when you should be managing the business. Products need updating, orders need attention, and the last thing you need is chasing a developer or paying another invoice just to change a price or swap out a photo.</p>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-12">What's included</h2>
+        <div class="space-y-8">
+          {[
+            { title: 'Everything in Core ($40/mo)', body: 'Hosting, same-day updates, 1 hr/mo support, triple-redundant backup, 24/7 monitoring, full ownership — your site, your domain, all logins.' },
+            { title: 'Ecommerce-ready hosting', body: 'Infrastructure tuned for store traffic and checkout reliability. No slowdowns when customers are browsing and buying.' },
+            { title: 'Cortex AI included', body: 'Talk-to-Edit, Business DNA + AI Specialist, and 20 monthly growth workflows — all three Cortex pillars included at no extra charge.' },
+            { title: 'Product, stock, and order support', body: 'Product updates, stock changes, and order management built into your same-day update allowance. No separate invoice per change.' },
+            { title: 'WooCommerce or full-code store', body: 'Your choice of platform at the same price. Keep your existing WooCommerce setup or go all-in on our full-code AI-native build.' },
+          ].map(item => (
+            <div class="flex gap-5 pb-8 border-b border-brand-border last:border-0">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <div>
+                <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+                <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section-light section-pad border-t border-brand-border">
+    <div class="container max-w-2xl">
+      <h2 class="mb-8">Pricing</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <div class="border-2 border-brand-dark rounded-lg p-6 text-center">
+          <div class="font-heading font-extrabold text-4xl mb-1">$95<span class="text-xl font-normal text-brand-text-secondary">/mo</span></div>
+          <p class="text-sm text-brand-text-secondary mb-4">Month-to-month · Cortex AI included</p>
+          <a href="/pricing" class="btn-secondary w-full justify-center">Get Started</a>
+        </div>
+        <div class="border-2 border-brand-accent bg-orange-50 rounded-lg p-6 text-center">
+          <div class="font-heading font-extrabold text-4xl mb-1">$950<span class="text-xl font-normal text-brand-text-secondary">/yr</span></div>
+          <p class="text-sm text-brand-text-secondary mb-4">2 months free · Cortex AI included</p>
+          <a href="/pricing" class="btn-primary w-full justify-center">Get Started</a>
+        </div>
+      </div>
+
+      <div class="callout-box">
+        <p class="text-brand-text-secondary text-sm leading-relaxed">Need a full team managing the store every week? <a href="/services/advanced" class="text-brand-accent font-semibold hover:underline">See Advanced ($240/mo, 16 hrs/month) →</a></p>
+      </div>
+
+      <p class="text-center mt-6">
+        <a href="/#assessment" class="btn-ghost">Get Your Free AI Assessment first →</a>
+      </p>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

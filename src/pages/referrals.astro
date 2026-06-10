@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Referral Partner Program — Fast Web Guru | Earn Passive Monthly Income"
+  description="Earn passive monthly income by referring Australian businesses to Fast Web Guru. We pay you for every active client you refer, every month."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Earn passive income by referring clients</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Know a business that would benefit from Fast Web Guru? Refer them, we handle everything, and you earn a passive monthly income for every active client — every month they stay with us.</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-10">How it works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { step: '1', title: 'You refer', body: 'Share your unique referral link or introduce us directly. We provide free marketing material to make it easy.' },
+          { step: '2', title: 'We handle everything', body: 'We onboard the client, build and manage their website, and take care of all the support. You don\'t lift a finger after the introduction.' },
+          { step: '3', title: 'You earn monthly', body: 'For every active client you referred, you receive a passive monthly payment — every month they remain on a plan.' },
+        ].map(item => (
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-accent text-white font-bold text-xl flex items-center justify-center mx-auto mb-4">{item.step}</div>
+            <h3 class="font-bold text-lg mb-3">{item.title}</h3>
+            <p class="text-brand-text-secondary text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What you earn -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-6">What you earn</h2>
+      <div class="space-y-4">
+        {[
+          'Passive monthly income for every active client, every month',
+          'No cap on how many clients you can refer',
+          'Free marketing material provided — you don\'t need to create anything',
+          'Simple, transparent tracking in your partner portal',
+        ].map(item => (
+          <div class="flex gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <p class="text-brand-text-secondary">{item}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-brand-text-secondary mt-6 text-sm">Want a more formal wholesale or agency arrangement? <a href="/partners" class="text-brand-accent hover:underline font-semibold">See our Partners page →</a></p>
+    </div>
+  </section>
+
+  <!-- Education angle -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">Our approach: education first</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-4">We lead with education, not sales pressure. When a business understands what good hosting and web support actually looks like, the decision to work with us becomes straightforward. Clients who understand what they're buying stay longer — which means your referral income is more stable.</p>
+      <p class="text-brand-text-secondary text-lg leading-relaxed">Our free assessment and guides are designed to genuinely help — not to corner someone into a purchase. That's an approach you can put your name behind.</p>
+    </div>
+  </section>
+
+  <!-- Partner portal -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">Keeping you in the loop</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {[
+          { title: 'Partner portal', body: 'See all clients you\'ve referred and their current plan status.' },
+          { title: 'Earnings tracker', body: 'View your accrued earnings in real time. No surprises.' },
+          { title: 'Payout requests', body: 'Request payouts from your portal at any time.' },
+        ].map(item => (
+          <div class="bg-brand-surface border border-brand-border rounded-lg p-5">
+            <h3 class="font-bold text-brand-dark mb-2">{item.title}</h3>
+            <p class="text-brand-text-secondary text-sm">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl text-center">
+      <h2 class="text-2xl font-bold mb-4">Ready to get started?</h2>
+      <p class="text-brand-text-secondary mb-6">Fill in the contact form and we'll get back to you with your referral link and materials.</p>
+      <a href="/contact" class="btn-primary">Get in touch →</a>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

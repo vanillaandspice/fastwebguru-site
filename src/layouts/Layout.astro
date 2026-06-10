@@ -9,6 +9,7 @@ interface Props {
   description: string;
   canonicalUrl?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   description,
   canonicalUrl,
   ogImage = '/og-image.png',
+  noindex,
 } = Astro.props;
 
 const canonical = canonicalUrl || Astro.url.href;
@@ -34,6 +36,8 @@ const canonical = canonicalUrl || Astro.url.href;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph -->
     <meta property="og:title"       content={title} />

@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Cortex Host Systems — AI-Native Hosting | Included Free with Full Code | Fast Web Guru"
+  description="Cortex Host Systems is AI-native hosting with Talk-to-Edit built in. Update your website by describing what you want. Included free with Full Code websites."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="chip mb-6">Part of Cortex AI — $30/month</div>
+      <h1 class="text-white mb-6">AI-native hosting that updates your website when you talk to it.</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Cortex Host Systems is the infrastructure layer of the Cortex AI package. It runs Talk-to-Edit — describe a change, it happens. No code, no builder, no developer required.</p>
+    </div>
+  </section>
+
+  <!-- Included free callout -->
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl">
+      <div class="callout-box">
+        <p class="font-medium text-brand-dark mb-2">Included free with Full Code websites</p>
+        <p class="text-brand-text-secondary leading-relaxed">If you're on a Full Code website — our AI-native flagship build — Cortex Host Systems is included at no extra charge. Talk-to-Edit runs at full power on full-code builds.</p>
+        <a href="/pricing#platforms" class="inline-block mt-4 text-brand-accent font-semibold hover:underline">See platform comparison →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part of Cortex -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">One of three Cortex AI pillars</h2>
+      <p class="text-brand-text-secondary text-lg leading-relaxed mb-8">Cortex Host Systems is one pillar in the $30/month Cortex AI package. All three work together to give your business a complete AI layer.</p>
+      <div class="space-y-4">
+        {[
+          { title: 'Cortex Host Systems', body: 'AI-native infrastructure with Talk-to-Edit. Update your site by describing what you want.', href: '/cortex/host-systems', current: true },
+          { title: 'Cortex Team Stack', body: 'Business DNA Workshop, personalised AI brain trained on your brand, monthly AI Specialist hour.', href: '/cortex/team-stack', current: false },
+          { title: 'Cortex Ops Grid', body: '20 bespoke growth workflows built from your Business DNA, plus new workshops and workflows added regularly.', href: '/cortex/ops-grid', current: false },
+        ].map(pillar => (
+          <a href={pillar.href} class:list={['flex gap-4 p-5 rounded-lg border transition-colors duration-150', pillar.current ? 'bg-brand-dark border-brand-accent' : 'bg-brand-surface border-brand-border hover:border-brand-accent']}>
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <div>
+              <p class:list={['font-bold mb-1', pillar.current ? 'text-white' : 'text-brand-dark']}>{pillar.title} {pillar.current && <span class="text-brand-accent text-xs ml-2">← you're here</span>}</p>
+              <p class:list={['text-sm', pillar.current ? 'text-zinc-400' : 'text-brand-text-secondary']}>{pillar.body}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What it gives you -->
+  <section class="section-light section-pad border-t border-brand-border">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-10">What Cortex Host Systems gives you</h2>
+        <div class="space-y-8">
+          {[
+            { title: 'Talk-to-Edit', body: 'Fix a typo at 9pm without calling anyone. Change a price, swap a photo, update a heading — describe what you want, and it\'s done. No code, no builder interface, no support ticket.' },
+            { title: 'AI-native infrastructure', body: 'Hosting architecture built from the ground up to support AI-driven content management. Not a plugin bolted onto a legacy CMS — a system designed to work this way.' },
+            { title: 'Server-level security', body: 'Security built into the infrastructure layer, not added on top. Automatic SSL, DDoS protection, and threat monitoring included.' },
+            { title: 'FWG support team integration', body: 'Cortex Host Systems connects directly to your FWG support person. When AI handles something, your team knows about it. When you need a human, they\'re there.' },
+          ].map(item => (
+            <div class="flex gap-5 pb-8 border-b border-brand-border last:border-0">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <div>
+                <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+                <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform capability table -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-8">Talk-to-Edit across platforms</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-zinc-200">
+              <th class="text-left px-4 py-3 font-semibold text-brand-dark border border-brand-border">Platform</th>
+              <th class="text-left px-4 py-3 font-semibold text-brand-dark border border-brand-border">Talk-to-Edit capability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-3 border border-brand-border">External host (existing site)</td>
+              <td class="px-4 py-3 border border-brand-border text-brand-text-secondary">Partial</td>
+            </tr>
+            <tr class="bg-zinc-50">
+              <td class="px-4 py-3 border border-brand-border">WordPress on FWG hosting</td>
+              <td class="px-4 py-3 border border-brand-border text-brand-text-secondary">Partial</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 border border-brand-border">Headless (full-code front end + WordPress backend)</td>
+              <td class="px-4 py-3 border border-brand-border text-brand-text-secondary">Strong</td>
+            </tr>
+            <tr class="bg-orange-50">
+              <td class="px-4 py-3 border border-brand-border font-semibold text-brand-dark">Full Code (FWG-native flagship)</td>
+              <td class="px-4 py-3 border border-brand-border font-bold text-brand-accent">Full power</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTAs -->
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl">
+      <div class="flex flex-wrap gap-4">
+        <a href="/cortex" class="btn-primary">Add Cortex AI — $30/month →</a>
+        <a href="/#assessment" class="btn-secondary">Get a Free Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

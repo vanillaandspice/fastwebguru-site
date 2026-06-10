@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Website Tips — Fast Web Guru | Hosting, Domains, Email & Marketing Guides"
+  description="Practical guides on website hosting, domains, business email, Google Maps, and online marketing for Australian small businesses."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Website Tips & Guides</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Practical guides for Australian small businesses — no jargon, no upsell, just what you need to know to make your website work harder for you.</p>
+    </div>
+  </section>
+
+  <!-- Guide cards -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+        <!-- Website Infrastructure -->
+        <div class="bg-brand-surface border border-brand-border rounded-lg p-8">
+          <h2 class="text-xl font-bold text-brand-dark mb-4">Website Infrastructure</h2>
+          <p class="text-brand-text-secondary text-sm mb-6">Everything behind your website — hosting, domain names, and the email address that represents your business.</p>
+          <ul class="space-y-3 list-none m-0 p-0">
+            {[
+              { label: 'Why your domain name matters', href: '/domains' },
+              { label: 'Business email explained', href: '/emails' },
+              { label: 'Smart web hosting', href: '/hosting/smart-web-hosting' },
+            ].map(link => (
+              <li>
+                <a href={link.href} class="flex items-center gap-2 text-sm text-brand-accent hover:underline font-medium">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Google Maps & Local Search -->
+        <div class="bg-brand-surface border border-brand-border rounded-lg p-8">
+          <h2 class="text-xl font-bold text-brand-dark mb-4">Google Maps & Local Search</h2>
+          <p class="text-brand-text-secondary text-sm mb-6">Google Business Profile is free and it works harder than most paid tools. Here's why — and how to set it up properly.</p>
+          <ul class="space-y-3 list-none m-0 p-0">
+            {[
+              { label: 'Why Google Business Profile matters', href: '/google-maps' },
+              { label: 'Free setup guide (PDF download)', href: '/google-maps-pdf-download' },
+            ].map(link => (
+              <li>
+                <a href={link.href} class="flex items-center gap-2 text-sm text-brand-accent hover:underline font-medium">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Mobile & Modern Web -->
+        <div class="bg-brand-surface border border-brand-border rounded-lg p-8">
+          <h2 class="text-xl font-bold text-brand-dark mb-4">Mobile & Modern Web</h2>
+          <p class="text-brand-text-secondary text-sm mb-6">More than half of your visitors are on a phone. Is your website ready for them?</p>
+          <ul class="space-y-3 list-none m-0 p-0">
+            {[
+              { label: 'Mobile-responsive websites', href: '/mobile-responsive-websites' },
+            ].map(link => (
+              <li>
+                <a href={link.href} class="flex items-center gap-2 text-sm text-brand-accent hover:underline font-medium">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

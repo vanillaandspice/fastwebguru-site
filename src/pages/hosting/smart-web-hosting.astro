@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="WordPress Hosting — Small Business Starter | Fast Web Guru Legacy Plan"
+  description="Fast Web Guru legacy WordPress hosting plan. Google Maps support, daily backups, WordPress maintenance for existing clients."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="chip mb-6">Legacy plan — existing clients</div>
+      <h1 class="text-white mb-4">Small Business Starter WordPress Hosting</h1>
+      <p class="text-brand-accent text-2xl font-bold mb-6">$47/month</p>
+      <p class="text-zinc-400 text-xl leading-relaxed">Our original WordPress hosting plan, still serving existing clients. Everything you need to run a small business website on WordPress.</p>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-10">What's included</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            'Google Maps support and management',
+            'Directory listing management',
+            'Smart monthly reports',
+            'Unlimited bandwidth',
+            'Daily backups',
+            'Email accounts',
+            'Annual website training session',
+            'WordPress core and plugin updates',
+            'Help ticket support',
+            'Gallery plugin',
+            'Contact forms plugin',
+            'Security plugin',
+            'Marketing plugin',
+          ].map(item => (
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <p class="text-brand-text-secondary text-sm">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upgrade callout -->
+  <section class="section-warm section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-4">Ready to upgrade?</h2>
+      <p class="text-brand-text-secondary text-lg mb-8">Our current plans include same-day updates, a dedicated support person, AI tools, and more — all at a similar price to what you're paying now.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="/services/core" class="block bg-brand-surface border border-brand-border rounded-lg p-5 hover:border-brand-accent transition-colors duration-150">
+          <p class="font-bold text-brand-dark">Core</p>
+          <p class="text-brand-accent font-semibold">$40/mo</p>
+          <p class="text-brand-text-secondary text-xs mt-2">Same-day updates, 1 hr support, full ownership</p>
+        </a>
+        <a href="/cortex" class="block bg-brand-surface border border-brand-border rounded-lg p-5 hover:border-brand-accent transition-colors duration-150">
+          <p class="font-bold text-brand-dark">Core + Cortex</p>
+          <p class="text-brand-accent font-semibold">$70/mo</p>
+          <p class="text-brand-text-secondary text-xs mt-2">Everything in Core plus all three Cortex AI pillars</p>
+        </a>
+        <a href="/services/advanced" class="block bg-brand-dark border border-brand-accent rounded-lg p-5">
+          <p class="font-bold text-white">Advanced</p>
+          <p class="text-brand-accent font-semibold">$240/mo</p>
+          <p class="text-zinc-400 text-xs mt-2">16 hrs/month, Cortex included, full team management</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

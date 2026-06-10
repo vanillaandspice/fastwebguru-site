@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Fast Web Guru Specialist Rates | Add-On Hours for Hosting Clients"
+  description="Add web, content, design, SEO, or marketing hours to any active Fast Web Guru hosting plan. Monthly contracts and pay-as-you-go available."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Fast Web Guru Specialist Rates</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Need more specialist time? Add dedicated hours to your Core, Ecommerce, or Advanced hosting plan — web development, design, SEO, content, social media, and more.</p>
+    </div>
+  </section>
+
+  <!-- What specialist hours cover -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-10">What specialist hours cover</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            'Graphic design and video production',
+            'SEO — on-page, technical, and content',
+            'Social media content and management',
+            'Email newsletters and automation',
+            'Website development and new features',
+            'AI content and workflow implementation',
+            'Any other web, marketing, or content work',
+          ].map(item => (
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <p class="text-brand-text-secondary text-sm">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section-warm section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-10">Pricing</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Monthly add-on -->
+        <div>
+          <h3 class="text-lg font-bold text-brand-dark mb-2">Monthly Add-On</h3>
+          <p class="text-brand-text-secondary text-sm mb-6">6-month minimum commitment</p>
+          <div class="space-y-4">
+            <div class="bg-brand-surface border border-brand-border rounded-lg p-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <p class="font-bold text-brand-dark">10 hours/month</p>
+                <p class="text-brand-accent font-bold text-xl">$250<span class="text-sm font-normal text-brand-text-secondary">/mo</span></p>
+              </div>
+              <p class="text-xs text-brand-text-secondary">Save $100 vs pay-as-you-go</p>
+            </div>
+            <div class="bg-brand-surface border border-brand-border rounded-lg p-5">
+              <div class="flex items-baseline justify-between mb-1">
+                <p class="font-bold text-brand-dark">20 hours/month</p>
+                <p class="text-brand-accent font-bold text-xl">$420<span class="text-sm font-normal text-brand-text-secondary">/mo</span></p>
+              </div>
+              <p class="text-xs text-brand-text-secondary">Save $150 vs pay-as-you-go</p>
+            </div>
+          </div>
+          <div class="mt-4 text-xs text-brand-text-secondary space-y-1">
+            <p>Unused hours carry over up to 3 months</p>
+            <p>Borrow up to 10 hours from next month</p>
+          </div>
+        </div>
+
+        <!-- Pay as you go -->
+        <div>
+          <h3 class="text-lg font-bold text-brand-dark mb-2">Pay As You Go</h3>
+          <p class="text-brand-text-secondary text-sm mb-6">No commitment required</p>
+          <div class="space-y-4">
+            {[
+              { hours: '10 hours', price: '$350' },
+              { hours: '20 hours', price: '$570' },
+              { hours: '50 hours', price: '$1,250' },
+            ].map(block => (
+              <div class="bg-brand-surface border border-brand-border rounded-lg p-5">
+                <div class="flex items-baseline justify-between">
+                  <p class="font-bold text-brand-dark">{block.hours}</p>
+                  <p class="text-brand-dark font-bold text-xl">{block.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="mt-4 text-xs text-brand-text-secondary">
+            <p>Hours valid for 6 months from purchase</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout-box mt-10">
+        <p class="font-medium text-brand-dark mb-2">Hosting clients only</p>
+        <p class="text-brand-text-secondary text-sm leading-relaxed">Specialist hours are available as an add-on to any active Fast Web Guru hosting plan — Core ($40/mo), Ecommerce ($95/mo), or Advanced ($240/mo). Not available as a standalone product.</p>
+      </div>
+
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="/contact" class="btn-primary">Talk to us →</a>
+        <a href="/pricing" class="btn-secondary">See hosting plans</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

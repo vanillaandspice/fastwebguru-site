@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Business Email — Why a Branded Email Address Matters | Fast Web Guru"
+  description="Why using a branded email address matters for professional credibility — and the best way to set it up for your Australian business."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Your email address says more than you think</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">A branded business email address is one of the smallest, cheapest things you can do to look more professional — and one of the most commonly overlooked.</p>
+    </div>
+  </section>
+
+  <!-- Contrast -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-8">The difference is immediate</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+          <p class="text-xs font-semibold uppercase tracking-widest text-green-700 mb-3">Professional</p>
+          <p class="font-mono text-lg font-bold text-green-800">info@yourbusiness.com.au</p>
+          <p class="text-sm text-green-700 mt-3">Looks established. Builds trust. Consistent with your brand.</p>
+        </div>
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+          <p class="text-xs font-semibold uppercase tracking-widest text-red-700 mb-3">Not ideal</p>
+          <p class="font-mono text-lg font-bold text-red-800">businessowner99@gmail.com</p>
+          <p class="text-sm text-red-700 mt-3">Feels temporary. Hard to remember. Raises questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-10">Your two main options</h2>
+
+      <!-- Google Workspace -->
+      <div class="mb-12">
+        <div class="flex items-center gap-3 mb-4">
+          <h3 class="text-xl font-bold text-brand-dark">Option 1: Google Workspace</h3>
+          <span class="chip text-xs">Recommended</span>
+        </div>
+        <p class="text-brand-text-secondary mb-6">Gmail on your own domain. Your staff already know it. Best spam filtering, 99.9% uptime, shared drives, and calendar — all in one Google account under your business name.</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-zinc-100">
+                <th class="text-left px-4 py-3 font-semibold text-brand-dark border border-brand-border">Plan</th>
+                <th class="text-left px-4 py-3 font-semibold text-brand-dark border border-brand-border">Monthly (per user)</th>
+                <th class="text-left px-4 py-3 font-semibold text-brand-dark border border-brand-border">Annual (per user)</th>
+                <th class="text-left px-4 py-3 font-semibold text-brand-dark border border-brand-border">Key features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-4 py-3 border border-brand-border font-medium">Business Starter</td>
+                <td class="px-4 py-3 border border-brand-border">$8.40/user/mo</td>
+                <td class="px-4 py-3 border border-brand-border">$84/user/yr</td>
+                <td class="px-4 py-3 border border-brand-border text-brand-text-secondary">Custom email, 30GB storage</td>
+              </tr>
+              <tr class="bg-zinc-50">
+                <td class="px-4 py-3 border border-brand-border font-medium">Business Standard</td>
+                <td class="px-4 py-3 border border-brand-border">$16.80/user/mo</td>
+                <td class="px-4 py-3 border border-brand-border">—</td>
+                <td class="px-4 py-3 border border-brand-border text-brand-text-secondary">Shared drives, more storage</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 border border-brand-border font-medium">Business Plus</td>
+                <td class="px-4 py-3 border border-brand-border">$30.90/user/mo</td>
+                <td class="px-4 py-3 border border-brand-border">—</td>
+                <td class="px-4 py-3 border border-brand-border text-brand-text-secondary">Advanced security, audit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-brand-text-secondary mt-3">All prices ex-GST. 10% GST added at checkout.</p>
+      </div>
+
+      <!-- Server email -->
+      <div>
+        <h3 class="text-xl font-bold text-brand-dark mb-4">Option 2: Server email (via hosting)</h3>
+        <p class="text-brand-text-secondary mb-4">Available with all FWG hosting plans. 500MB mailbox, unlimited mailboxes and aliases. Works well for contact forms and transactional email. Simple to set up — we handle it for you.</p>
+        <p class="text-brand-text-secondary">We generally recommend keeping your primary business email separate from your web hosting for better reliability and deliverability.</p>
+      </div>
+
+      <div class="callout-box mt-10">
+        <p class="font-medium text-brand-dark mb-2">Our recommendation</p>
+        <p class="text-brand-text-secondary leading-relaxed">We recommend keeping email separate from your web hosting. Gmail on your domain is more reliable, has better spam filtering, and it's what your staff already know how to use. If your hosting server has an issue, your email stays up.</p>
+      </div>
+
+      <div class="mt-8">
+        <a href="/contact" class="btn-primary">Talk to us about email setup →</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

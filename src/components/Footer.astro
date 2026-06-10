@@ -7,7 +7,7 @@ const year = new Date().getFullYear();
 const links = {
   Services: [
     { label: 'Core Plan — $40/mo',      href: '/services/core' },
-    { label: 'Ecommerce — $95/mo',      href: '/pricing#ecommerce' },
+    { label: 'Ecommerce — $95/mo',      href: '/services/ecommerce' },
     { label: 'Advanced Plan — $240/mo', href: '/services/advanced' },
     { label: 'Website Builds',          href: '/services/website-builds' },
     { label: 'Cortex AI',               href: '/cortex' },
@@ -19,6 +19,17 @@ const links = {
     { label: 'About Us',     href: '/about' },
     { label: 'Partners',     href: '/partners' },
     { label: 'Contact',      href: '/contact' },
+  ],
+  Resources: [
+    { label: 'Our Story',              href: '/our-story' },
+    { label: 'Website Tips',           href: '/website-tips' },
+    { label: 'Google Maps Guide',      href: '/google-maps' },
+    { label: 'Business Email',         href: '/emails' },
+    { label: 'Domains',                href: '/domains' },
+    { label: 'Join Our Team',          href: '/join-our-team' },
+    { label: 'Referral Program',       href: '/referrals' },
+    { label: 'Webmail Access',         href: '/webmail-access' },
+    { label: 'Terms & Conditions',     href: '/terms-conditions' },
   ],
 };
 ---
@@ -41,7 +52,7 @@ const links = {
       </div>
 
       <!-- Nav links -->
-      <div class="lg:col-span-2 grid grid-cols-2 gap-8">
+      <div class="lg:col-span-2 grid grid-cols-2 lg:grid-cols-3 gap-8">
         {Object.entries(links).map(([group, items]) => (
           <div>
             <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-4">{group}</p>

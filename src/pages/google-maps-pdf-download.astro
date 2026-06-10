@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Free Guide: Get Your Business on Google Maps | Fast Web Guru"
+  description="Download our free step-by-step guide to setting up your Google Business Profile and appearing in local search results."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <div class="chip mb-6">Free download</div>
+      <h1 class="text-white mb-6">How to get your business found on Google — for free</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Our step-by-step guide walks you through claiming, optimising, and managing your Google Business Profile — the most valuable free marketing tool available to any local Australian business.</p>
+    </div>
+  </section>
+
+  <!-- Guide description + form -->
+  <section class="section-light section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-6">What you'll learn</h2>
+      <div class="space-y-4 mb-10">
+        {[
+          'How to claim (or create) your Google Business Profile',
+          'Which business details matter most for local search visibility',
+          'How to write a description that actually attracts customers',
+          'The right way to add photos — and how often',
+          'How to get more reviews without being pushy',
+          'How to respond to reviews (positive and negative)',
+          'Setting up messaging so customers can contact you directly',
+          'Keeping your profile active with posts and updates',
+          'Reading your insights to understand what\'s working',
+        ].map(step => (
+          <div class="flex gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <p class="text-brand-text-secondary">{step}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Email capture form placeholder -->
+      <div class="bg-brand-surface border border-brand-border rounded-lg p-8">
+        <h3 class="font-bold text-xl text-brand-dark mb-2">Get the free guide</h3>
+        <p class="text-brand-text-secondary text-sm mb-6">Enter your email and we'll send it straight to your inbox.</p>
+        <!-- [Email capture form — connect to your email platform] -->
+        <div class="bg-orange-50 border border-brand-border rounded p-4 text-center text-brand-text-secondary text-sm">
+          [Email capture form — connect to your email platform]
+        </div>
+      </div>
+
+      <div class="callout-box mt-8">
+        <p class="font-medium text-brand-dark mb-1">Already an FWG client?</p>
+        <p class="text-brand-text-secondary text-sm">We handle Google Business Profile setup and management as part of every hosting plan. You don't need the guide — we've got it covered. <a href="/pricing" class="text-brand-accent hover:underline">See hosting plans →</a></p>
+      </div>
+    </div>
+  </section>
+</Layout>

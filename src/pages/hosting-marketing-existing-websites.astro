@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Hosting & Support for Your Existing Website | Fast Web Guru"
+  description="Already have a website but need better hosting, updates, and marketing support? Fast Web Guru takes over any existing site and runs it properly."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">Got an existing website — but it's not doing what it should?</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">We take over any existing website and run it properly. Migration, hosting, updates, and support — all handled from day one.</p>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section-warm py-16">
+    <div class="container max-w-3xl">
+      <h2 class="text-2xl font-bold mb-6">Sound familiar?</h2>
+      <div class="space-y-4 text-brand-text-secondary text-lg leading-relaxed">
+        <p>A developer built your website, then disappeared. Now every small change — a new photo, updated business hours, a price change — requires tracking them down, waiting days, and getting another invoice.</p>
+        <p>Or you're on cheap shared hosting and your site is slow. Or you've lost track of your login details. Or you're not even sure who owns your domain.</p>
+        <p>We see this constantly. And we fix it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What FWG does -->
+  <section class="section-light section-pad">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="mb-10">What we do when we take over</h2>
+        <div class="space-y-8">
+          {[
+            { title: 'Migration with no downtime', body: 'We move your site to our hosting infrastructure without any interruption to your visitors. Your site stays live throughout the process.' },
+            { title: 'Same-day updates from day one', body: 'From the moment you\'re on FWG hosting, changes happen same-day. No more waiting. No more invoices per update.' },
+            { title: 'Hosting takeover', body: 'We migrate everything — files, database, email configuration, and DNS. You won\'t need to manage any of it.' },
+            { title: 'Dedicated support person', body: 'One real person who knows your website and your business. Not a ticket system. Not a chatbot.' },
+            { title: 'AI tools available', body: 'Add Cortex AI ($30/mo) to get Talk-to-Edit, Business DNA, and 20 bespoke growth workflows — available on any hosting plan.' },
+            { title: 'Works with any platform', body: 'WordPress, WooCommerce, or we can migrate you to our modern full-code stack. Your choice — same support either way.' },
+          ].map(item => (
+            <div class="flex gap-5 pb-8 border-b border-brand-border last:border-0">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <div>
+                <h3 class="font-bold text-lg mb-2">{item.title}</h3>
+                <p class="text-brand-text-secondary leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Included in every plan -->
+  <section class="section-mid section-pad">
+    <div class="container max-w-3xl">
+      <h2 class="mb-8">Included in every plan</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          'Same-day updates via click-and-comment',
+          'Triple-redundant backup',
+          '24/7 monitoring',
+          'Dedicated Australian support person',
+          '1 hour of support per month',
+          'Full ownership — site, domain, all logins',
+          'Google Business Profile management',
+          'Domain registration and management',
+        ].map(item => (
+          <div class="flex gap-3">
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <p class="text-brand-text-secondary text-sm">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional upgrades -->
+  <section class="section-warm py-12">
+    <div class="container max-w-3xl">
+      <div class="callout-box">
+        <p class="font-medium text-brand-dark mb-3">Optional upgrades</p>
+        <div class="space-y-2">
+          <p class="text-brand-text-secondary text-sm"><strong>Cortex AI — $30/mo:</strong> Talk-to-Edit, Business DNA + AI Specialist, 20 growth workflows.</p>
+          <p class="text-brand-text-secondary text-sm"><strong>Advanced — $240/mo:</strong> 16 hrs/month of dedicated specialist time, Cortex AI included, full team management.</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="/#assessment" class="btn-primary">Get a Free Assessment →</a>
+        <a href="/pricing" class="btn-secondary">See All Plans</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock />
+</Layout>

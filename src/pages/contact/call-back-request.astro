@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export const prerender = true;
+---
+
+<Layout
+  title="Request a Call Back — Fast Web Guru"
+  description="Leave your details and a Fast Web Guru team member will call you back to discuss your website, hosting, or marketing needs."
+>
+  <!-- Hero -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container max-w-3xl">
+      <h1 class="text-white mb-6">How Can We Help?</h1>
+      <p class="text-zinc-400 text-xl leading-relaxed">Leave your details below and we'll call you back at a time that suits you.</p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="section-light section-pad">
+    <div class="container max-w-xl">
+      <p class="text-brand-text-secondary text-lg mb-8">A real person from the Fast Web Guru team will call you back to discuss your website, hosting, or marketing needs — no pressure, no sales script.</p>
+
+      <!-- [Call back form — connect to your email/CRM platform] -->
+      <div class="bg-brand-surface border border-brand-border rounded-lg p-8">
+        <div class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold text-brand-dark mb-2">Your name</label>
+            <div class="h-11 bg-zinc-100 border border-brand-border rounded-lg"></div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-brand-dark mb-2">Business name</label>
+            <div class="h-11 bg-zinc-100 border border-brand-border rounded-lg"></div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-brand-dark mb-2">Phone number</label>
+            <div class="h-11 bg-zinc-100 border border-brand-border rounded-lg"></div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-brand-dark mb-2">Best time to call</label>
+            <div class="h-11 bg-zinc-100 border border-brand-border rounded-lg"></div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-brand-dark mb-2">What can we help with?</label>
+            <div class="h-28 bg-zinc-100 border border-brand-border rounded-lg"></div>
+          </div>
+          <div class="bg-orange-50 border border-brand-border rounded p-4 text-center text-brand-text-secondary text-sm">
+            [Call back form — connect to your email/CRM platform]
+          </div>
+        </div>
+      </div>
+
+      <p class="text-brand-text-secondary text-sm mt-6 text-center">
+        Prefer to write instead? <a href="/#assessment" class="text-brand-accent hover:underline">Get a free AI assessment →</a>
+      </p>
+    </div>
+  </section>
+</Layout>
