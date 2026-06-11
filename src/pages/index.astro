@@ -4,6 +4,7 @@ import FeatureCard from '../components/FeatureCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import PlanCard from '../components/PlanCard.astro';
 import CTABlock from '../components/CTABlock.astro';
+import HeroBanner from '../components/HeroBanner.astro';
 
 export const prerender = true;
 
@@ -148,16 +149,10 @@ const plans = [
 
   <!-- ═══ HERO ═══ -->
   <section class="section-dark relative overflow-hidden">
-    <!-- Subtle speed-line decoration (echoes logo) -->
-    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-      <svg class="absolute right-0 top-0 h-full w-auto opacity-[0.04]" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="120" x2="400" y2="80"  stroke="#F97316" stroke-width="60"/>
-        <line x1="0" y1="260" x2="400" y2="220" stroke="#F97316" stroke-width="40"/>
-        <line x1="0" y1="380" x2="400" y2="350" stroke="#F97316" stroke-width="25"/>
-      </svg>
-    </div>
+    <!-- Cinematic animated logo banner -->
+    <HeroBanner bg="transparent" width={520} />
 
-    <div class="container relative z-10 py-24 lg:py-36">
+    <div class="container relative z-10 pb-24 lg:pb-32">
       <!-- Chips -->
       <div class="flex flex-wrap gap-2 mb-8">
         <span class="chip">From $40/month</span>
