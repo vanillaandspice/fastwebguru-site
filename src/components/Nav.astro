@@ -1,6 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import logoLight from '../assets/logo-light.png';
+import HeroBanner from './HeroBanner.astro';
 
 const navLinks = [
   { label: 'How It Works', href: '/how-it-works' },
@@ -35,15 +34,7 @@ const currentPath = Astro.url.pathname;
 
       <!-- Logo -->
       <a href="/" class="flex-shrink-0 flex items-center" aria-label="Fast Web Guru — home">
-        <Image
-          src={logoLight}
-          alt="Fast Web Guru"
-          class="h-9 w-auto"
-          width={288}
-          height={72}
-          loading="eager"
-          decoding="async"
-        />
+        <HeroBanner width={190} bg="transparent" />
       </a>
 
       <!-- Desktop nav -->

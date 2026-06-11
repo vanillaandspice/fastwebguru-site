@@ -1,6 +1,6 @@
 ---
 interface Props { width?: number; bg?: string; }
-const { width = 520, bg = "#1A1A1A" } = Astro.props;
+const { width = 520, bg = "transparent" } = Astro.props;
 ---
 
 <div class="fwg-hero" data-fwg-hero style={`--fwg-bg:${bg};`}>
@@ -24,8 +24,8 @@ const { width = 520, bg = "#1A1A1A" } = Astro.props;
 </div>
 
 <style>
-  .fwg-hero { display:flex; align-items:center; justify-content:center; padding:3rem 2rem 1rem; background:var(--fwg-bg,#1A1A1A); }
-  .fwg-mark { height:auto; max-width:100%; overflow:visible; }
+  .fwg-hero { display:inline-flex; align-items:center; justify-content:center; background:var(--fwg-bg,transparent); }
+  .fwg-mark { display:block; height:auto; max-width:100%; overflow:visible; }
 </style>
 
 <script>
