@@ -14,14 +14,32 @@ const {
 } = Astro.props;
 ---
 
-<section class="section-dark section-pad" id="assessment">
-  <div class="container">
-    <div class="max-w-2xl mx-auto text-center mb-10">
+<section class="section-dark section-pad relative overflow-hidden" id="assessment">
+  <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+    <svg class="absolute right-0 top-0 h-full w-auto" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line class="cta-speed-line" x1="0" y1="130" x2="500" y2="80"  stroke="#F97316" stroke-width="80" stroke-linecap="round"/>
+      <line class="cta-speed-line" x1="0" y1="290" x2="500" y2="250" stroke="#F97316" stroke-width="50" stroke-linecap="round"/>
+      <line class="cta-speed-line" x1="0" y1="420" x2="500" y2="395" stroke="#F97316" stroke-width="30" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="container relative z-10">
+    <div class="max-w-2xl mx-auto text-center mb-10" data-reveal="fade">
       <h2 class="text-balance mb-4">{heading}</h2>
       <p class="text-zinc-400 text-lg leading-relaxed mx-auto">{body}</p>
     </div>
-    <div class="max-w-xl mx-auto">
+    <div class="max-w-xl mx-auto" data-reveal="fade">
       <AssessmentForm id={formId} dark={true} />
     </div>
   </div>
 </section>
+
+<style>
+  .cta-speed-line { opacity: 0.04; animation: ctaSpeedPulse 3.5s ease-in-out infinite; }
+  .cta-speed-line:nth-child(2) { animation-delay: 0.8s; }
+  .cta-speed-line:nth-child(3) { animation-delay: 1.6s; }
+  @keyframes ctaSpeedPulse {
+    0%, 100% { opacity: 0.03; transform: translateX(0); }
+    50%       { opacity: 0.09; transform: translateX(-12px); }
+  }
+  @media (prefers-reduced-motion: reduce) { .cta-speed-line { animation: none; } }
+</style>

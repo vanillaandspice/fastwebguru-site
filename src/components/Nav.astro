@@ -31,181 +31,78 @@ const currentPath = Astro.url.pathname;
 >
   <div class="container">
     <nav class="flex items-center justify-between h-16 lg:h-18" aria-label="Main navigation">
-
-      <!-- Logo -->
       <a href="/" class="flex-shrink-0 flex items-center" aria-label="Fast Web Guru — home">
         <HeroBanner width={190} bg="transparent" />
       </a>
-
-      <!-- Desktop nav -->
       <ul class="hidden lg:flex items-center gap-8 list-none m-0 p-0">
         {navLinks.map(link => (
           <li>
-            <a
-              href={link.href}
-              class:list={[
-                'text-sm font-medium transition-colors duration-150',
-                currentPath === link.href
-                  ? 'text-brand-accent'
-                  : 'text-zinc-300 hover:text-white'
-              ]}
-            >
+            <a href={link.href} class:list={['text-sm font-medium transition-colors duration-150', currentPath === link.href ? 'text-brand-accent' : 'text-zinc-300 hover:text-white']}>
               {link.label}
             </a>
           </li>
         ))}
-
-        <!-- Services dropdown -->
         <li class="relative group">
-          <button
-            class="flex items-center gap-1 text-sm font-medium text-zinc-300 hover:text-white transition-colors duration-150"
-            aria-expanded="false"
-            aria-haspopup="true"
-          >
+          <button class="flex items-center gap-1 text-sm font-medium text-zinc-300 hover:text-white transition-colors duration-150" aria-expanded="false" aria-haspopup="true">
             Services
             <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-
           <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
             <ul class="bg-zinc-900 border border-brand-border-dark rounded-lg shadow-xl py-2 w-72 list-none m-0 p-0">
               {services.map(s => (
-                <li>
-                  <a
-                    href={s.href}
-                    class="block px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors duration-150"
-                  >
-                    {s.label}
-                  </a>
-                </li>
+                <li><a href={s.href} class="block px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors duration-150">{s.label}</a></li>
               ))}
-              <!-- Cortex AI group -->
               <li class="border-t border-brand-border-dark mt-1 pt-1">
-                <a
-                  href="/cortex"
-                  class="block px-4 py-2.5 text-sm text-brand-accent font-semibold hover:text-white hover:bg-zinc-800 transition-colors duration-150"
-                >
+                <a href="/cortex" class="block px-4 py-2.5 text-sm text-brand-accent font-semibold hover:text-white hover:bg-zinc-800 transition-colors duration-150">
                   Cortex AI
                   <span class="block text-xs text-zinc-500 font-normal mt-0.5">Add AI to your website — $30/month</span>
                 </a>
                 <ul class="list-none m-0 p-0">
                   {cortexItems.map(c => (
-                    <li>
-                      <a
-                        href={c.href}
-                        class="block pl-8 pr-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors duration-150"
-                      >
-                        ↳ {c.label}
-                      </a>
-                    </li>
+                    <li><a href={c.href} class="block pl-8 pr-4 py-2 text-xs text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors duration-150">↳ {c.label}</a></li>
                   ))}
                 </ul>
               </li>
               <li class="border-t border-brand-border-dark pt-1 mt-1">
-                <a
-                  href="/about/human-in-the-loop"
-                  class="block px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors duration-150"
-                >
-                  Human in the Loop
-                </a>
+                <a href="/about/human-in-the-loop" class="block px-4 py-3 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors duration-150">Human in the Loop</a>
               </li>
             </ul>
           </div>
         </li>
       </ul>
-
-      <!-- Desktop CTA -->
       <div class="hidden lg:block">
-        <a href="/#assessment" class="btn-primary text-sm py-2.5 px-5">
-          Get Free Assessment
-        </a>
+        <a href="/#assessment" class="btn-primary text-sm py-2.5 px-5">Get Free Assessment</a>
       </div>
-
-      <!-- Mobile hamburger -->
-      <button
-        id="mobile-menu-btn"
-        class="lg:hidden p-2 text-zinc-300 hover:text-white transition-colors"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <svg id="icon-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-zinc-300 hover:text-white transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
       </button>
     </nav>
   </div>
-
-  <!-- Mobile menu overlay -->
-  <div
-    id="mobile-menu"
-    class="hidden lg:hidden fixed inset-0 top-16 bg-brand-dark z-40 px-6 py-8 overflow-y-auto"
-    aria-hidden="true"
-  >
+  <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 top-16 bg-brand-dark z-40 px-6 py-8 overflow-y-auto" aria-hidden="true">
     <ul class="list-none m-0 p-0 space-y-1">
       {navLinks.map(link => (
-        <li>
-          <a href={link.href} class="block py-3 text-lg font-medium text-zinc-200 hover:text-white border-b border-brand-border-dark">
-            {link.label}
-          </a>
-        </li>
+        <li><a href={link.href} class="block py-3 text-lg font-medium text-zinc-200 hover:text-white border-b border-brand-border-dark">{link.label}</a></li>
       ))}
       <li>
         <p class="pt-4 pb-1 text-xs font-semibold uppercase tracking-widest text-zinc-500">Services</p>
         <ul class="list-none m-0 p-0">
-          {services.map(s => (
-            <li>
-              <a href={s.href} class="block py-3 text-base text-zinc-300 hover:text-white border-b border-brand-border-dark pl-2">
-                {s.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href="/cortex" class="block py-3 text-base text-brand-accent font-semibold hover:text-white border-b border-brand-border-dark pl-2">
-              Cortex AI — $30/mo
-            </a>
-          </li>
-          {cortexItems.map(c => (
-            <li>
-              <a href={c.href} class="block py-2.5 text-sm text-zinc-400 hover:text-white border-b border-brand-border-dark pl-6">
-                ↳ {c.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href="/about/human-in-the-loop" class="block py-3 text-base text-zinc-300 hover:text-white border-b border-brand-border-dark pl-2">
-              Human in the Loop
-            </a>
-          </li>
+          {services.map(s => (<li><a href={s.href} class="block py-3 text-base text-zinc-300 hover:text-white border-b border-brand-border-dark pl-2">{s.label}</a></li>))}
+          <li><a href="/cortex" class="block py-3 text-base text-brand-accent font-semibold hover:text-white border-b border-brand-border-dark pl-2">Cortex AI — $30/mo</a></li>
+          {cortexItems.map(c => (<li><a href={c.href} class="block py-2.5 text-sm text-zinc-400 hover:text-white border-b border-brand-border-dark pl-6">↳ {c.label}</a></li>))}
+          <li><a href="/about/human-in-the-loop" class="block py-3 text-base text-zinc-300 hover:text-white border-b border-brand-border-dark pl-2">Human in the Loop</a></li>
         </ul>
       </li>
     </ul>
-
     <div class="mt-8">
-      <a href="/#assessment" class="btn-primary w-full justify-center text-base">
-        Get Free Assessment
-      </a>
+      <a href="/#assessment" class="btn-primary w-full justify-center text-base">Get Free Assessment</a>
     </div>
   </div>
 </header>
 
-<!-- Nav spacer -->
 <div class="h-16 lg:h-18 bg-brand-dark"></div>
-
-<style>
-  #site-nav {
-    background-color: #1A1A1A;
-    border-bottom: 1px solid transparent;
-  }
-  #site-nav[data-scrolled="true"] {
-    border-bottom-color: #27272A;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
-  }
-</style>
 
 <script>
   const nav = document.getElementById('site-nav');
@@ -223,26 +120,19 @@ const currentPath = Astro.url.pathname;
   btn?.addEventListener('click', () => {
     const isOpen = menu?.classList.contains('hidden') === false;
     if (isOpen) {
-      menu?.classList.add('hidden');
-      menu?.setAttribute('aria-hidden', 'true');
+      menu?.classList.add('hidden'); menu?.setAttribute('aria-hidden', 'true');
       btn.setAttribute('aria-expanded', 'false');
-      iconOpen?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden'); iconClose?.classList.add('hidden');
       document.body.style.overflow = '';
     } else {
-      menu?.classList.remove('hidden');
-      menu?.setAttribute('aria-hidden', 'false');
+      menu?.classList.remove('hidden'); menu?.setAttribute('aria-hidden', 'false');
       btn.setAttribute('aria-expanded', 'true');
-      iconOpen?.classList.add('hidden');
-      iconClose?.classList.remove('hidden');
+      iconOpen?.classList.add('hidden'); iconClose?.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
   });
 
   menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', () => { menu.classList.add('hidden'); document.body.style.overflow = ''; });
   });
 </script>

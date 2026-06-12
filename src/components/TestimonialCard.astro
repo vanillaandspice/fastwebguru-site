@@ -9,17 +9,15 @@ const { quote, name, business } = Astro.props;
 
 <figure class="testimonial-card flex flex-col justify-between gap-6">
   <div class="relative">
-    <span class="font-heading font-black text-6xl text-brand-accent leading-none select-none absolute -top-2 -left-1" aria-hidden="true">"</span>
-    <blockquote class="pt-8 text-zinc-200 text-base leading-relaxed italic">
-      {quote}
-    </blockquote>
+    <span class="font-heading font-black text-brand-accent leading-none select-none absolute -top-3 -left-1" aria-hidden="true" style="font-size: clamp(3.5rem, 8vw, 5rem); opacity: 0.9;">&ldquo;</span>
+    <blockquote class="pt-10 text-zinc-200 text-base leading-relaxed italic">{quote}</blockquote>
   </div>
   <figcaption class="flex items-center gap-3 border-t border-brand-border-dark pt-5">
     <div class="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">
       <span class="text-brand-dark font-bold text-xs">{name.charAt(0)}</span>
     </div>
     <div>
-      <p class="text-white font-semibold text-sm">{name}</p>
+      <p class="text-white font-semibold text-sm" style="letter-spacing: -0.01em;">{name}</p>
       <p class="text-zinc-500 text-xs">{business}</p>
     </div>
   </figcaption>

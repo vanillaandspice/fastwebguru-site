@@ -42,100 +42,39 @@ const features = [
 ];
 
 const testimonials = [
-  {
-    quote: 'Before Fast Web Guru, I was constantly chasing my old provider just to get basic things fixed. Now it just gets done — same day, no drama.',
-    name: 'HS Auto Parts',
-    business: 'Hunter Valley',
-  },
-  {
-    quote: 'They sorted out years of website headaches in the first week. The phone\'s ringing more now and I\'m not spending half my time worrying about the site.',
-    name: 'Ally Fenwick',
-    business: 'Fenwick Hill Group',
-  },
-  {
-    quote: 'I had no idea what I was paying my old web developer for. Fast Web Guru is half the price and I actually get things done.',
-    name: 'Client — to be confirmed',
-    business: 'Australian small business',
-  },
-  {
-    quote: 'I was embarrassed to send people to our old website. Now I actually tell people to look it up.',
-    name: 'Client — to be confirmed',
-    business: 'Australian small business',
-  },
+  { quote: 'Before Fast Web Guru, I was constantly chasing my old provider just to get basic things fixed. Now it just gets done — same day, no drama.', name: 'HS Auto Parts', business: 'Hunter Valley' },
+  { quote: 'They sorted out years of website headaches in the first week. The phone\'s ringing more now and I\'m not spending half my time worrying about the site.', name: 'Ally Fenwick', business: 'Fenwick Hill Group' },
+  { quote: 'I had no idea what I was paying my old web developer for. Fast Web Guru is half the price and I actually get things done.', name: 'Client — to be confirmed', business: 'Australian small business' },
+  { quote: 'I was embarrassed to send people to our old website. Now I actually tell people to look it up.', name: 'Client — to be confirmed', business: 'Australian small business' },
 ];
 
 const plans = [
   {
-    name: 'Core',
-    price: '$40',
+    name: 'Core', price: '$40',
     tagline: 'For businesses that want their website handled without an invoice for every change.',
-    features: [
-      'AI-enhanced hosting on any platform — WordPress, headless, or full-code',
-      'Same-day updates via click-and-comment',
-      '1 hr dedicated support per month',
-      'Workflow Hub — email, social, tasks',
-      'Human in the Loop AI marketing tools',
-      'Triple-redundant backup hosting',
-      '24/7 monitoring, replies within an hour',
-      'Full ownership: site, domain, all logins',
-    ],
-    cta: 'Get Started',
-    ctaHref: '/services/core',
-    featured: false,
+    features: ['AI-enhanced hosting on any platform — WordPress, headless, or full-code','Same-day updates via click-and-comment','1 hr dedicated support per month','Workflow Hub — email, social, tasks','Human in the Loop AI marketing tools','Triple-redundant backup hosting','24/7 monitoring, replies within an hour','Full ownership: site, domain, all logins'],
+    cta: 'Get Started', ctaHref: '/services/core', featured: false,
     note: '+ Add Cortex AI for $30/mo more · Cancel any month. No lock-in.',
   },
   {
-    name: 'Ecommerce',
-    price: '$95',
+    name: 'Ecommerce', price: '$95',
     tagline: 'For online stores — hosted, updated, and handled, with Cortex AI included.',
-    features: [
-      'Everything in Core, built for your store',
-      'WooCommerce or full-code store hosting',
-      'Cortex AI included — no extra charge',
-      'Product, stock & order support in your updates',
-      'Same-day updates via click-and-comment',
-      'Triple-redundant backup hosting',
-      'Full ownership: site, domain, all logins',
-    ],
-    cta: 'Get Started',
-    ctaHref: '/pricing#ecommerce',
-    featured: false,
+    features: ['Everything in Core, built for your store','WooCommerce or full-code store hosting','Cortex AI included — no extra charge','Product, stock & order support in your updates','Same-day updates via click-and-comment','Triple-redundant backup hosting','Full ownership: site, domain, all logins'],
+    cta: 'Get Started', ctaHref: '/pricing#ecommerce', featured: false,
     note: 'Cortex included. Cancel any month. No lock-in.',
   },
   {
-    name: 'Advanced',
-    price: '$240',
+    name: 'Advanced', price: '$240',
     tagline: 'Everything in Core, plus 16 hrs/month, full ecommerce management, and Cortex AI included.',
-    features: [
-      'Everything in Core',
-      '16 hrs dedicated support/month (4 hrs/week)',
-      'Cortex AI included — no extra charge',
-      'Full ecommerce management',
-      'Weekly AI content & marketing production',
-      'Full communications management',
-      'Priority response',
-    ],
-    cta: 'Get Started',
-    ctaHref: '/services/advanced',
-    featured: true,
+    features: ['Everything in Core','16 hrs dedicated support/month (4 hrs/week)','Cortex AI included — no extra charge','Full ecommerce management','Weekly AI content & marketing production','Full communications management','Priority response'],
+    cta: 'Get Started', ctaHref: '/services/advanced', featured: true,
     note: 'Cancel any month. No lock-in. No setup fee.',
   },
   {
-    name: 'Website Build',
-    price: 'From $240',
-    period: 'once-off',
+    name: 'Website Build', price: 'From $240', period: 'once-off',
     tagline: 'A new website, built properly in any framework, AI-editable from day one.',
-    features: [
-      'Built in your framework — WordPress, headless, or full-code',
-      'Click-and-comment update system at launch',
-      'Mobile-first, speed-optimised, secure',
-      'Human specialist reviews every page',
-      '20% of budget ring-fenced for QA',
-      'All files, hosting, logins handed over',
-    ],
-    cta: 'Get a Quote',
-    ctaHref: '/services/website-builds',
-    featured: false,
+    features: ['Built in your framework — WordPress, headless, or full-code','Click-and-comment update system at launch','Mobile-first, speed-optimised, secure','Human specialist reviews every page','20% of budget ring-fenced for QA','All files, hosting, logins handed over'],
+    cta: 'Get a Quote', ctaHref: '/services/website-builds', featured: false,
     note: 'Pair with Core or Advanced for ongoing support.',
   },
 ];
@@ -146,53 +85,35 @@ const plans = [
   description="Done-for-you website management on any platform — WordPress, headless, or full-code — from $40/month, with same-day updates and a dedicated Australian support team. Ecommerce hosting $95/mo. Add Cortex AI for $30/mo. Get a free AI assessment — no commitment."
 >
 
-  <!-- ═══ HERO ═══ -->
-  <section class="section-dark relative overflow-hidden">
-    <!-- Subtle speed-line decoration (echoes logo) -->
+  <section class="section-dark relative overflow-hidden" data-hero>
     <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-      <svg class="absolute right-0 top-0 h-full w-auto opacity-[0.04]" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="120" x2="400" y2="80"  stroke="#F97316" stroke-width="60"/>
-        <line x1="0" y1="260" x2="400" y2="220" stroke="#F97316" stroke-width="40"/>
-        <line x1="0" y1="380" x2="400" y2="350" stroke="#F97316" stroke-width="25"/>
+      <svg class="absolute right-0 top-0 h-full w-auto" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line data-speed-line x1="0" y1="120" x2="400" y2="80"  stroke="#F97316" stroke-width="60" stroke-linecap="round"/>
+        <line data-speed-line x1="0" y1="260" x2="400" y2="220" stroke="#F97316" stroke-width="40" stroke-linecap="round"/>
+        <line data-speed-line x1="0" y1="380" x2="400" y2="350" stroke="#F97316" stroke-width="25" stroke-linecap="round"/>
       </svg>
     </div>
-
     <div class="container relative z-10 py-24 lg:py-36">
-      <!-- Chips -->
-      <div class="flex flex-wrap gap-2 mb-8">
+      <div class="flex flex-wrap gap-2 mb-8" data-hero-chips>
         <span class="chip">From $40/month</span>
         <span class="chip-inverse">Hunter Valley · Newcastle · Sydney · Melbourne · Yarra Valley</span>
         <span class="chip-inverse">Same-day updates</span>
       </div>
-
-      <!-- H1 -->
-      <h1 class="text-5xl lg:text-7xl font-extrabold font-heading text-white leading-[1.05] text-balance mb-6 max-w-3xl">
-        Your website.<br>Done for you.<br>
-        <span class="text-brand-accent">Today.</span>
+      <h1 class="text-white text-balance mb-6 max-w-3xl" style="font-weight: 800;">
+        <span class="block" data-hero-line style="clip-path: inset(0 100% 0 0);">Your website.</span>
+        <span class="block" data-hero-line style="clip-path: inset(0 100% 0 0);">Done for you.</span>
+        <span class="block text-brand-accent" data-hero-line style="clip-path: inset(0 100% 0 0);">Today.</span>
       </h1>
-
-      <!-- Subheadline -->
-      <p class="text-lg lg:text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl">
+      <p class="text-lg lg:text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl" data-hero-sub>
         Fast Web Guru gives Australian small businesses AI-powered hosting, same-day updates from a real person, and one fixed monthly price. No invoice for every change. No chasing. No surprises.
       </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-start gap-4">
-        <a href="#assessment" class="btn-primary text-base py-4 px-8">
-          Get Your Free AI Assessment
-        </a>
-        <a href="/how-it-works" class="btn-ghost-inverse text-base py-4">
-          See how it works →
-        </a>
+      <div class="flex flex-col sm:flex-row items-start gap-4" data-hero-ctas>
+        <a href="#assessment" class="btn-primary text-base py-4 px-8">Get Your Free AI Assessment</a>
+        <a href="/how-it-works" class="btn-ghost-inverse text-base py-4">See how it works →</a>
       </div>
-
-      <p class="text-zinc-500 text-sm mt-4">
-        30 seconds to fill in. Personalised findings in your inbox within 24 hours.
-      </p>
+      <p class="text-zinc-500 text-sm mt-4" data-hero-note>30 seconds to fill in. Personalised findings in your inbox within 24 hours.</p>
     </div>
-
-    <!-- Social proof bar -->
-    <div class="bg-zinc-900 border-t border-brand-border-dark">
+    <div class="bg-zinc-900 border-t border-brand-border-dark" data-hero-proof>
       <div class="container py-4">
         <p class="text-zinc-400 text-sm text-center flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           <span>Serving Australian small businesses for 10+ years</span>
@@ -207,208 +128,153 @@ const plans = [
     </div>
   </section>
 
-  <!-- ═══ PROBLEM ═══ -->
   <section class="section-light section-pad">
     <div class="container">
       <div class="max-w-3xl">
-        <h2 class="mb-8">Sound familiar?</h2>
-
-        <div class="space-y-5 text-lg text-brand-text-secondary leading-relaxed">
-          <p>You paid good money for a website. The developer took the deposit, built something, went quiet. Now you're chasing them for changes that should take five minutes — and every change comes with an invoice you weren't expecting.</p>
-          <p>Or maybe you've got traffic. But the phone stays quiet and nobody fills out the form. And you don't know why, and there's no one to ask.</p>
-          <p>Or you're just embarrassed by the site. You catch yourself apologising for it when you send the link.</p>
-          <p class="text-brand-dark font-medium">Whatever the version — you're not alone, and it's not your fault. Most Australian small businesses are dealing with exactly this.</p>
+        <div class="mb-8" data-underline>
+          <h2 class="heading-underline inline-block">Sound familiar?<span class="underline-accent-bar" aria-hidden="true"></span></h2>
         </div>
-
-        <!-- Pull quote / testimonial -->
-        <figure class="callout-box mt-10">
-          <blockquote class="text-lg font-medium text-brand-dark italic leading-relaxed">
-            "Before Fast Web Guru, I was constantly chasing my old provider just to get basic things fixed. Now it just gets done — same day, no drama."
-          </blockquote>
+        <div class="space-y-5 text-lg text-brand-text-secondary leading-relaxed" data-reveal-group="0.06">
+          <p data-reveal="fade">You paid good money for a website. The developer took the deposit, built something, went quiet. Now you're chasing them for changes that should take five minutes — and every change comes with an invoice you weren't expecting.</p>
+          <p data-reveal="fade">Or maybe you've got traffic. But the phone stays quiet and nobody fills out the form. And you don't know why, and there's no one to ask.</p>
+          <p data-reveal="fade">Or you're just embarrassed by the site. You catch yourself apologising for it when you send the link.</p>
+          <p class="text-brand-dark font-medium" data-reveal="fade">Whatever the version — you're not alone, and it's not your fault. Most Australian small businesses are dealing with exactly this.</p>
+        </div>
+        <figure class="callout-box mt-10" data-reveal="fade">
+          <blockquote class="text-lg font-medium text-brand-dark italic leading-relaxed">"Before Fast Web Guru, I was constantly chasing my old provider just to get basic things fixed. Now it just gets done — same day, no drama."</blockquote>
           <figcaption class="mt-3 text-sm text-brand-text-secondary font-medium not-italic">— HS Auto Parts</figcaption>
         </figure>
-
-        <div class="mt-10">
+        <div class="mt-10" data-reveal="fade">
           <p class="text-brand-dark font-semibold mb-3">Recognised any of that?</p>
-          <a href="#assessment" class="btn-ghost text-base">
-            Get a free look at your own site →
-          </a>
+          <a href="#assessment" class="btn-ghost text-base">Get a free look at your own site →</a>
           <p class="text-zinc-400 text-sm mt-2">No sales call. No commitment. Just honest findings about the website you've already got.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ SOLUTION ═══ -->
   <section class="section-warm section-pad">
     <div class="container">
       <div class="max-w-3xl mb-12">
-        <h2 class="mb-6">What if your website just worked?</h2>
-        <p class="text-lg text-brand-text-secondary leading-relaxed mb-4">
-          Fast Web Guru isn't a hosting company. We don't hand you a tool and leave you to it. We're your website team.
-        </p>
-        <p class="text-lg text-brand-text-secondary leading-relaxed">
-          We pair AI tools with a real human support person, so your website gets updated today — without a phone call, without an invoice, without spending your weekend in a site builder. One fixed monthly price. Your site, your domain, your logins — always yours.
-        </p>
-        <p class="text-xl font-bold text-brand-dark mt-6">We call it <span class="text-brand-accent">Business in a Box.</span></p>
+        <div class="mb-6" data-underline>
+          <h2 class="heading-underline inline-block">What if your website just worked?<span class="underline-accent-bar" aria-hidden="true"></span></h2>
+        </div>
+        <div class="space-y-4" data-reveal-group="0.05">
+          <p class="text-lg text-brand-text-secondary leading-relaxed" data-reveal="fade">Fast Web Guru isn't a hosting company. We don't hand you a tool and leave you to it. We're your website team.</p>
+          <p class="text-lg text-brand-text-secondary leading-relaxed" data-reveal="fade">We pair AI tools with a real human support person, so your website gets updated today — without a phone call, without an invoice, without spending your weekend in a site builder. One fixed monthly price. Your site, your domain, your logins — always yours.</p>
+        </div>
+        <p class="text-xl font-bold text-brand-dark mt-6" data-reveal="fade">We call it <span class="text-brand-accent">Business in a Box.</span></p>
       </div>
-
-      <!-- Feature list -->
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 list-none m-0 p-0">
-        {[
-          'A modern, AI-powered website your team can update by clicking and commenting directly on any page',
-          'Same-day updates handled by your support person the moment you flag them',
-          'Your own dedicated support person who gets your business and your brand',
-          'Triple-redundant hosting — your site stays up even through a power outage',
-          'AI tools for marketing, content, and social — set up for you, not by you',
-          'Full ownership: your site, your domain, all your logins. Always.',
-        ].map(item => (
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 list-none m-0 p-0" data-reveal-group="0.06">
+        {['A modern, AI-powered website your team can update by clicking and commenting directly on any page','Same-day updates handled by your support person the moment you flag them','Your own dedicated support person who gets your business and your brand','Triple-redundant hosting — your site stays up even through a power outage','AI tools for marketing, content, and social — set up for you, not by you','Full ownership: your site, your domain, all your logins. Always.'].map(item => (
           <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
+            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
             <span class="text-brand-dark leading-snug">{item}</span>
           </li>
         ))}
       </ul>
-
-      <!-- Price anchor -->
-      <div class="flex items-baseline gap-2">
-        <span class="font-heading font-extrabold text-5xl text-brand-dark">From $40</span>
+      <div class="flex items-baseline gap-2" data-reveal="fade">
+        <span class="font-heading font-extrabold text-brand-dark" style="font-size: clamp(3rem, 7vw, 5rem); letter-spacing: -0.045em; line-height: 0.9;">From $40</span>
         <span class="text-brand-text-secondary text-lg">/month</span>
       </div>
-      <a href="/pricing" class="btn-ghost mt-2">See everything that's included →</a>
+      <a href="/pricing" class="btn-ghost mt-2" data-reveal="fade">See everything that's included →</a>
     </div>
   </section>
 
-  <!-- ═══ HOW IT WORKS ═══ -->
-  <section class="section-mid section-pad">
+  <section class="section-mid section-pad" data-hiw-section>
     <div class="container">
-      <h2 class="mb-16 max-w-xl">Here's what happens when you start</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-        {[
-          {
-            n: '1',
-            title: 'Get your free AI assessment',
-            body: 'Hit the button. Enter your website details. We\'ll send you a personalised look at where your site stands right now — and what the AI era means for your specific business. Takes 30 seconds. In your inbox within 24 hours.',
-          },
-          {
-            n: '2',
-            title: 'We set everything up',
-            body: 'Hosting, AI tools, Workflow Hub, your support person — all done for you. You get full access to everything: your site, your hosting account, all logins. No lock-in, no dependency.',
-          },
-          {
-            n: '3',
-            title: 'Click and comment to update your site',
-            body: 'See something that needs changing? Click on it and leave a comment. Our team picks it up and sorts it same-day. No emails. No invoices.',
-          },
-          {
-            n: '4',
-            title: 'Your team keeps it running',
-            body: '24/7. Replies within an hour. Your support person knows your business. They notice problems before you do and fix them before you have to report them.',
-          },
-        ].map(step => (
-          <div class="flex gap-6">
-            <div class="step-number flex-shrink-0 w-16">{step.n}</div>
-            <div class="pt-2">
-              <h3 class="font-bold text-xl mb-2">{step.title}</h3>
-              <p class="text-brand-text-secondary leading-relaxed">{step.body}</p>
+      <h2 class="mb-16 max-w-xl" data-reveal="fade">Here's what happens when you start</h2>
+      <div class="relative">
+        <div class="hidden md:block absolute left-5 top-0 h-full w-0.5 bg-brand-border" aria-hidden="true">
+          <div class="absolute inset-0 bg-brand-accent rounded-full" data-hiw-bar style="transform: scaleY(0); transform-origin: top center;"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 md:pl-16">
+          {[
+            { n: '1', title: 'Get your free AI assessment', body: 'Hit the button. Enter your website details. We\'ll send you a personalised look at where your site stands right now — and what the AI era means for your specific business. Takes 30 seconds. In your inbox within 24 hours.' },
+            { n: '2', title: 'We set everything up', body: 'Hosting, AI tools, Workflow Hub, your support person — all done for you. You get full access to everything: your site, your hosting account, all logins. No lock-in, no dependency.' },
+            { n: '3', title: 'Click and comment to update your site', body: 'See something that needs changing? Click on it and leave a comment. Our team picks it up and sorts it same-day. No emails. No invoices.' },
+            { n: '4', title: 'Your team keeps it running', body: '24/7. Replies within an hour. Your support person knows your business. They notice problems before you do and fix them before you have to report them.' },
+          ].map(step => (
+            <div class="flex gap-6" data-hiw-step data-reveal="fade">
+              <div class="step-number flex-shrink-0 w-16" data-hiw-num>{step.n}</div>
+              <div class="pt-2"><h3 class="font-bold mb-2">{step.title}</h3><p class="text-brand-text-secondary leading-relaxed">{step.body}</p></div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <div class="mt-14">
-        <a href="/how-it-works" class="btn-secondary">See the full breakdown →</a>
-      </div>
+      <div class="mt-14" data-reveal="fade"><a href="/how-it-works" class="btn-secondary">See the full breakdown →</a></div>
     </div>
   </section>
 
-  <!-- ═══ FEATURES ═══ -->
   <section class="section-light section-pad">
     <div class="container">
-      <h2 class="mb-4">What's inside Business in a Box</h2>
-      <p class="text-brand-text-secondary text-lg mb-12 max-w-2xl">Every plan includes the same core infrastructure. This is what you get from day one.</p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h2 class="mb-4" data-reveal="fade">What's inside Business in a Box</h2>
+      <p class="text-brand-text-secondary text-lg mb-12 max-w-2xl" data-reveal="fade">Every plan includes the same core infrastructure. This is what you get from day one.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal-group="0.07">
         {features.map(f => <FeatureCard {...f} />)}
       </div>
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIALS ═══ -->
   <section class="section-dark section-pad">
     <div class="container">
-      <h2 class="text-white mb-3">What clients say</h2>
-      <p class="text-zinc-400 text-lg mb-12">Real results from Australian small businesses.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 class="text-white mb-3" data-reveal="fade">What clients say</h2>
+      <p class="text-zinc-400 text-lg mb-12" data-reveal="fade">Real results from Australian small businesses.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal-group="0.09">
         {testimonials.map(t => <TestimonialCard {...t} />)}
       </div>
     </div>
   </section>
 
-  <!-- ═══ PLANS ═══ -->
   <section class="section-light section-pad">
     <div class="container">
-      <div class="max-w-2xl mb-8">
+      <div class="max-w-2xl mb-8" data-reveal="fade">
         <h2 class="mb-4">Same features. Different levels of support.</h2>
         <p class="text-brand-text-secondary text-lg">Every plan includes the same AI stack, the same tech infrastructure, and access to the same support team. The difference is how much of our team's time you get each month — and whether you're running a store. We don't lock features behind expensive plans.</p>
       </div>
-
-      <!-- Platform band -->
-      <div class="callout-box mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div class="callout-box mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3" data-reveal="fade">
         <p class="text-brand-dark"><strong>One price, every platform.</strong> WordPress (standard or WooCommerce), Headless WordPress, or our full-code AI build — all on the same $40 core hosting price. Running a store? Ecommerce hosting is $95/mo with Cortex AI included.</p>
         <a href="/pricing#platforms" class="text-brand-accent font-semibold hover:underline whitespace-nowrap">How platforms compare →</a>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch" data-reveal-group="0.06">
         {plans.map(p => <PlanCard {...p} />)}
       </div>
-
-      <p class="text-center mt-8">
+      <p class="text-center mt-8" data-reveal="fade">
         <a href="/pricing" class="btn-ghost text-base">See full pricing — and everything that's included →</a>
       </p>
     </div>
   </section>
 
-  <!-- ═══ CORTEX CALLOUT ═══ -->
-  <section class="py-14 border-t border-b border-brand-border" style="background-color:#F0F9FF;">
+  <section class="py-14 border-t border-b border-brand-border section-mid">
     <div class="container">
-      <div class="max-w-3xl">
-        <h2 class="mb-3 text-2xl lg:text-3xl font-bold">Add AI that actually knows your business. $30/month.</h2>
-        <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">
-          Cortex is three AI upgrades for the price of a streaming subscription. A website that edits when you talk to it. An AI brain trained on your brand DNA. And 20 growth workflows built specifically for your business — work through them with your team over the coming months, with more added regularly.
-        </p>
-        <p class="text-brand-text-secondary mb-6">Works on any platform — your existing WordPress site, a headless build, or our full-code AI hosting. The brain and workflows run at full power everywhere; Talk-to-Edit scales up with your platform, reaching full power on our full-code build.</p>
+      <div class="max-w-3xl" data-reveal="fade">
+        <div class="mb-3" data-underline>
+          <h2 class="heading-underline inline-block text-2xl lg:text-3xl font-bold" style="letter-spacing: -0.02em;">Add AI that actually knows your business. $30/month.<span class="underline-accent-bar" aria-hidden="true"></span></h2>
+        </div>
+        <p class="text-brand-text-secondary text-lg leading-relaxed mb-6">Cortex is three AI upgrades for the price of a streaming subscription. A website that edits when you talk to it. An AI brain trained on your brand DNA. And 20 growth workflows built specifically for your business — work through them with your team over the coming months, with more added regularly.</p>
+        <p class="text-brand-text-secondary mb-6">Works on any platform — your existing WordPress site, a headless build, or our full-code AI hosting.</p>
         <p class="font-semibold text-brand-dark mb-4">Three pillars. One bundle. $30/month.</p>
-        <ul class="space-y-3 mb-8 list-none m-0 p-0">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-            <span class="text-brand-dark"><strong>Cortex Host Systems</strong> — AI-native hosting with Talk-to-Edit. Update your site by describing what you want. No code, no builders.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-            <span class="text-brand-dark"><strong>Cortex Team Stack</strong> — Your business, ingested into an AI brain. Plus 1 hr/month of a real AI Specialist who reviews every output.</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-            <span class="text-brand-dark"><strong>Cortex Ops Grid</strong> — 20 bespoke, step-by-step growth workflows built from your brand. Work through them with your team — more workflows and workshops added regularly.</span>
-          </li>
+        <ul class="space-y-3 mb-8 list-none m-0 p-0" data-reveal-group="0.07">
+          {[
+            { title: 'Cortex Host Systems', desc: 'AI-native hosting with Talk-to-Edit. Update your site by describing what you want. No code, no builders.' },
+            { title: 'Cortex Team Stack', desc: 'Your business, ingested into an AI brain. Plus 1 hr/month of a real AI Specialist who reviews every output.' },
+            { title: 'Cortex Ops Grid', desc: '20 bespoke, step-by-step growth workflows built from your brand. Work through them with your team — more workflows and workshops added regularly.' },
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <span class="text-brand-dark"><strong>{item.title}</strong> — {item.desc}</span>
+            </li>
+          ))}
         </ul>
         <div class="flex flex-col sm:flex-row items-start gap-3">
-          <a href="/cortex" class="btn-ghost text-base font-bold text-brand-accent">
-            See Cortex — $30/Month →
-          </a>
+          <a href="/cortex" class="btn-ghost text-base font-bold text-brand-accent">See Cortex — $30/Month →</a>
         </div>
         <p class="text-sm text-brand-text-secondary mt-3">Or add it to any FWG plan from your account dashboard.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ PARTNER CALLOUT ═══ -->
-  <section class="section-warm py-12 border-t border-brand-border">
+  <section class="section-warm py-12 border-t border-brand-border" data-reveal="fade">
     <div class="container">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
@@ -420,7 +286,10 @@ const plans = [
     </div>
   </section>
 
-  <!-- ═══ FINAL CTA ═══ -->
   <CTABlock />
+
+  <div class="sticky-cta-mobile" data-sticky-cta aria-hidden="true">
+    <a href="#assessment" class="btn-primary w-full justify-center text-base shadow-2xl">Get Your Free AI Assessment</a>
+  </div>
 
 </Layout>
