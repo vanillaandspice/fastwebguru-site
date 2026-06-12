@@ -1,0 +1,47 @@
+---
+import StatusPills from './StatusPills.astro';
+import PortalIcon from './PortalIcon.astro';
+
+interface Props {
+  site: {
+    clientName: string;
+    websiteUrl: string;
+    environment: string;
+    visibility: string;
+    indexable: boolean;
+    lastSynced: string;
+  };
+}
+const { site } = Astro.props;
+const niceDate = new Date(site.lastSynced + 'T00:00:00').toLocaleDateString('en-AU', {
+  day: 'numeric', month: 'short', year: 'numeric',
+});
+---
+<div class="section-dark border-b border-brand-border-dark">
+  <div class="container py-5">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!-- View website button -->
+      <a
+        href={site.websiteUrl}
+        target="_blank"
+        rel="noopener"
+        class="group inline-flex items-center gap-4 bg-zinc-900 hover:bg-zinc-800 border border-brand-border-dark hover:border-brand-accent/50 rounded-xl pl-3 pr-5 py-3 transition-colors duration-200 self-start"
+      >
+        <img src="/logo-light.svg" alt="Fast Web Guru" width="120" height="32" class="h-8 w-auto" />
+        <span class="flex flex-col leading-tight">
+          <span class="text-[11px] uppercase tracking-widest text-zinc-500 font-semibold">View live website</span>
+          <span class="text-base font-bold text-white inline-flex items-center gap-1.5">
+            {site.clientName}
+            <PortalIcon name="external" class="w-4 h-4 text-brand-accent opacity-70 group-hover:opacity-100 transition-opacity" />
+          </span>
+        </span>
+      </a>
+
+      <!-- Status + sync -->
+      <div class="flex flex-col items-start lg:items-end gap-2">
+        <StatusPills environment={site.environment} visibility={site.visibility} indexable={site.indexable} />
+        <p class="text-xs text-zinc-500 m-0">Last synced from GitHub · {niceDate}</p>
+      </div>
+    </div>
+  </div>
+</div>

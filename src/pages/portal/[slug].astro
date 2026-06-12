@@ -1,0 +1,107 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PortalIcon from '../../components/portal/PortalIcon.astro';
+import manifest from '../../data/portal-manifest.json';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('portal');
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+
+const asset = manifest.assets.find((a) => a.slug === entry.slug);
+const category = manifest.categories.find((c) => c.id === asset?.category);
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+const niceDate = entry.data.lastUpdated
+  ? new Date(entry.data.lastUpdated + 'T00:00:00').toLocaleDateString('en-AU', {
+      day: 'numeric', month: 'short', year: 'numeric',
+    })
+  : null;
+---
+<Layout
+  title={`${asset?.displayTitle ?? entry.data.title} — Fast Web Guru Portal`}
+  description={asset?.teaser ?? 'Fast Web Guru client asset.'}
+  noindex={true}
+>
+  <div class="section-light">
+    <div class="container py-10 lg:py-14">
+      <!-- Breadcrumb -->
+      <div class="flex items-center justify-between gap-4 mb-8">
+        <a href="/portal" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-text-secondary hover:text-brand-accent">
+          <PortalIcon name="back" class="w-4 h-4" />
+          Back to dashboard
+        </a>
+        {category && (
+          <span class="inline-flex items-center gap-1.5 label-caps">
+            <PortalIcon name={category.icon} class="w-4 h-4 text-brand-accent" />
+            {category.label}
+          </span>
+        )}
+      </div>
+
+      <div class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-12">
+        <!-- Main -->
+        <article class="min-w-0">
+          <header class="mb-8 pb-8 border-b border-brand-border">
+            <h1 class="mb-3">{asset?.displayTitle ?? entry.data.title}</h1>
+            {asset?.teaser && <p class="text-lg text-brand-text-secondary m-0">{asset.teaser}</p>}
+            <div class="mt-5 flex flex-wrap items-center gap-3">
+              {asset?.driveEditUrl ? (
+                <a href={asset.driveEditUrl} target="_blank" rel="noopener" class="btn-primary text-sm py-2.5 px-5">
+                  Edit in Google Docs
+                  <PortalIcon name="external" class="w-4 h-4" />
+                </a>
+              ) : (
+                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-text-muted border-2 border-brand-border rounded-md py-2.5 px-5">
+                  Editable doc coming soon
+                </span>
+              )}
+              {niceDate && <span class="text-sm text-brand-text-muted">Last updated {niceDate}</span>}
+            </div>
+          </header>
+
+          <div class="prose prose-fwg">
+            <Content />
+          </div>
+        </article>
+
+        <!-- TOC -->
+        {toc.length > 2 && (
+          <aside class="hidden lg:block">
+            <div class="sticky top-28">
+              <p class="label-caps mb-3">On this page</p>
+              <nav class="space-y-1.5 text-sm border-l border-brand-border">
+                {toc.map((h) => (
+                  <a
+                    href={`#${h.slug}`}
+                    class:list={[
+                      'block text-brand-text-secondary hover:text-brand-accent transition-colors -ml-px border-l-2 border-transparent hover:border-brand-accent pl-3',
+                      h.depth === 3 && 'pl-6 text-[13px]',
+                    ]}
+                  >
+                    {h.text}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+        )}
+      </div>
+
+      <!-- Footer back -->
+      <div class="mt-16 pt-8 border-t border-brand-border">
+        <a href="/portal" class="btn-secondary text-sm py-2.5 px-5">
+          <PortalIcon name="back" class="w-4 h-4" />
+          All your assets
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

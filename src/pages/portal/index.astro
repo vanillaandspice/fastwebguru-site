@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TopBar from '../../components/portal/TopBar.astro';
+import CategorySection from '../../components/portal/CategorySection.astro';
+import PortalIcon from '../../components/portal/PortalIcon.astro';
+import manifest from '../../data/portal-manifest.json';
+
+const { site, categories, assets } = manifest;
+const assetsByCategory = (id: string) => assets.filter((a) => a.category === id);
+const totalDocs = assets.length;
+---
+<Layout
+  title="Client Portal — Fast Web Guru"
+  description="Your Cortex Ops Grid: the living brain of your business. Browse, read, and edit every asset we've built for you."
+  noindex={true}
+>
+  <TopBar site={site} />
+
+  <div class="section-light">
+    <div class="container section-pad">
+      <!-- Header -->
+      <div class="max-w-content">
+        <span class="chip mb-4">Cortex Ops Grid</span>
+        <h1 class="mb-4">Your business brain, in one place.</h1>
+        <p class="text-lg text-brand-text-secondary">
+          Everything we've built for you — your words, your strategy, your campaigns —
+          organised and ready. Browse it, read it, and edit any of it in Google Docs with a click.
+          <span class="text-brand-text-muted">{totalDocs} documents across {categories.length} areas.</span>
+        </p>
+      </div>
+
+      <!-- Search -->
+      <div class="mt-8 relative max-w-2xl">
+        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-text-muted pointer-events-none">
+          <PortalIcon name="search" class="w-5 h-5" />
+        </span>
+        <input
+          id="portal-search"
+          type="search"
+          autocomplete="off"
+          placeholder="Search your assets… try “pricing”, “brand voice”, or “ads”"
+          class="input pl-12 pr-4 py-4 text-base"
+          aria-label="Search your assets"
+        />
+      </div>
+
+      <!-- Master nav (category chips) -->
+      <nav class="mt-5 flex flex-wrap gap-2" aria-label="Jump to a category">
+        <button type="button" data-filter="all" class="portal-chip is-active">All</button>
+        {categories.map((c) => (
+          <button type="button" data-filter={c.id} class="portal-chip">{c.label}</button>
+        ))}
+      </nav>
+
+      <!-- No results -->
+      <p id="portal-no-results" class="hidden mt-10 text-brand-text-secondary">
+        No matches for “<span id="portal-query"></span>”. Try a topic like
+        <em>pricing</em>, <em>brand voice</em>, or <em>ads</em> — or
+        <button type="button" id="portal-clear" class="text-brand-accent font-semibold underline underline-offset-2">clear the search</button>.
+      </p>
+
+      <!-- Category sections -->
+      <div class="mt-12 space-y-16" id="portal-sections">
+        {categories.map((c) => (
+          <CategorySection category={c} assets={assetsByCategory(c.id)} />
+        ))}
+      </div>
+
+      <!-- Pillar links -->
+      <div class="mt-20 rounded-2xl section-dark p-8 lg:p-10">
+        <h2 class="text-2xl font-heading font-bold text-white m-0">The other two pillars of your brain</h2>
+        <p class="text-zinc-400 mt-2 mb-6 max-w-content">
+          This dashboard is your <strong class="text-white">Ops Grid</strong> — where your strategy lives and gets done.
+          It works hand in hand with the other two parts of Cortex.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="/cortex/team-stack" class="group flex items-start gap-4 bg-zinc-900 hover:bg-zinc-800 border border-brand-border-dark hover:border-brand-accent/50 rounded-xl p-5 transition-colors">
+            <span class="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-surface-warm text-brand-accent flex-shrink-0">
+              <PortalIcon name="brain" class="w-5 h-5" />
+            </span>
+            <span>
+              <span class="block text-white font-bold inline-flex items-center gap-1.5">
+                Cortex Team Stack
+                <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </span>
+              <span class="block text-sm text-zinc-400 mt-1">Your Business DNA and AI brain — the intelligence that knows your business.</span>
+            </span>
+          </a>
+          <a href="/cortex/host-systems" class="group flex items-start gap-4 bg-zinc-900 hover:bg-zinc-800 border border-brand-border-dark hover:border-brand-accent/50 rounded-xl p-5 transition-colors">
+            <span class="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-surface-warm text-brand-accent flex-shrink-0">
+              <PortalIcon name="server" class="w-5 h-5" />
+            </span>
+            <span>
+              <span class="block text-white font-bold inline-flex items-center gap-1.5">
+                Cortex Host Systems
+                <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </span>
+              <span class="block text-sm text-zinc-400 mt-1">Your AI-native hosting — edit your live site just by asking.</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .portal-chip {
+    @apply inline-flex items-center text-sm font-semibold px-4 py-2 rounded-full border border-brand-border text-brand-text-secondary bg-white transition-colors duration-150;
+  }
+  .portal-chip:hover { @apply border-brand-accent text-brand-dark; }
+  .portal-chip.is-active { @apply bg-brand-dark text-white border-brand-dark; }
+</style>
+
+<script>
+  const search = document.getElementById('portal-search') as HTMLInputElement | null;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.portal-chip'));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-asset-card]'));
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-category-section]'));
+  const noResults = document.getElementById('portal-no-results');
+  const queryOut = document.getElementById('portal-query');
+  const clearBtn = document.getElementById('portal-clear');
+
+  let activeFilter = 'all';
+
+  function apply() {
+    const q = (search?.value || '').trim().toLowerCase();
+    let anyVisible = false;
+
+    cards.forEach((card) => {
+      const matchesText = !q || (card.dataset.search || '').includes(q);
+      const matchesCat = activeFilter === 'all' || card.dataset.category === activeFilter;
+      const show = matchesText && matchesCat;
+      card.classList.toggle('hidden', !show);
+      if (show) anyVisible = true;
+    });
+
+    // Hide a category section if none of its cards are visible.
+    sections.forEach((sec) => {
+      const visible = sec.querySelectorAll('[data-asset-card]:not(.hidden)').length;
+      sec.classList.toggle('hidden', visible === 0);
+    });
+
+    if (noResults && queryOut) {
+      noResults.classList.toggle('hidden', anyVisible);
+      queryOut.textContent = q;
+    }
+  }
+
+  search?.addEventListener('input', apply);
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeFilter = chip.dataset.filter || 'all';
+      chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+      apply();
+    });
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    if (search) search.value = '';
+    apply();
+    search?.focus();
+  });
+
+  // Cmd/Ctrl-K focuses search.
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      search?.focus();
+    }
+  });
+</script>

@@ -1,0 +1,41 @@
+---
+// Environment / visibility / indexing indicators for the portal top bar.
+interface Props {
+  environment: string;
+  visibility: string;
+  indexable: boolean;
+}
+const { environment, visibility, indexable } = Astro.props;
+
+const isProd = environment === 'production';
+const isPublic = visibility === 'public';
+
+const pills = [
+  {
+    label: isProd ? 'Production' : 'Development',
+    tone: isProd ? 'green' : 'amber',
+  },
+  {
+    label: isPublic ? 'Public' : 'Private',
+    tone: isPublic ? 'green' : 'zinc',
+  },
+  {
+    label: indexable ? 'Indexable' : 'No-robot (protected)',
+    tone: indexable ? 'green' : 'amber',
+  },
+];
+
+const dot: Record<string, string> = {
+  green: 'bg-emerald-400',
+  amber: 'bg-amber-400',
+  zinc: 'bg-zinc-400',
+};
+---
+<ul class="flex flex-wrap items-center gap-2 list-none m-0 p-0">
+  {pills.map((p) => (
+    <li class="inline-flex items-center gap-2 border border-brand-border-dark bg-zinc-900/60 text-zinc-200 text-xs font-medium px-3 py-1.5 rounded-full">
+      <span class={`w-2 h-2 rounded-full ${dot[p.tone]}`}></span>
+      {p.label}
+    </li>
+  ))}
+</ul>

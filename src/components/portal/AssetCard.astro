@@ -1,0 +1,73 @@
+---
+import PortalIcon from './PortalIcon.astro';
+
+interface Props {
+  asset: {
+    slug: string;
+    displayTitle: string;
+    teaser: string;
+    summary: string;
+    skill: string;
+    category: string;
+    driveEditUrl: string;
+  };
+  category: { label: string; icon: string };
+}
+const { asset, category } = Astro.props;
+
+const haystack = [
+  asset.displayTitle, asset.teaser, asset.summary, asset.skill, category.label,
+].join(' ').toLowerCase();
+
+const hasEdit = !!asset.driveEditUrl;
+---
+<article
+  class="feature-card flex flex-col h-full"
+  data-asset-card
+  data-category={asset.category}
+  data-search={haystack}
+>
+  <div class="flex items-center gap-2 mb-3">
+    <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-brand-surface-warm text-brand-accent">
+      <PortalIcon name={category.icon} class="w-4 h-4" />
+    </span>
+    <span class="label-caps">{category.label}</span>
+  </div>
+
+  <h3 class="text-xl font-heading font-bold text-brand-dark leading-snug mb-1.5">
+    {asset.displayTitle}
+  </h3>
+  <p class="text-sm text-brand-text-secondary leading-relaxed m-0">{asset.teaser}</p>
+
+  <!-- What's inside -->
+  <details class="mt-3 group">
+    <summary class="list-none cursor-pointer inline-flex items-center gap-1 text-sm font-semibold text-brand-accent select-none">
+      What's inside
+      <PortalIcon name="chevron" class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
+    </summary>
+    <p class="mt-2 text-sm text-brand-text-secondary leading-relaxed border-l-2 border-brand-border pl-3 m-0">
+      {asset.summary}
+    </p>
+  </details>
+
+  <!-- Actions -->
+  <div class="mt-auto pt-4 flex items-center gap-2">
+    <a href={`/portal/${asset.slug}`} class="btn-primary text-sm py-2 px-4">
+      View
+    </a>
+    {hasEdit ? (
+      <a href={asset.driveEditUrl} target="_blank" rel="noopener" class="btn-secondary text-sm py-2 px-4">
+        Edit
+        <PortalIcon name="external" class="w-3.5 h-3.5" />
+      </a>
+    ) : (
+      <span
+        class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-text-muted border-2 border-brand-border rounded-md py-2 px-4 cursor-not-allowed"
+        title="Editable Google Doc is being prepared"
+      >
+        Edit
+        <span class="text-[10px] uppercase tracking-wide">soon</span>
+      </span>
+    )}
+  </div>
+</article>
