@@ -14,12 +14,10 @@ const totalDocs = assets.length;
   description="Your Cortex Ops Grid: the living brain of your business. Browse, read, and edit every asset we've built for you."
   noindex={true}
 >
-  <TopBar site={site} />
-
   <div class="section-light">
     <div class="container section-pad">
       <!-- Header -->
-      <div class="max-w-content">
+      <div class="max-w-2xl mx-auto text-center">
         <span class="chip mb-4">Cortex Ops Grid</span>
         <h1 class="mb-4">Your business brain, in one place.</h1>
         <p class="text-lg text-brand-text-secondary">
@@ -29,8 +27,13 @@ const totalDocs = assets.length;
         </p>
       </div>
 
+      <!-- Site / status cluster (centered, just above search) -->
+      <div class="mt-10">
+        <TopBar site={site} />
+      </div>
+
       <!-- Search -->
-      <div class="mt-8 relative max-w-2xl">
+      <div class="mt-8 relative max-w-2xl mx-auto">
         <span class="absolute left-4 top-1/2 -translate-y-1/2 text-brand-text-muted pointer-events-none">
           <PortalIcon name="search" class="w-5 h-5" />
         </span>
@@ -45,7 +48,7 @@ const totalDocs = assets.length;
       </div>
 
       <!-- Master nav (category chips) -->
-      <nav class="mt-5 flex flex-wrap gap-2" aria-label="Jump to a category">
+      <nav class="mt-5 flex flex-wrap gap-2 justify-center" aria-label="Jump to a category">
         <button type="button" data-filter="all" class="portal-chip is-active">All</button>
         {categories.map((c) => (
           <button type="button" data-filter={c.id} class="portal-chip">{c.label}</button>

@@ -26,14 +26,14 @@ const pills = [
 ];
 
 const dot: Record<string, string> = {
-  green: 'bg-emerald-400',
-  amber: 'bg-amber-400',
+  green: 'bg-emerald-500',
+  amber: 'bg-amber-500',
   zinc: 'bg-zinc-400',
 };
 ---
-<ul class="flex flex-wrap items-center gap-2 list-none m-0 p-0">
+<ul class="flex flex-wrap items-center justify-center gap-2 list-none m-0 p-0">
   {pills.map((p) => (
-    <li class="inline-flex items-center gap-2 border border-brand-border-dark bg-zinc-900/60 text-zinc-200 text-xs font-medium px-3 py-1.5 rounded-full">
+    <li class="inline-flex items-center gap-2 border border-brand-border bg-white text-brand-text-secondary text-xs font-medium px-3 py-1.5 rounded-full shadow-sm">
       <span class={`w-2 h-2 rounded-full ${dot[p.tone]}`}></span>
       {p.label}
     </li>
