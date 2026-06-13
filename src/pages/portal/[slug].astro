@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import PortalIcon from '../../components/portal/PortalIcon.astro';
 import { getClientManifest, getClientFile } from '../../lib/github';
+import { createSupabaseAdmin } from '../../lib/supabase';
 import { renderMarkdown } from '../../lib/markdown';
 
 export const prerender = false;
@@ -11,6 +12,15 @@ const { slug } = Astro.params;
 const manifest = await getClientManifest(client);
 const asset = manifest.assets.find((a: any) => a.slug === slug);
 if (!asset) return Astro.redirect('/portal');
+
+// Prefer the synced Google Doc URL (from the DB) for the Edit link.
+try {
+  const admin = createSupabaseAdmin();
+  const { data: ca } = await admin
+    .from('client_assets').select('drive_doc_url')
+    .eq('client_id', client.id).eq('slug', slug).maybeSingle();
+  if (ca?.drive_doc_url) asset.driveEditUrl = ca.drive_doc_url;
+} catch {}
 
 const src = await getClientFile(client, asset.sourceFile);
 const { html, headings } = renderMarkdown(src);

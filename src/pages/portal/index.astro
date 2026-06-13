@@ -4,6 +4,7 @@ import TopBar from '../../components/portal/TopBar.astro';
 import CategorySection from '../../components/portal/CategorySection.astro';
 import PortalIcon from '../../components/portal/PortalIcon.astro';
 import { getClientManifest } from '../../lib/github';
+import { createSupabaseAdmin } from '../../lib/supabase';
 import { Image } from 'astro:assets';
 import opsGridLogo from '../../assets/cortex/cortex-ops-grid.png';
 import teamStackLogo from '../../assets/cortex/cortex-team-stack.png';
@@ -14,6 +15,14 @@ export const prerender = false;
 const client = Astro.locals.client!;
 const manifest = await getClientManifest(client);
 const { site, categories, assets } = manifest;
+// Prefer the per-client synced Google Doc URLs (from the DB) for Edit links.
+try {
+  const admin = createSupabaseAdmin();
+  const { data: ca } = await admin
+    .from('client_assets').select('slug, drive_doc_url').eq('client_id', client.id);
+  const urlBySlug = new Map((ca ?? []).map((r: any) => [r.slug, r.drive_doc_url]));
+  for (const a of assets) { const u = urlBySlug.get(a.slug); if (u) a.driveEditUrl = u; }
+} catch {}
 const assetsByCategory = (id: string) => assets.filter((a: any) => a.category === id);
 const totalDocs = assets.length;
 const user = Astro.locals.user;
@@ -25,12 +34,18 @@ const user = Astro.locals.user;
 >
   <!-- Account strip -->
   <div class="bg-brand-dark border-b border-brand-border-dark">
-    <div class="container py-2.5 flex flex-wrap justify-end items-center gap-3 text-xs text-zinc-400">
-      <span>Signed in as <span class="text-zinc-200">{user?.email}</span></span>
-      <span class="text-zinc-600" aria-hidden="true">·</span>
-      <form method="POST" action="/portal/auth/signout" class="inline" data-astro-reload>
-        <button type="submit" class="text-brand-accent hover:underline font-semibold">Sign out</button>
-      </form>
+    <div class="container py-2.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-xs text-zinc-400">
+      <div class="flex items-center gap-2">
+        <button id="portal-sync" type="button" class="text-brand-accent hover:underline font-semibold disabled:opacity-50 disabled:no-underline">Sync to Google Drive</button>
+        <span id="portal-sync-status" class="text-zinc-500"></span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span>Signed in as <span class="text-zinc-200">{user?.email}</span></span>
+        <span class="text-zinc-600" aria-hidden="true">·</span>
+        <form method="POST" action="/portal/auth/signout" class="inline" data-astro-reload>
+          <button type="submit" class="text-brand-accent hover:underline font-semibold">Sign out</button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -206,6 +221,28 @@ const user = Astro.locals.user;
         btn.setAttribute('aria-expanded', String(!open));
         detail?.classList.toggle('hidden', open);
       });
+    });
+
+    // Sync to Google Drive (Git -> Drive)
+    const syncBtn = document.getElementById('portal-sync') as HTMLButtonElement | null;
+    const syncStatus = document.getElementById('portal-sync-status');
+    syncBtn?.addEventListener('click', async () => {
+      syncBtn.disabled = true;
+      if (syncStatus) syncStatus.textContent = 'Syncing to your Drive…';
+      try {
+        const res = await fetch('/portal/api/sync', { method: 'POST' });
+        const j = await res.json();
+        if (j.ok) {
+          if (syncStatus) syncStatus.textContent = `Synced ✓ ${j.created} new, ${j.updated} updated, ${j.skipped} unchanged` + (j.failed ? `, ${j.failed} failed` : '');
+          setTimeout(() => location.reload(), 1800);
+        } else if (syncStatus) {
+          syncStatus.textContent = 'Sync failed: ' + (j.message || j.error || 'error');
+        }
+      } catch {
+        if (syncStatus) syncStatus.textContent = 'Sync failed (network).';
+      } finally {
+        syncBtn.disabled = false;
+      }
     });
   }
 
