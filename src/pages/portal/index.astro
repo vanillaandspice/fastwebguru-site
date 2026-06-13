@@ -18,11 +18,17 @@ const totalDocs = assets.length;
   description="Your Cortex Ops Grid: the living brain of your business. Browse, read, and edit every asset we've built for you."
   noindex={true}
 >
+  <!-- Top logo band (full-width black) -->
+  <section class="section-dark py-12 lg:py-16">
+    <div class="container text-center">
+      <Image src={opsGridLogo} alt="Cortex Ops Grid" width={500} class="w-60 sm:w-72 lg:w-80 h-auto mx-auto" />
+    </div>
+  </section>
+
   <div class="section-light">
     <div class="container section-pad">
       <!-- Header -->
       <div class="max-w-2xl mx-auto text-center">
-        <Image src={opsGridLogo} alt="Cortex Ops Grid" width={500} class="w-60 sm:w-72 lg:w-80 h-auto mx-auto mb-8" />
         <h1 class="mb-4">Your business brain, in one place.</h1>
         <p class="text-lg text-brand-text-secondary">
           Everything we've built for you — your words, your strategy, your campaigns —
@@ -73,34 +79,37 @@ const totalDocs = assets.length;
         ))}
       </div>
 
-      <!-- The other two pillars (clean, no panels) -->
-      <div class="mt-28 pt-16 border-t border-brand-border text-center">
-        <h2 class="text-2xl font-heading font-bold text-brand-dark m-0">The other two pillars of your brain</h2>
-        <p class="text-brand-text-secondary mt-3 max-w-content mx-auto leading-relaxed">
-          This dashboard is your <strong class="text-brand-dark">Ops Grid</strong> — where your strategy lives and gets done.
-          It works hand in hand with the other two parts of Cortex.
-        </p>
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 max-w-3xl mx-auto">
-          <a href="/cortex/team-stack" class="group flex flex-col items-center px-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-4">
-            <Image src={teamStackLogo} alt="Cortex Team Stack" width={420} class="w-44 sm:w-56 h-auto transition-transform duration-300 group-hover:-translate-y-1.5" />
-            <span class="mt-8 inline-flex items-center gap-1.5 font-heading font-bold text-brand-dark group-hover:text-brand-accent transition-colors">
-              Explore Team Stack
-              <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent" />
-            </span>
-            <span class="block text-sm text-brand-text-secondary mt-2 max-w-xs">Your Business DNA and AI brain — the intelligence that knows your business.</span>
-          </a>
-          <a href="/cortex/host-systems" class="group flex flex-col items-center px-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-4">
-            <Image src={hostSystemsLogo} alt="Cortex Host Systems" width={420} class="w-44 sm:w-56 h-auto transition-transform duration-300 group-hover:-translate-y-1.5" />
-            <span class="mt-8 inline-flex items-center gap-1.5 font-heading font-bold text-brand-dark group-hover:text-brand-accent transition-colors">
-              Explore Host Systems
-              <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent" />
-            </span>
-            <span class="block text-sm text-brand-text-secondary mt-2 max-w-xs">Your AI-native hosting — edit your live site just by asking.</span>
-          </a>
-        </div>
-      </div>
     </div>
   </div>
+
+  <!-- The other two pillars (full-width black) -->
+  <section class="section-dark py-20 lg:py-28">
+    <div class="container text-center">
+      <h2 class="text-2xl font-heading font-bold text-white m-0">The other two pillars of your brain</h2>
+      <p class="text-zinc-400 mt-3 max-w-content mx-auto leading-relaxed">
+        This dashboard is your <strong class="text-white">Ops Grid</strong> — where your strategy lives and gets done.
+        It works hand in hand with the other two parts of Cortex.
+      </p>
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 max-w-3xl mx-auto">
+        <a href="/cortex/team-stack" class="group flex flex-col items-center px-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-4 focus-visible:ring-offset-brand-dark">
+          <Image src={teamStackLogo} alt="Cortex Team Stack" width={420} class="w-44 sm:w-56 h-auto transition-transform duration-300 group-hover:-translate-y-1.5" />
+          <span class="mt-8 inline-flex items-center gap-1.5 font-heading font-bold text-white group-hover:text-brand-accent transition-colors">
+            Explore Team Stack
+            <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent" />
+          </span>
+          <span class="block text-sm text-zinc-400 mt-2 max-w-xs">Your Business DNA and AI brain — the intelligence that knows your business.</span>
+        </a>
+        <a href="/cortex/host-systems" class="group flex flex-col items-center px-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-4 focus-visible:ring-offset-brand-dark">
+          <Image src={hostSystemsLogo} alt="Cortex Host Systems" width={420} class="w-44 sm:w-56 h-auto transition-transform duration-300 group-hover:-translate-y-1.5" />
+          <span class="mt-8 inline-flex items-center gap-1.5 font-heading font-bold text-white group-hover:text-brand-accent transition-colors">
+            Explore Host Systems
+            <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent" />
+          </span>
+          <span class="block text-sm text-zinc-400 mt-2 max-w-xs">Your AI-native hosting — edit your live site just by asking.</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
