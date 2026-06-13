@@ -28,7 +28,7 @@ const user = Astro.locals.user;
     <div class="container py-2.5 flex flex-wrap justify-end items-center gap-3 text-xs text-zinc-400">
       <span>Signed in as <span class="text-zinc-200">{user?.email}</span></span>
       <span class="text-zinc-600" aria-hidden="true">·</span>
-      <form method="POST" action="/portal/auth/signout" class="inline">
+      <form method="POST" action="/portal/auth/signout" class="inline" data-astro-reload>
         <button type="submit" class="text-brand-accent hover:underline font-semibold">Sign out</button>
       </form>
     </div>

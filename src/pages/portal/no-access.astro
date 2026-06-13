@@ -12,7 +12,7 @@ const { data: { user } } = await supabase.auth.getUser();
       <h1 class="text-white text-3xl lg:text-4xl mb-3">Not linked yet</h1>
       {user?.email && <p class="text-zinc-400 mb-2">You're signed in as <strong class="text-white">{user.email}</strong>.</p>}
       <p class="text-zinc-400 mb-8">This Google account isn't linked to a client portal yet. Contact your Fast Web Guru team and we'll get you set up.</p>
-      <form method="POST" action="/portal/auth/signout">
+      <form method="POST" action="/portal/auth/signout" data-astro-reload>
         <button type="submit" class="btn-inverse">Sign out</button>
       </form>
     </div>
