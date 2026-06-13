@@ -1,0 +1,54 @@
+---
+import AssetCard from './AssetCard.astro';
+import PortalIcon from './PortalIcon.astro';
+
+interface Props {
+  category: { id: string; number: string; label: string; subline: string; description?: string; icon: string };
+  assets: any[];
+}
+const { category, assets } = Astro.props;
+
+const primary = assets.filter((a) => a.isLatest !== false);
+const older = assets.filter((a) => a.isLatest === false);
+---
+<section id={`cat-${category.id}`} data-category-section={category.id} class="scroll-mt-24">
+  <!-- Header -->
+  <div class="flex items-start gap-3 mb-5">
+    <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-dark text-brand-accent flex-shrink-0 mt-1">
+      <PortalIcon name={category.icon} class="w-5 h-5" />
+    </span>
+    <div class="max-w-content">
+      <h2 class="text-2xl font-heading font-bold text-brand-dark leading-tight m-0">
+        <span class="text-brand-text-muted font-medium">{category.number}</span> {category.label}
+      </h2>
+      <p class="text-base text-brand-text-secondary mt-1.5 m-0 leading-relaxed">
+        <strong class="text-brand-dark font-semibold">{category.subline}.</strong>
+        {category.description && ` ${category.description}`}
+      </p>
+    </div>
+  </div>
+
+  <!-- Asset list (table/directory style) -->
+  <div class="border-y border-brand-border divide-y divide-brand-border">
+    {primary.map((asset) => <AssetCard asset={asset} />)}
+  </div>
+
+  {older.length > 0 && (
+    <details class="mt-3">
+      <summary class="list-none cursor-pointer inline-flex items-center gap-1 text-sm font-semibold text-brand-text-secondary select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-md">
+        Earlier versions ({older.length})
+        <PortalIcon name="chevron" class="w-4 h-4" />
+      </summary>
+      <ul class="mt-2 list-none m-0 p-0 space-y-1 pl-2">
+        {older.map((a) => (
+          <li>
+            <a href={`/portal/${a.slug}`} class="inline-flex items-center gap-2 text-sm text-brand-text-secondary hover:text-brand-accent">
+              <PortalIcon name="doc" class="w-4 h-4" />
+              {a.displayTitle}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )}
+</section>

@@ -1,0 +1,46 @@
+---
+import StatusPills from './StatusPills.astro';
+import PortalIcon from './PortalIcon.astro';
+import PortalLogo from './PortalLogo.astro';
+
+interface Props {
+  site: {
+    clientName: string;
+    websiteUrl: string;
+    stagingUrl: string;
+    environment: string;
+    visibility: string;
+    indexable: boolean;
+    lastSynced: string;
+  };
+}
+const { site } = Astro.props;
+
+// In development we point at the Vercel preview, in production the live domain.
+const liveUrl = site.environment === 'production' ? site.websiteUrl : site.stagingUrl;
+
+const niceDate = new Date(site.lastSynced + 'T00:00:00').toLocaleDateString('en-AU', {
+  day: 'numeric', month: 'short', year: 'numeric',
+});
+---
+<div class="flex flex-col items-center gap-3 text-center">
+  <!-- View website button (logo + action) -->
+  <a
+    href={liveUrl}
+    target="_blank"
+    rel="noopener"
+    class="group inline-flex items-center gap-4 bg-brand-dark hover:bg-zinc-800 border border-brand-dark rounded-xl pl-4 pr-5 py-3 transition-colors duration-200"
+    aria-label={`View the ${site.clientName} live website`}
+  >
+    <PortalLogo width={132} />
+    <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-white border-l border-zinc-700 pl-4">
+      View live website
+      <PortalIcon name="external" class="w-4 h-4 text-brand-accent opacity-80 group-hover:opacity-100 transition-opacity" />
+    </span>
+  </a>
+
+  <!-- Status pills -->
+  <StatusPills environment={site.environment} visibility={site.visibility} indexable={site.indexable} />
+
+  <p class="text-xs text-brand-text-muted m-0">Last synced from GitHub · {niceDate}</p>
+</div>
