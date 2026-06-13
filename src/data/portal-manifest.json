@@ -17,7 +17,8 @@
       "label": "Foundations",
       "subline": "Who you are and who you serve",
       "icon": "compass",
-      "driveFolderId": "1AV5zCihZJrUJ90d7vFjSfIh7hYmiPDIP"
+      "driveFolderId": "1AV5zCihZJrUJ90d7vFjSfIh7hYmiPDIP",
+      "description": "The bedrock the rest of your marketing stands on. Here you will find your brand DNA, your product positioning, the research on who your customers really are, and the competitor landscape — the source-of-truth documents every page, ad and email is built from."
     },
     {
       "id": "messaging",
@@ -25,7 +26,8 @@
       "label": "Messaging & Copy",
       "subline": "How you say it",
       "icon": "pen",
-      "driveFolderId": "1SPmjjP2Hca6THA5m0rqL37EaiCfpvAM-"
+      "driveFolderId": "1SPmjjP2Hca6THA5m0rqL37EaiCfpvAM-",
+      "description": "Your words, ready to use. The approved copy for every page of your site, your shortlist of taglines and hooks, and the core messages that keep everything sounding like one clear, confident voice."
     },
     {
       "id": "website",
@@ -33,7 +35,8 @@
       "label": "Website & Conversion",
       "subline": "Turning visitors into customers",
       "icon": "cursor",
-      "driveFolderId": "1j7gtZx0x5727XRVScLP6ttbr3h8AWzGB"
+      "driveFolderId": "1j7gtZx0x5727XRVScLP6ttbr3h8AWzGB",
+      "description": "Everything that shapes the site itself and how well it turns visitors into enquiries. Your sitemap and design system, your pricing and plans, the sign-up journey, your free AI assessment tool, and the page-by-page plan for lifting conversions."
     },
     {
       "id": "demand",
@@ -41,7 +44,8 @@
       "label": "Demand & Growth",
       "subline": "Getting found and bringing people in",
       "icon": "megaphone",
-      "driveFolderId": "111Imo1TaGd5x4roPVjcpfLRUaJ8eREdn"
+      "driveFolderId": "111Imo1TaGd5x4roPVjcpfLRUaJ8eREdn",
+      "description": "How new people discover you and decide to get in touch. Your ready-to-run Google and Meta ad campaigns, the free resources that earn email sign-ups, and the step-by-step plan for launching to the right audiences."
     },
     {
       "id": "lifecycle",
@@ -49,7 +53,8 @@
       "label": "Lifecycle & Retention",
       "subline": "Keeping customers and growing them",
       "icon": "repeat",
-      "driveFolderId": "1yXRDlooXt8CElzW9S3mMvg1BnXNe-IVK"
+      "driveFolderId": "1yXRDlooXt8CElzW9S3mMvg1BnXNe-IVK",
+      "description": "What happens after someone puts their hand up. The automated emails that follow up with new leads, and the welcome flow that gets every new customer off to a strong, well-looked-after start."
     },
     {
       "id": "build",
@@ -57,7 +62,8 @@
       "label": "Build & Technical",
       "subline": "The engine room",
       "icon": "wrench",
-      "driveFolderId": "1ezmMF1LZA6WzQjvMI4vwGIJvmBJSkcD-"
+      "driveFolderId": "1ezmMF1LZA6WzQjvMI4vwGIJvmBJSkcD-",
+      "description": "The technical side of how the site gets built. The developer handoff spec, the pre-build checklist, and the action plan behind how everything came together — handy for your developer and for seeing exactly what was asked for."
     }
   ],
   "assets": [

@@ -11,63 +11,52 @@ interface Props {
     category: string;
     driveEditUrl: string;
   };
-  category: { label: string; icon: string };
 }
-const { asset, category } = Astro.props;
+const { asset } = Astro.props;
 
-const haystack = [
-  asset.displayTitle, asset.teaser, asset.summary, asset.skill, category.label,
-].join(' ').toLowerCase();
-
+const haystack = [asset.displayTitle, asset.teaser, asset.summary, asset.skill]
+  .join(' ').toLowerCase();
 const hasEdit = !!asset.driveEditUrl;
+const detailId = `detail-${asset.slug}`;
 ---
-<article
-  class="feature-card flex flex-col h-full"
-  data-asset-card
-  data-category={asset.category}
-  data-search={haystack}
->
-  <div class="flex items-center gap-2 mb-3">
-    <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-brand-surface-warm text-brand-accent">
-      <PortalIcon name={category.icon} class="w-4 h-4" />
-    </span>
-    <span class="label-caps">{category.label}</span>
-  </div>
+<div class="asset-row" data-asset-card data-category={asset.category} data-search={haystack}>
+  <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 px-2 sm:px-3 py-4 rounded-lg transition-colors hover:bg-brand-surface-mid/60">
+    <!-- Title + teaser (toggles "what's inside") -->
+    <button
+      type="button"
+      class="asset-toggle group/row flex-1 min-w-0 flex items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded-md"
+      aria-expanded="false"
+      aria-controls={detailId}
+    >
+      <PortalIcon name="chevron" class="asset-chevron w-4 h-4 text-brand-text-muted shrink-0 transition-transform duration-200" />
+      <span class="min-w-0">
+        <span class="block font-heading font-bold text-brand-dark text-lg leading-snug group-hover/row:text-brand-accent transition-colors">
+          {asset.displayTitle}
+        </span>
+        <span class="block text-sm text-brand-text-secondary leading-snug">{asset.teaser}</span>
+      </span>
+    </button>
 
-  <h3 class="text-xl font-heading font-bold text-brand-dark leading-snug mb-1.5">
-    {asset.displayTitle}
-  </h3>
-  <p class="text-sm text-brand-text-secondary leading-relaxed m-0">{asset.teaser}</p>
+    <!-- Actions -->
+    <div class="flex items-center gap-2 shrink-0 pl-7 sm:pl-0">
+      <a href={`/portal/${asset.slug}`} class="btn-primary text-sm py-2.5 px-5">View</a>
+      {hasEdit ? (
+        <a href={asset.driveEditUrl} target="_blank" rel="noopener" class="btn-secondary text-sm py-2.5 px-4">
+          Edit
+          <PortalIcon name="external" class="w-3.5 h-3.5" />
+        </a>
+      ) : (
+        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-text-muted border-2 border-brand-border rounded-md py-2.5 px-4 cursor-not-allowed" title="Editable Google Doc is being prepared">
+          Edit <span class="text-[10px] uppercase tracking-wide">soon</span>
+        </span>
+      )}
+    </div>
+  </div>
 
   <!-- What's inside -->
-  <details class="mt-3 group">
-    <summary class="list-none cursor-pointer inline-flex items-center gap-1 text-sm font-semibold text-brand-accent select-none">
-      What's inside
-      <PortalIcon name="chevron" class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
-    </summary>
-    <p class="mt-2 text-sm text-brand-text-secondary leading-relaxed border-l-2 border-brand-border pl-3 m-0">
+  <div id={detailId} class="asset-detail hidden pl-9 pr-3 pb-4 -mt-1">
+    <p class="text-sm text-brand-text-secondary leading-relaxed max-w-content border-l-2 border-brand-accent/40 pl-4 m-0">
       {asset.summary}
     </p>
-  </details>
-
-  <!-- Actions -->
-  <div class="mt-auto pt-4 flex items-center gap-2">
-    <a href={`/portal/${asset.slug}`} class="btn-primary text-sm py-2 px-4">
-      View
-    </a>
-    {hasEdit ? (
-      <a href={asset.driveEditUrl} target="_blank" rel="noopener" class="btn-secondary text-sm py-2 px-4">
-        Edit
-        <PortalIcon name="external" class="w-3.5 h-3.5" />
-      </a>
-    ) : (
-      <span
-        class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-text-muted border-2 border-brand-border rounded-md py-2 px-4 cursor-not-allowed"
-        title="Editable Google Doc is being prepared"
-      >
-        Edit
-        <span class="text-[10px] uppercase tracking-wide">soon</span>
-      </span>
-    )}
   </div>
-</article>
+</div>

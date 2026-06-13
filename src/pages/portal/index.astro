@@ -116,61 +116,79 @@ const totalDocs = assets.length;
 </style>
 
 <script>
-  const search = document.getElementById('portal-search') as HTMLInputElement | null;
-  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.portal-chip'));
-  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-asset-card]'));
-  const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-category-section]'));
-  const noResults = document.getElementById('portal-no-results');
-  const queryOut = document.getElementById('portal-query');
-  const clearBtn = document.getElementById('portal-clear');
-
-  let activeFilter = 'all';
-
-  function apply() {
-    const q = (search?.value || '').trim().toLowerCase();
-    let anyVisible = false;
-
-    cards.forEach((card) => {
-      const matchesText = !q || (card.dataset.search || '').includes(q);
-      const matchesCat = activeFilter === 'all' || card.dataset.category === activeFilter;
-      const show = matchesText && matchesCat;
-      card.classList.toggle('hidden', !show);
-      if (show) anyVisible = true;
-    });
-
-    // Hide a category section if none of its cards are visible.
-    sections.forEach((sec) => {
-      const visible = sec.querySelectorAll('[data-asset-card]:not(.hidden)').length;
-      sec.classList.toggle('hidden', visible === 0);
-    });
-
-    if (noResults && queryOut) {
-      noResults.classList.toggle('hidden', anyVisible);
-      queryOut.textContent = q;
-    }
-  }
-
-  search?.addEventListener('input', apply);
-
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      activeFilter = chip.dataset.filter || 'all';
-      chips.forEach((c) => c.classList.toggle('is-active', c === chip));
-      apply();
-    });
-  });
-
-  clearBtn?.addEventListener('click', () => {
-    if (search) search.value = '';
-    apply();
-    search?.focus();
-  });
-
-  // Cmd/Ctrl-K focuses search.
+  // Cmd/Ctrl-K focuses search — bound once at the document level.
   document.addEventListener('keydown', (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
-      search?.focus();
+      document.getElementById('portal-search')?.focus();
     }
   });
+
+  // Re-run on every page load AND after Astro View Transitions, so the filter
+  // and row toggles work even when /portal is reached via a client-side nav.
+  function initPortal() {
+    const search = document.getElementById('portal-search') as HTMLInputElement | null;
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.portal-chip'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-asset-card]'));
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-category-section]'));
+    if (!cards.length) return;
+    const noResults = document.getElementById('portal-no-results');
+    const queryOut = document.getElementById('portal-query');
+    const clearBtn = document.getElementById('portal-clear');
+
+    let activeFilter = 'all';
+
+    function apply() {
+      const q = (search?.value || '').trim().toLowerCase();
+      let anyVisible = false;
+
+      cards.forEach((card) => {
+        const matchesText = !q || (card.dataset.search || '').includes(q);
+        const matchesCat = activeFilter === 'all' || card.dataset.category === activeFilter;
+        const show = matchesText && matchesCat;
+        card.classList.toggle('hidden', !show);
+        if (show) anyVisible = true;
+      });
+
+      // Hide a category section when none of its rows are visible.
+      sections.forEach((sec) => {
+        const visible = sec.querySelectorAll('[data-asset-card]:not(.hidden)').length;
+        sec.classList.toggle('hidden', visible === 0);
+      });
+
+      if (noResults && queryOut) {
+        noResults.classList.toggle('hidden', anyVisible);
+        queryOut.textContent = q;
+      }
+    }
+
+    function setFilter(filter: string) {
+      activeFilter = filter;
+      chips.forEach((c) => c.classList.toggle('is-active', c.dataset.filter === filter));
+      apply();
+    }
+
+    search?.addEventListener('input', apply);
+    chips.forEach((chip) => chip.addEventListener('click', () => setFilter(chip.dataset.filter || 'all')));
+    clearBtn?.addEventListener('click', () => {
+      if (search) search.value = '';
+      setFilter('all');
+      search?.focus();
+    });
+
+    // Expand / collapse each row's "what's inside".
+    document.querySelectorAll<HTMLButtonElement>('.asset-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('[data-asset-card]');
+        const detail = row?.querySelector('.asset-detail');
+        const chevron = btn.querySelector('.asset-chevron');
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        detail?.classList.toggle('hidden', open);
+        chevron?.classList.toggle('rotate-180', !open);
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initPortal);
 </script>
