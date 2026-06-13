@@ -18,43 +18,46 @@ const haystack = [asset.displayTitle, asset.teaser, asset.summary, asset.skill]
   .join(' ').toLowerCase();
 const hasEdit = !!asset.driveEditUrl;
 const detailId = `detail-${asset.slug}`;
+const linkBase =
+  'text-brand-text-secondary hover:text-brand-accent transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent';
 ---
 <div class="asset-row" data-asset-card data-category={asset.category} data-search={haystack}>
-  <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 px-2 sm:px-3 py-4 rounded-lg transition-colors hover:bg-brand-surface-mid/60">
-    <!-- Title + teaser (toggles "what's inside") -->
-    <button
-      type="button"
-      class="asset-toggle group/row flex-1 min-w-0 flex items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded-md"
-      aria-expanded="false"
-      aria-controls={detailId}
-    >
-      <PortalIcon name="chevron" class="asset-chevron w-4 h-4 text-brand-text-muted shrink-0 transition-transform duration-200" />
-      <span class="min-w-0">
-        <span class="block font-heading font-bold text-brand-dark text-lg leading-snug group-hover/row:text-brand-accent transition-colors">
-          {asset.displayTitle}
-        </span>
-        <span class="block text-sm text-brand-text-secondary leading-snug">{asset.teaser}</span>
-      </span>
-    </button>
-
-    <!-- Actions -->
-    <div class="flex items-center gap-2 shrink-0 pl-7 sm:pl-0">
-      <a href={`/portal/${asset.slug}`} class="btn-primary text-sm py-2.5 px-5">View</a>
+  <div class="flex items-center gap-3 px-2 sm:px-3 py-3 rounded-lg transition-colors hover:bg-brand-surface-mid/50">
+    <!-- Actions: subtle text links, to the left of the title -->
+    <div class="flex items-center gap-3 shrink-0 text-sm font-medium">
+      <a href={`/portal/${asset.slug}`} class={linkBase}>View</a>
       {hasEdit ? (
-        <a href={asset.driveEditUrl} target="_blank" rel="noopener" class="btn-secondary text-sm py-2.5 px-4">
+        <a href={asset.driveEditUrl} target="_blank" rel="noopener" class={`inline-flex items-center gap-1 ${linkBase}`}>
           Edit
-          <PortalIcon name="external" class="w-3.5 h-3.5" />
+          <PortalIcon name="external" class="w-3 h-3" />
         </a>
       ) : (
-        <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-text-muted border-2 border-brand-border rounded-md py-2.5 px-4 cursor-not-allowed" title="Editable Google Doc is being prepared">
-          Edit <span class="text-[10px] uppercase tracking-wide">soon</span>
-        </span>
+        <span class="text-brand-text-muted cursor-not-allowed" title="Editable Google Doc is being prepared">Edit</span>
       )}
     </div>
+
+    <span class="w-px h-4 bg-brand-border shrink-0" aria-hidden="true"></span>
+
+    <!-- Title + short description, on one line -->
+    <div class="min-w-0 flex-1 flex items-baseline gap-2">
+      <span class="font-heading font-bold text-brand-dark leading-snug whitespace-nowrap">{asset.displayTitle}</span>
+      <span class="hidden sm:block text-sm text-brand-text-secondary truncate">{asset.teaser}</span>
+    </div>
+
+    <!-- Info: subtle (i) toggle for the full detail, right of the description -->
+    <button
+      type="button"
+      class="asset-toggle shrink-0 text-brand-text-muted hover:text-brand-accent aria-expanded:text-brand-accent transition-colors rounded-full p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+      aria-expanded="false"
+      aria-controls={detailId}
+      aria-label={`More about ${asset.displayTitle}`}
+    >
+      <PortalIcon name="info" class="w-5 h-5" />
+    </button>
   </div>
 
   <!-- What's inside -->
-  <div id={detailId} class="asset-detail hidden pl-9 pr-3 pb-4 -mt-1">
+  <div id={detailId} class="asset-detail hidden pl-3 pr-10 pb-4 -mt-1">
     <p class="text-sm text-brand-text-secondary leading-relaxed max-w-content border-l-2 border-brand-accent/40 pl-4 m-0">
       {asset.summary}
     </p>

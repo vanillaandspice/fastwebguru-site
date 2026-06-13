@@ -176,16 +176,14 @@ const totalDocs = assets.length;
       search?.focus();
     });
 
-    // Expand / collapse each row's "what's inside".
+    // Expand / collapse each row's "what's inside" via the info (i) icon.
     document.querySelectorAll<HTMLButtonElement>('.asset-toggle').forEach((btn) => {
       btn.addEventListener('click', () => {
         const row = btn.closest('[data-asset-card]');
         const detail = row?.querySelector('.asset-detail');
-        const chevron = btn.querySelector('.asset-chevron');
         const open = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!open));
         detail?.classList.toggle('hidden', open);
-        chevron?.classList.toggle('rotate-180', !open);
       });
     });
   }
