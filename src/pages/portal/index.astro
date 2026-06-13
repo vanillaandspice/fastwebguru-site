@@ -4,6 +4,10 @@ import TopBar from '../../components/portal/TopBar.astro';
 import CategorySection from '../../components/portal/CategorySection.astro';
 import PortalIcon from '../../components/portal/PortalIcon.astro';
 import manifest from '../../data/portal-manifest.json';
+import { Image } from 'astro:assets';
+import opsGridLogo from '../../assets/cortex/cortex-ops-grid.png';
+import teamStackLogo from '../../assets/cortex/cortex-team-stack.png';
+import hostSystemsLogo from '../../assets/cortex/cortex-host-systems.png';
 
 const { site, categories, assets } = manifest;
 const assetsByCategory = (id: string) => assets.filter((a) => a.category === id);
@@ -18,7 +22,7 @@ const totalDocs = assets.length;
     <div class="container section-pad">
       <!-- Header -->
       <div class="max-w-2xl mx-auto text-center">
-        <span class="chip mb-4">Cortex Ops Grid</span>
+        <Image src={opsGridLogo} alt="Cortex Ops Grid" width={500} class="w-60 sm:w-72 lg:w-80 h-auto mx-auto mb-8" />
         <h1 class="mb-4">Your business brain, in one place.</h1>
         <p class="text-lg text-brand-text-secondary">
           Everything we've built for you — your words, your strategy, your campaigns —
@@ -69,37 +73,29 @@ const totalDocs = assets.length;
         ))}
       </div>
 
-      <!-- Pillar links -->
-      <div class="mt-20 rounded-2xl section-dark p-8 lg:p-10">
-        <h2 class="text-2xl font-heading font-bold text-white m-0">The other two pillars of your brain</h2>
-        <p class="text-zinc-400 mt-2 mb-6 max-w-content">
-          This dashboard is your <strong class="text-white">Ops Grid</strong> — where your strategy lives and gets done.
+      <!-- The other two pillars (clean, no panels) -->
+      <div class="mt-28 pt-16 border-t border-brand-border text-center">
+        <h2 class="text-2xl font-heading font-bold text-brand-dark m-0">The other two pillars of your brain</h2>
+        <p class="text-brand-text-secondary mt-3 max-w-content mx-auto leading-relaxed">
+          This dashboard is your <strong class="text-brand-dark">Ops Grid</strong> — where your strategy lives and gets done.
           It works hand in hand with the other two parts of Cortex.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <a href="/cortex/team-stack" class="group flex items-start gap-4 bg-zinc-900 hover:bg-zinc-800 border border-brand-border-dark hover:border-brand-accent/50 rounded-xl p-5 transition-colors">
-            <span class="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-surface-warm text-brand-accent flex-shrink-0">
-              <PortalIcon name="brain" class="w-5 h-5" />
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 max-w-3xl mx-auto">
+          <a href="/cortex/team-stack" class="group flex flex-col items-center px-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-4">
+            <Image src={teamStackLogo} alt="Cortex Team Stack" width={420} class="w-44 sm:w-56 h-auto transition-transform duration-300 group-hover:-translate-y-1.5" />
+            <span class="mt-8 inline-flex items-center gap-1.5 font-heading font-bold text-brand-dark group-hover:text-brand-accent transition-colors">
+              Explore Team Stack
+              <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent" />
             </span>
-            <span>
-              <span class="block text-white font-bold inline-flex items-center gap-1.5">
-                Cortex Team Stack
-                <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </span>
-              <span class="block text-sm text-zinc-400 mt-1">Your Business DNA and AI brain — the intelligence that knows your business.</span>
-            </span>
+            <span class="block text-sm text-brand-text-secondary mt-2 max-w-xs">Your Business DNA and AI brain — the intelligence that knows your business.</span>
           </a>
-          <a href="/cortex/host-systems" class="group flex items-start gap-4 bg-zinc-900 hover:bg-zinc-800 border border-brand-border-dark hover:border-brand-accent/50 rounded-xl p-5 transition-colors">
-            <span class="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-surface-warm text-brand-accent flex-shrink-0">
-              <PortalIcon name="server" class="w-5 h-5" />
+          <a href="/cortex/host-systems" class="group flex flex-col items-center px-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-4">
+            <Image src={hostSystemsLogo} alt="Cortex Host Systems" width={420} class="w-44 sm:w-56 h-auto transition-transform duration-300 group-hover:-translate-y-1.5" />
+            <span class="mt-8 inline-flex items-center gap-1.5 font-heading font-bold text-brand-dark group-hover:text-brand-accent transition-colors">
+              Explore Host Systems
+              <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent" />
             </span>
-            <span>
-              <span class="block text-white font-bold inline-flex items-center gap-1.5">
-                Cortex Host Systems
-                <PortalIcon name="arrow" class="w-4 h-4 text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </span>
-              <span class="block text-sm text-zinc-400 mt-1">Your AI-native hosting — edit your live site just by asking.</span>
-            </span>
+            <span class="block text-sm text-brand-text-secondary mt-2 max-w-xs">Your AI-native hosting — edit your live site just by asking.</span>
           </a>
         </div>
       </div>
