@@ -19,7 +19,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const admin = createSupabaseAdmin();
   const { data: membership } = await admin
     .from('client_users')
-    .select('client_id, clients ( id, name, slug )')
+    .select('client_id, clients ( id, name, slug, git_path )')
     .eq('email', user.email)
     .maybeSingle();
 
