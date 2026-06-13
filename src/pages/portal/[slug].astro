@@ -1,18 +1,14 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PortalIcon from '../../components/portal/PortalIcon.astro';
 import manifest from '../../data/portal-manifest.json';
 
-export async function getStaticPaths() {
-  const entries = await getCollection('portal');
-  return entries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
-}
+export const prerender = false;
 
-const { entry } = Astro.props;
+const { slug } = Astro.params;
+const entry = slug ? await getEntry('portal', slug) : undefined;
+if (!entry) return Astro.redirect('/portal');
 const { Content, headings } = await entry.render();
 
 const asset = manifest.assets.find((a) => a.slug === entry.slug);
