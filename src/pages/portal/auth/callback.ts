@@ -8,9 +8,7 @@ function slugify(s: string) {
 
 // Invite-gated auto-provisioning: if a newly signed-in email isn't a client yet
 // but has a pending invite, create their client + membership automatically.
-async function provisionIfInvited(email: string) {
-  const admin = createSupabaseAdmin();
-
+async function provisionIfInvited(admin: ReturnType<typeof createSupabaseAdmin>, email: string) {
   const { data: existing } = await admin
     .from('client_users').select('email').eq('email', email).maybeSingle();
   if (existing) return; // already a client user
@@ -43,12 +41,33 @@ export const GET: APIRoute = async (context) => {
   const { data, error } = await supabase.auth.exchangeCodeForSession(code);
   if (error || !data?.user?.email) return context.redirect('/portal/login?error=exchange');
 
+  const email = data.user.email.toLowerCase();
+  const admin = createSupabaseAdmin();
+
   try {
-    await provisionIfInvited(data.user.email.toLowerCase());
+    await provisionIfInvited(admin, email);
   } catch (e) {
     // Provisioning failure shouldn't block login; the user will see no-access
     // and we can fix the invite/registry. Log for diagnostics.
     console.error('[portal] auto-provision failed:', e);
+  }
+
+  // Store the Google Drive refresh token (granted via offline access) so the
+  // server can sync this client's docs into their Drive.
+  try {
+    const refresh = data.session?.provider_refresh_token;
+    if (refresh) {
+      const { data: m } = await admin
+        .from('client_users').select('client_id').eq('email', email).maybeSingle();
+      if (m?.client_id) {
+        await admin.from('drive_tokens').upsert(
+          { client_id: m.client_id, refresh_token: refresh, provider_email: email, updated_at: new Date().toISOString() },
+          { onConflict: 'client_id' }
+        );
+      }
+    }
+  } catch (e) {
+    console.error('[portal] drive token store failed:', e);
   }
 
   return context.redirect('/portal');

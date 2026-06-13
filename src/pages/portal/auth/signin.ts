@@ -9,7 +9,13 @@ export const POST: APIRoute = async (context) => {
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo },
+    options: {
+      redirectTo,
+      // Request Drive (file-scoped) + offline access so we receive a refresh
+      // token to sync the client's documents into their own Drive.
+      scopes: 'https://www.googleapis.com/auth/drive.file',
+      queryParams: { access_type: 'offline', prompt: 'consent' },
+    },
   });
 
   if (error || !data?.url) {
