@@ -1,6 +1,15 @@
 import { createServerClient, parseCookieHeader } from '@supabase/ssr';
 import { createClient } from '@supabase/supabase-js';
 import type { AstroCookies } from 'astro';
+import WS from 'ws';
+
+// Vercel runs @astrojs/vercel@7 on Node 20, which has no global WebSocket
+// (it only became global in Node 22). supabase-js's realtime client needs one
+// at construction, so polyfill it here before any client is created.
+const WebSocketImpl = (WS as any).WebSocket ?? WS;
+if (typeof (globalThis as any).WebSocket === 'undefined') {
+  (globalThis as any).WebSocket = WebSocketImpl;
+}
 
 const URL = import.meta.env.PUBLIC_SUPABASE_URL;
 const PUBLISHABLE_KEY = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
