@@ -1,33 +1,25 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PortalIcon from '../../components/portal/PortalIcon.astro';
-import manifest from '../../data/portal-manifest.json';
+import { getClientManifest, getClientFile } from '../../lib/github';
+import { renderMarkdown } from '../../lib/markdown';
 
-export async function getStaticPaths() {
-  const entries = await getCollection('portal');
-  return entries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
-}
+export const prerender = false;
 
-const { entry } = Astro.props;
-const { Content, headings } = await entry.render();
+const client = Astro.locals.client!;
+const { slug } = Astro.params;
+const manifest = await getClientManifest(client);
+const asset = manifest.assets.find((a: any) => a.slug === slug);
+if (!asset) return Astro.redirect('/portal');
 
-const asset = manifest.assets.find((a) => a.slug === entry.slug);
-const category = manifest.categories.find((c) => c.id === asset?.category);
-const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
-
-const niceDate = entry.data.lastUpdated
-  ? new Date(entry.data.lastUpdated + 'T00:00:00').toLocaleDateString('en-AU', {
-      day: 'numeric', month: 'short', year: 'numeric',
-    })
-  : null;
+const src = await getClientFile(client, asset.sourceFile);
+const { html, headings } = renderMarkdown(src);
+const category = manifest.categories.find((c: any) => c.id === asset.category);
+const toc = headings;
 ---
 <Layout
-  title={`${asset?.displayTitle ?? entry.data.title} — Fast Web Guru Portal`}
-  description={asset?.teaser ?? 'Fast Web Guru client asset.'}
+  title={`${asset.displayTitle} — Fast Web Guru Portal`}
+  description={asset.teaser ?? 'Fast Web Guru client asset.'}
   noindex={true}
 >
   <div class="section-light">
@@ -50,10 +42,10 @@ const niceDate = entry.data.lastUpdated
         <!-- Main -->
         <article class="min-w-0">
           <header class="mb-8 pb-8 border-b border-brand-border">
-            <h1 class="mb-3">{asset?.displayTitle ?? entry.data.title}</h1>
-            {asset?.teaser && <p class="text-lg text-brand-text-secondary m-0">{asset.teaser}</p>}
+            <h1 class="mb-3">{asset.displayTitle}</h1>
+            {asset.teaser && <p class="text-lg text-brand-text-secondary m-0">{asset.teaser}</p>}
             <div class="mt-5 flex flex-wrap items-center gap-3">
-              {asset?.driveEditUrl ? (
+              {asset.driveEditUrl ? (
                 <a href={asset.driveEditUrl} target="_blank" rel="noopener" class="btn-primary text-sm py-2.5 px-5">
                   Edit in Google Docs
                   <PortalIcon name="external" class="w-4 h-4" />
@@ -63,13 +55,10 @@ const niceDate = entry.data.lastUpdated
                   Editable doc coming soon
                 </span>
               )}
-              {niceDate && <span class="text-sm text-brand-text-muted">Last updated {niceDate}</span>}
             </div>
           </header>
 
-          <div class="prose prose-fwg">
-            <Content />
-          </div>
+          <div class="prose prose-fwg" set:html={html} />
         </article>
 
         <!-- TOC -->

@@ -3,21 +3,37 @@ import Layout from '../../layouts/Layout.astro';
 import TopBar from '../../components/portal/TopBar.astro';
 import CategorySection from '../../components/portal/CategorySection.astro';
 import PortalIcon from '../../components/portal/PortalIcon.astro';
-import manifest from '../../data/portal-manifest.json';
+import { getClientManifest } from '../../lib/github';
 import { Image } from 'astro:assets';
 import opsGridLogo from '../../assets/cortex/cortex-ops-grid.png';
 import teamStackLogo from '../../assets/cortex/cortex-team-stack.png';
 import hostSystemsLogo from '../../assets/cortex/cortex-host-systems.png';
 
+export const prerender = false;
+
+const client = Astro.locals.client!;
+const manifest = await getClientManifest(client);
 const { site, categories, assets } = manifest;
-const assetsByCategory = (id: string) => assets.filter((a) => a.category === id);
+const assetsByCategory = (id: string) => assets.filter((a: any) => a.category === id);
 const totalDocs = assets.length;
+const user = Astro.locals.user;
 ---
 <Layout
   title="Client Portal — Fast Web Guru"
   description="Your Cortex Ops Grid: the living brain of your business. Browse, read, and edit every asset we've built for you."
   noindex={true}
 >
+  <!-- Account strip -->
+  <div class="bg-brand-dark border-b border-brand-border-dark">
+    <div class="container py-2.5 flex flex-wrap justify-end items-center gap-3 text-xs text-zinc-400">
+      <span>Signed in as <span class="text-zinc-200">{user?.email}</span></span>
+      <span class="text-zinc-600" aria-hidden="true">·</span>
+      <form method="POST" action="/portal/auth/signout" class="inline" data-astro-reload>
+        <button type="submit" class="text-brand-accent hover:underline font-semibold">Sign out</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Top logo band (full-width black) -->
   <section class="section-dark py-12 lg:py-16">
     <div class="container text-center">
