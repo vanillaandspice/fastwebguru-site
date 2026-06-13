@@ -1,6 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CTABlock from '../../components/CTABlock.astro';
+import { Image } from 'astro:assets';
+import cortexLogo from '../../assets/cortex/cortex.png';
+import hostLogo from '../../assets/cortex/cortex-host-systems.png';
+import teamLogo from '../../assets/cortex/cortex-team-stack.png';
+import opsLogo from '../../assets/cortex/cortex-ops-grid.png';
 export const prerender = true;
 
 const faqs = [
@@ -24,29 +29,34 @@ const faqs = [
   <!-- HERO -->
   <section class="section-dark relative overflow-hidden">
     <div class="container relative z-10 py-24 lg:py-36">
-      <div class="flex flex-wrap gap-2 mb-8">
-        <span class="chip">$30/month</span>
-        <span class="chip-inverse">Works with your existing website</span>
-        <span class="chip-inverse">Cancel anytime</span>
+      <div class="flex flex-col lg:flex-row-reverse lg:items-center gap-12 lg:gap-16">
+        <Image src={cortexLogo} alt="Cortex by Fast Web Guru" width={560} class="w-56 sm:w-64 lg:w-80 xl:w-96 h-auto mx-auto lg:mx-0 shrink-0" />
+        <div class="max-w-3xl">
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="chip">$30/month</span>
+            <span class="chip-inverse">Works with your existing website</span>
+            <span class="chip-inverse">Cancel anytime</span>
+          </div>
+
+          <h1 class="text-5xl lg:text-7xl font-extrabold font-heading text-white leading-[1.05] text-balance mb-6">
+            Your website just grew a brain.
+          </h1>
+
+          <p class="text-lg lg:text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl">
+            Cortex is three AI upgrades for your business in one $30/month bundle. AI-editable infrastructure. A digital brain trained on your brand. Growth workflows built for your business to work through with your team. Add it to your existing website — or combine it with FWG hosting for the full thing.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-start gap-4">
+            <a href="/#assessment" class="btn-primary text-base py-4 px-8">
+              Add Cortex to Your Website — $30/Month
+            </a>
+            <a href="/#assessment" class="btn-ghost-inverse text-base py-4">
+              Or start with a free AI assessment of your current site →
+            </a>
+          </div>
+          <p class="text-zinc-400 text-base mt-4">Give your existing website and hosting superpowers.</p>
+        </div>
       </div>
-
-      <h1 class="text-5xl lg:text-7xl font-extrabold font-heading text-white leading-[1.05] text-balance mb-6 max-w-3xl">
-        Your website just grew a brain.
-      </h1>
-
-      <p class="text-lg lg:text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl">
-        Cortex is three AI upgrades for your business in one $30/month bundle. AI-editable infrastructure. A digital brain trained on your brand. Growth workflows built for your business to work through with your team. Add it to your existing website — or combine it with FWG hosting for the full thing.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-start gap-4">
-        <a href="/#assessment" class="btn-primary text-base py-4 px-8">
-          Add Cortex to Your Website — $30/Month
-        </a>
-        <a href="/#assessment" class="btn-ghost-inverse text-base py-4">
-          Or start with a free AI assessment of your current site →
-        </a>
-      </div>
-      <p class="text-zinc-400 text-base mt-4">Give your existing website and hosting superpowers.</p>
     </div>
   </section>
 
@@ -75,6 +85,9 @@ const faqs = [
 
         <!-- Host Systems -->
         <div class="bg-brand-surface border border-brand-border rounded-lg p-8 flex flex-col">
+          <div class="inline-flex bg-brand-dark rounded-xl p-3.5 mb-5 self-start">
+            <Image src={hostLogo} alt="Cortex Host Systems" width={240} class="w-24 h-auto" />
+          </div>
           <div class="mb-4">
             <h3 class="font-bold text-xl">Cortex Host Systems</h3>
             <p class="text-xs text-brand-text-secondary italic mt-1">The Infrastructure Layer</p>
@@ -99,6 +112,9 @@ const faqs = [
 
         <!-- Team Stack -->
         <div class="bg-brand-surface border border-brand-accent rounded-lg p-8 flex flex-col">
+          <div class="inline-flex bg-brand-dark rounded-xl p-3.5 mb-5 self-start">
+            <Image src={teamLogo} alt="Cortex Team Stack" width={240} class="w-24 h-auto" />
+          </div>
           <div class="mb-4">
             <h3 class="font-bold text-xl">Cortex Team Stack</h3>
             <p class="text-xs text-brand-text-secondary italic mt-1">The Intelligence Layer</p>
@@ -122,6 +138,9 @@ const faqs = [
 
         <!-- Ops Grid -->
         <div class="bg-brand-surface border border-brand-border rounded-lg p-8 flex flex-col">
+          <div class="inline-flex bg-brand-dark rounded-xl p-3.5 mb-5 self-start">
+            <Image src={opsLogo} alt="Cortex Ops Grid" width={240} class="w-24 h-auto" />
+          </div>
           <div class="mb-4">
             <h3 class="font-bold text-xl">Cortex Ops Grid</h3>
             <p class="text-xs text-brand-text-secondary italic mt-1">The Execution Layer</p>

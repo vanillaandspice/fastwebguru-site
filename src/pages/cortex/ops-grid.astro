@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import cortexLogo from '../../assets/cortex/cortex-ops-grid.png';
 export const prerender = true;
 ---
 
@@ -10,23 +12,28 @@ export const prerender = true;
 
   <!-- HERO -->
   <section class="section-dark py-20 lg:py-28">
-    <div class="container max-w-3xl">
-      <div class="flex flex-wrap gap-2 mb-6">
-        <span class="chip">Cortex Ops Grid</span>
-        <span class="chip-inverse">Part of Cortex — $30/month bundle</span>
-      </div>
-      <nav class="text-xs text-zinc-500 mb-6" aria-label="Breadcrumb">
-        <a href="/" class="hover:text-zinc-300">Home</a>
-        <span class="mx-2">›</span>
-        <a href="/cortex" class="hover:text-zinc-300">Cortex AI</a>
-        <span class="mx-2">›</span>
-        <span class="text-zinc-400">Ops Grid</span>
-      </nav>
-      <h1 class="text-white mb-6">Stop planning. Start executing.</h1>
-      <p class="text-zinc-400 text-xl leading-relaxed mb-8">Cortex Ops Grid gives you 20 bespoke, step-by-step growth workflows — built from your Business DNA, not generic templates. Work through them with your team over the coming months. New workflows and skill-building workshops added regularly to keep your team and leaders growing.</p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/#assessment" class="btn-primary text-base py-4 px-8">Add Cortex to Your Website — $30/Month</a>
-        <a href="/#assessment" class="btn-ghost-inverse text-base py-4">Or get a free AI assessment first →</a>
+    <div class="container">
+      <div class="flex flex-col lg:flex-row-reverse lg:items-center gap-10 lg:gap-16">
+        <Image src={cortexLogo} alt="Cortex Ops Grid" width={460} class="w-44 sm:w-52 lg:w-72 h-auto mx-auto lg:mx-0 shrink-0" />
+        <div class="max-w-3xl">
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="chip">Cortex Ops Grid</span>
+            <span class="chip-inverse">Part of Cortex — $30/month bundle</span>
+          </div>
+          <nav class="text-xs text-zinc-500 mb-6" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-zinc-300">Home</a>
+            <span class="mx-2">›</span>
+            <a href="/cortex" class="hover:text-zinc-300">Cortex AI</a>
+            <span class="mx-2">›</span>
+            <span class="text-zinc-400">Ops Grid</span>
+          </nav>
+          <h1 class="text-white mb-6">Stop planning. Start executing.</h1>
+          <p class="text-zinc-400 text-xl leading-relaxed mb-8">Cortex Ops Grid gives you 20 bespoke, step-by-step growth workflows — built from your Business DNA, not generic templates. Work through them with your team over the coming months. New workflows and skill-building workshops added regularly to keep your team and leaders growing.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/#assessment" class="btn-primary text-base py-4 px-8">Add Cortex to Your Website — $30/Month</a>
+            <a href="/#assessment" class="btn-ghost-inverse text-base py-4">Or get a free AI assessment first →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -4,6 +4,8 @@ import FeatureCard from '../components/FeatureCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import PlanCard from '../components/PlanCard.astro';
 import CTABlock from '../components/CTABlock.astro';
+import { Image } from 'astro:assets';
+import cortexLogo from '../assets/cortex/cortex.png';
 
 export const prerender = true;
 
@@ -248,7 +250,8 @@ const plans = [
 
   <section class="py-14 border-t border-b border-brand-border section-mid">
     <div class="container">
-      <div class="max-w-3xl" data-reveal="fade">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-center">
+        <div class="max-w-3xl" data-reveal="fade">
         <div class="mb-3" data-underline>
           <h2 class="heading-underline inline-block text-2xl lg:text-3xl font-bold" style="letter-spacing: -0.02em;">Add AI that actually knows your business. $30/month.<span class="underline-accent-bar" aria-hidden="true"></span></h2>
         </div>
@@ -271,6 +274,10 @@ const plans = [
           <a href="/cortex" class="btn-ghost text-base font-bold text-brand-accent">See Cortex — $30/Month →</a>
         </div>
         <p class="text-sm text-brand-text-secondary mt-3">Or add it to any FWG plan from your account dashboard.</p>
+        </div>
+        <div class="hidden lg:flex bg-brand-dark rounded-2xl p-10 items-center justify-center shrink-0" data-reveal="fade">
+          <Image src={cortexLogo} alt="Cortex by Fast Web Guru" width={460} class="w-64 xl:w-72 h-auto" />
+        </div>
       </div>
     </div>
   </section>
