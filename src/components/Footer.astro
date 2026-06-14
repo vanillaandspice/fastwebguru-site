@@ -55,7 +55,7 @@ const links = {
       <div class="lg:col-span-2 grid grid-cols-2 lg:grid-cols-3 gap-8">
         {Object.entries(links).map(([group, items]) => (
           <div>
-            <p class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-4">{group}</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">{group}</p>
             <ul class="space-y-3 list-none m-0 p-0">
               {items.map(item => (
                 <li>
@@ -74,13 +74,13 @@ const links = {
   <!-- Bottom bar -->
   <div class="border-t border-brand-border-dark">
     <div class="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="text-xs text-zinc-500">
+      <p class="text-xs text-zinc-400">
         &copy; {year} Fast Web Guru. Australian owned and operated.
       </p>
       <nav class="flex items-center gap-5" aria-label="Legal">
-        <a href="/privacy" class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">Privacy Policy</a>
-        <a href="/terms"   class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">Terms of Service</a>
-        <a href="/contact" class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">Contact</a>
+        <a href="/privacy"          class="text-xs text-zinc-400 hover:text-zinc-200 transition-colors">Privacy Policy</a>
+        <a href="/terms-conditions" class="text-xs text-zinc-400 hover:text-zinc-200 transition-colors">Terms of Service</a>
+        <a href="/contact"          class="text-xs text-zinc-400 hover:text-zinc-200 transition-colors">Contact</a>
       </nav>
     </div>
   </div>

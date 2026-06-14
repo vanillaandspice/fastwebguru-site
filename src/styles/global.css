@@ -60,7 +60,7 @@
   }
   .btn-inverse:hover { @apply bg-brand-surface text-brand-dark; transform: translateY(-1px); }
   .btn-ghost {
-    @apply inline-flex items-center gap-1 text-brand-accent font-semibold;
+    @apply inline-flex items-center gap-1 text-brand-accent-strong font-semibold;
     transition: gap var(--dur-fast) var(--ease-expo), opacity var(--dur-fast) ease;
   }
   .btn-ghost:hover { gap: 0.4rem; opacity: 0.85; }

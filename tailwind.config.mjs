@@ -9,6 +9,10 @@ export default {
         brand: {
           dark:         '#1A1A1A',
           accent:       '#F97316',
+          // AA-accessible accent for text on LIGHT backgrounds (#F97316 only
+          // reaches ~2.6:1 on white; this reaches ~5.8:1). Use for accent-coloured
+          // links/labels on light. Keep `accent` for fills, icons, and dark-bg text.
+          'accent-strong': '#C2410C',
           surface:      '#FAFAF9',
           'surface-mid':'#F4F4F2',
           'surface-warm':'#FFF7ED',
