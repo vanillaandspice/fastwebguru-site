@@ -82,7 +82,13 @@ const currentPath = Astro.url.pathname;
       </button>
     </nav>
   </div>
-  <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 top-16 bg-brand-dark z-40 px-6 py-8 overflow-y-auto" aria-hidden="true">
+</header>
+
+<!-- Mobile menu — kept OUTSIDE <header> on purpose. When scrolled, the header
+     gets backdrop-filter, which makes it the containing block for any fixed
+     descendant and would clip this menu to the header band. As a sibling, its
+     position:fixed references the viewport again. -->
+<div id="mobile-menu" class="hidden lg:hidden fixed inset-x-0 top-16 bottom-0 bg-brand-dark z-40 px-6 py-8 overflow-y-auto" aria-hidden="true">
     <ul class="list-none m-0 p-0 space-y-1">
       {navLinks.map(link => (
         <li><a href={link.href} class="block py-3 text-lg font-medium text-zinc-200 hover:text-white border-b border-brand-border-dark">{link.label}</a></li>
@@ -100,8 +106,7 @@ const currentPath = Astro.url.pathname;
     <div class="mt-8">
       <a href="/contact" class="btn-primary w-full justify-center text-base">Call Back Request</a>
     </div>
-  </div>
-</header>
+</div>
 
 <div class="h-16 lg:h-18 bg-brand-dark"></div>
 
