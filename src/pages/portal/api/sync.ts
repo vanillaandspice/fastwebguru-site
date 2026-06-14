@@ -3,7 +3,10 @@ import type { APIRoute } from 'astro';
 import crypto from 'node:crypto';
 import { createSupabaseAdmin } from '../../../lib/supabase';
 import { getClientManifest, getClientFile } from '../../../lib/github';
-import { getAccessToken, createFolder, createDoc, updateDoc, docUrl } from '../../../lib/google';
+import { getAccessToken, createFolder, createDoc, updateDoc, exportDoc, docUrl } from '../../../lib/google';
+
+const sha = (s: string) => crypto.createHash('sha256').update(s).digest('hex');
+const norm = (s: string) => s.replace(/\r\n/g, '\n').replace(/[ \t]+$/gm, '').replace(/\n{3,}/g, '\n\n').trim();
 
 // Git -> Drive sync for the signed-in client. Creates/updates a Google Doc per
 // asset in the client's own Drive, skipping unchanged content (hash guard).
@@ -41,25 +44,25 @@ export const POST: APIRoute = async (context) => {
     try {
       const md = await getClientFile(client, asset.sourceFile);
       if (!md) { failed++; continue; }
-      const hash = crypto.createHash('sha256').update(md).digest('hex');
+      const hash = sha(md);
       const ex: any = bySlug.get(asset.slug);
 
       if (ex?.drive_doc_id && ex.content_hash === hash) { skipped++; continue; }
 
-      if (ex?.drive_doc_id) {
-        await updateDoc(token, ex.drive_doc_id, md);
-        await admin.from('client_assets').update({
-          content_hash: hash, drive_doc_url: docUrl(ex.drive_doc_id), doc_hash: null, updated_at: new Date().toISOString(),
-        }).eq('client_id', client.id).eq('slug', asset.slug);
-        updated++;
-      } else {
-        const id = await createDoc(token, folderId, asset.displayTitle ?? asset.slug, md);
-        await admin.from('client_assets').upsert({
-          client_id: client.id, slug: asset.slug, drive_doc_id: id, drive_doc_url: docUrl(id),
-          content_hash: hash, updated_at: new Date().toISOString(),
-        }, { onConflict: 'client_id,slug' });
-        created++;
-      }
+      let docId: string;
+      if (ex?.drive_doc_id) { await updateDoc(token, ex.drive_doc_id, md); docId = ex.drive_doc_id; updated++; }
+      else { docId = await createDoc(token, folderId, asset.displayTitle ?? asset.slug, md); created++; }
+
+      // Capture the Doc's exported markdown as the baseline, so a later edit is
+      // detected against Google's own rendering — not the original markdown
+      // (the round-trip reformats, so comparing to git would flag everything).
+      let docHash: string | null = null;
+      try { docHash = sha(norm(await exportDoc(token, docId))); } catch {}
+
+      await admin.from('client_assets').upsert({
+        client_id: client.id, slug: asset.slug, drive_doc_id: docId, drive_doc_url: docUrl(docId),
+        content_hash: hash, doc_hash: docHash, updated_at: new Date().toISOString(),
+      }, { onConflict: 'client_id,slug' });
     } catch (e) {
       console.error('[portal] sync asset failed:', asset.slug, e);
       failed++;
