@@ -231,7 +231,7 @@ const user = Astro.locals.user;
     function runBatched(btn: HTMLButtonElement | null, baseUrl: string, busy: string, summarize: (a: any) => string) {
       btn?.addEventListener('click', async () => {
         btn.disabled = true;
-        const acc: any = { created: 0, updated: 0, skipped: 0, failed: 0, committed: 0, baselined: 0, changed: [] };
+        const acc: any = { created: 0, updated: 0, skipped: 0, failed: 0, committed: 0, baselined: 0, cosmetic: 0, changed: [] };
         let offset = 0, guard = 0;
         try {
           while (guard++ < 60) {
@@ -241,7 +241,7 @@ const user = Astro.locals.user;
             const j = await res.json();
             if (!j.ok) { if (syncStatus) syncStatus.textContent = 'Failed: ' + (j.message || j.error || 'error'); btn.disabled = false; return; }
             acc.created += j.created || 0; acc.updated += j.updated || 0; acc.failed += j.failed || 0;
-            acc.committed += j.committed || 0; acc.baselined += j.baselined || 0;
+            acc.committed += j.committed || 0; acc.baselined += j.baselined || 0; acc.cosmetic += j.cosmetic || 0;
             if (j.changed) acc.changed.push(...j.changed);
             if (typeof j.nextOffset === 'number') offset = j.nextOffset;
             if (j.done) break;
@@ -258,7 +258,9 @@ const user = Astro.locals.user;
     runBatched(document.getElementById('portal-sync') as HTMLButtonElement | null, '/portal/api/sync', 'Syncing to your Drive',
       (a) => `Synced ✓ ${a.created} new, ${a.updated} updated` + (a.failed ? `, ${a.failed} failed` : ''));
     runBatched(document.getElementById('portal-pull') as HTMLButtonElement | null, '/portal/api/pull', 'Checking Drive for edits',
-      (a) => a.committed ? `Pulled ✓ ${a.committed} doc(s) to GitHub: ${a.changed.join(', ')}` : `No edits to pull (baselined ${a.baselined})`);
+      (a) => a.committed
+        ? `Pulled ✓ ${a.committed} doc(s) to GitHub: ${a.changed.join(', ')}` + (a.cosmetic ? ` (${a.cosmetic} formatting-only, ignored)` : '')
+        : (a.cosmetic ? `No real edits — ignored ${a.cosmetic} formatting-only change(s)` : `No edits to pull (baselined ${a.baselined})`));
   }
 
   document.addEventListener('astro:page-load', initPortal);
