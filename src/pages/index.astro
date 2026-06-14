@@ -248,10 +248,10 @@ const plans = [
     </div>
   </section>
 
-  <section class="py-14 border-t border-b border-brand-border section-mid">
-    <div class="container">
-      <div class="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-center">
-        <div class="max-w-3xl" data-reveal="fade">
+  <section class="border-t border-b border-brand-border overflow-hidden">
+    <div class="lg:flex items-stretch">
+      <div class="section-mid flex-1 py-14 px-6 lg:px-8 flex justify-center lg:justify-end">
+        <div class="w-full max-w-2xl" data-reveal="fade">
         <div class="mb-3" data-underline>
           <h2 class="heading-underline inline-block text-2xl lg:text-3xl font-bold" style="letter-spacing: -0.02em;">Add AI that actually knows your business. $30/month.<span class="underline-accent-bar" aria-hidden="true"></span></h2>
         </div>
@@ -275,9 +275,9 @@ const plans = [
         </div>
         <p class="text-sm text-brand-text-secondary mt-3">Or add it to any FWG plan from your account dashboard.</p>
         </div>
-        <div class="hidden lg:flex bg-brand-dark rounded-2xl p-10 items-center justify-center shrink-0" data-reveal="fade">
-          <Image src={cortexLogo} alt="Cortex by Fast Web Guru" width={460} class="w-64 xl:w-72 h-auto" />
-        </div>
+      </div>
+      <div class="hidden lg:flex bg-[#1A1A1A] items-center justify-center py-14 px-12 xl:px-16 shrink-0 w-[360px] xl:w-[440px]" data-reveal="fade">
+        <Image src={cortexLogo} alt="Cortex by Fast Web Guru" width={460} class="w-64 xl:w-72 h-auto" />
       </div>
     </div>
   </section>
