@@ -60,4 +60,14 @@ export async function updateDoc(token: string, fileId: string, markdown: string)
   if (!res.ok) throw new Error(`updateDoc failed (${res.status}): ${await res.text()}`);
 }
 
+// Export a Google Doc back to markdown.
+export async function exportDoc(token: string, fileId: string): Promise<string> {
+  const res = await fetch(
+    `https://www.googleapis.com/drive/v3/files/${fileId}/export?mimeType=text/markdown`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  if (!res.ok) throw new Error(`exportDoc failed (${res.status}): ${await res.text()}`);
+  return res.text();
+}
+
 export const docUrl = (id: string) => `https://docs.google.com/document/d/${id}/edit`;

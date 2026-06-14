@@ -4,6 +4,8 @@
 const REPO = import.meta.env.DATA_REPO ?? 'vanillaandspice/claudeskills';
 const REF = import.meta.env.DATA_REF ?? 'main';
 const TOKEN = import.meta.env.GITHUB_TOKEN;
+// Write-scoped token (Contents: read+write) used only for Drive -> Git write-back.
+const WRITE_TOKEN = import.meta.env.GITHUB_WRITE_TOKEN;
 
 export interface PortalClient { git_path: string }
 
@@ -44,4 +46,37 @@ export async function getClientFile(client: PortalClient, sourceFile: string): P
   const rel = sourceFile.replace(/^(\.\.\/)+/, ''); // tolerate legacy ../ prefixes
   const raw = await ghRaw(`${client.git_path}/${rel}`);
   return raw ?? '';
+}
+
+// --- Write-back (Drive -> Git) ---------------------------------------------
+
+async function ghFileSha(repoPath: string): Promise<string | null> {
+  const url = `https://api.github.com/repos/${REPO}/contents/${ghPath(repoPath)}?ref=${encodeURIComponent(REF)}`;
+  const res = await fetch(url, {
+    headers: { Authorization: `Bearer ${WRITE_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'fwg-portal' },
+  });
+  if (!res.ok) return null;
+  return (await res.json()).sha ?? null;
+}
+
+// Commit new content to a file in the client's folder. Returns the commit URL.
+export async function putClientFile(
+  client: PortalClient, sourceFile: string, content: string, message: string
+): Promise<string> {
+  const rel = sourceFile.replace(/^(\.\.\/)+/, '');
+  const repoPath = `${client.git_path}/${rel}`;
+  const sha = await ghFileSha(repoPath);
+  const url = `https://api.github.com/repos/${REPO}/contents/${ghPath(repoPath)}`;
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: { Authorization: `Bearer ${WRITE_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'fwg-portal' },
+    body: JSON.stringify({
+      message,
+      content: Buffer.from(content, 'utf8').toString('base64'),
+      branch: REF,
+      ...(sha ? { sha } : {}),
+    }),
+  });
+  if (!res.ok) throw new Error(`putClientFile failed (${res.status}): ${await res.text()}`);
+  return (await res.json())?.commit?.html_url ?? '';
 }

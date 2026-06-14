@@ -49,7 +49,7 @@ export const POST: APIRoute = async (context) => {
       if (ex?.drive_doc_id) {
         await updateDoc(token, ex.drive_doc_id, md);
         await admin.from('client_assets').update({
-          content_hash: hash, drive_doc_url: docUrl(ex.drive_doc_id), updated_at: new Date().toISOString(),
+          content_hash: hash, drive_doc_url: docUrl(ex.drive_doc_id), doc_hash: null, updated_at: new Date().toISOString(),
         }).eq('client_id', client.id).eq('slug', asset.slug);
         updated++;
       } else {

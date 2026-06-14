@@ -35,8 +35,10 @@ const user = Astro.locals.user;
   <!-- Account strip -->
   <div class="bg-brand-dark border-b border-brand-border-dark">
     <div class="container py-2.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-xs text-zinc-400">
-      <div class="flex items-center gap-2">
-        <button id="portal-sync" type="button" class="text-brand-accent hover:underline font-semibold disabled:opacity-50 disabled:no-underline">Sync to Google Drive</button>
+      <div class="flex items-center gap-3">
+        <button id="portal-sync" type="button" class="text-brand-accent hover:underline font-semibold disabled:opacity-50 disabled:no-underline">Sync to Drive</button>
+        <span class="text-zinc-700" aria-hidden="true">·</span>
+        <button id="portal-pull" type="button" class="text-brand-accent hover:underline font-semibold disabled:opacity-50 disabled:no-underline">Pull edits from Drive</button>
         <span id="portal-sync-status" class="text-zinc-500"></span>
       </div>
       <div class="flex items-center gap-3">
@@ -223,27 +225,34 @@ const user = Astro.locals.user;
       });
     });
 
-    // Sync to Google Drive (Git -> Drive)
-    const syncBtn = document.getElementById('portal-sync') as HTMLButtonElement | null;
+    // Drive sync buttons (Git -> Drive and Drive -> Git)
     const syncStatus = document.getElementById('portal-sync-status');
-    syncBtn?.addEventListener('click', async () => {
-      syncBtn.disabled = true;
-      if (syncStatus) syncStatus.textContent = 'Syncing to your Drive…';
-      try {
-        const res = await fetch('/portal/api/sync', { method: 'POST' });
-        const j = await res.json();
-        if (j.ok) {
-          if (syncStatus) syncStatus.textContent = `Synced ✓ ${j.created} new, ${j.updated} updated, ${j.skipped} unchanged` + (j.failed ? `, ${j.failed} failed` : '');
-          setTimeout(() => location.reload(), 1800);
-        } else if (syncStatus) {
-          syncStatus.textContent = 'Sync failed: ' + (j.message || j.error || 'error');
+    function runJob(btn: HTMLButtonElement | null, url: string, busy: string, done: (j: any) => string) {
+      btn?.addEventListener('click', async () => {
+        btn.disabled = true;
+        if (syncStatus) syncStatus.textContent = busy;
+        try {
+          const res = await fetch(url, { method: 'POST' });
+          const j = await res.json();
+          if (j.ok) {
+            if (syncStatus) syncStatus.textContent = done(j);
+            setTimeout(() => location.reload(), 2200);
+          } else if (syncStatus) {
+            syncStatus.textContent = 'Failed: ' + (j.message || j.error || 'error');
+          }
+        } catch {
+          if (syncStatus) syncStatus.textContent = 'Failed (network).';
+        } finally {
+          btn.disabled = false;
         }
-      } catch {
-        if (syncStatus) syncStatus.textContent = 'Sync failed (network).';
-      } finally {
-        syncBtn.disabled = false;
-      }
-    });
+      });
+    }
+    runJob(document.getElementById('portal-sync') as HTMLButtonElement | null, '/portal/api/sync',
+      'Syncing to your Drive…',
+      (j) => `Synced ✓ ${j.created} new, ${j.updated} updated, ${j.skipped} unchanged` + (j.failed ? `, ${j.failed} failed` : ''));
+    runJob(document.getElementById('portal-pull') as HTMLButtonElement | null, '/portal/api/pull',
+      'Checking Drive for edits…',
+      (j) => j.committed ? `Pulled ✓ ${j.committed} doc(s) back to GitHub: ${j.changed.join(', ')}` : `No edits to pull (baselined ${j.baselined}, unchanged ${j.skipped})`);
   }
 
   document.addEventListener('astro:page-load', initPortal);
