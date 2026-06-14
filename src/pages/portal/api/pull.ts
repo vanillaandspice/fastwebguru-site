@@ -28,12 +28,18 @@ export const POST: APIRoute = async (context) => {
 
   const manifest = await getClientManifest(client);
   const srcBySlug = new Map((manifest.assets ?? []).map((a: any) => [a.slug, { sourceFile: a.sourceFile, title: a.displayTitle ?? a.slug }]));
-  const { data: rows } = await admin
-    .from('client_assets').select('slug, drive_doc_id, doc_hash').eq('client_id', client.id);
+  const LIMIT = 6; // cap Drive work per request so we stay under the function timeout
+  const offset = Math.max(0, Number(context.url.searchParams.get('offset') ?? '0') || 0);
+  const { data: allRows } = await admin
+    .from('client_assets').select('slug, drive_doc_id, doc_hash').eq('client_id', client.id)
+    .order('slug', { ascending: true });
+  const total = allRows?.length ?? 0;
+  const rows = (allRows ?? []).slice(offset, offset + LIMIT);
+  const done = offset + LIMIT >= total;
 
   let committed = 0, baselined = 0, skipped = 0, failed = 0;
   const changed: string[] = [];
-  for (const r of rows ?? []) {
+  for (const r of rows) {
     const src = srcBySlug.get(r.slug);
     if (!r.drive_doc_id || !src) { skipped++; continue; }
     try {
@@ -58,7 +64,7 @@ export const POST: APIRoute = async (context) => {
       failed++;
     }
   }
-  return json({ ok: true, committed, baselined, skipped, failed, changed });
+  return json({ ok: true, done, nextOffset: done ? null : offset + LIMIT, committed, baselined, skipped, failed, changed });
 };
 
 function json(obj: unknown, status = 200) {

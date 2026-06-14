@@ -39,7 +39,8 @@ export const POST: APIRoute = async (context) => {
     .from('client_assets').select('slug, drive_doc_id, content_hash').eq('client_id', client.id);
   const bySlug = new Map((rows ?? []).map((r: any) => [r.slug, r]));
 
-  let created = 0, updated = 0, skipped = 0, failed = 0;
+  const LIMIT = 6; // cap Drive work per request so we stay under the function timeout
+  let created = 0, updated = 0, skipped = 0, failed = 0, work = 0, done = true;
   for (const asset of manifest.assets ?? []) {
     try {
       const md = await getClientFile(client, asset.sourceFile);
@@ -48,6 +49,8 @@ export const POST: APIRoute = async (context) => {
       const ex: any = bySlug.get(asset.slug);
 
       if (ex?.drive_doc_id && ex.content_hash === hash) { skipped++; continue; }
+      if (work >= LIMIT) { done = false; break; }
+      work++;
 
       let docId: string;
       if (ex?.drive_doc_id) { await updateDoc(token, ex.drive_doc_id, md); docId = ex.drive_doc_id; updated++; }
@@ -69,7 +72,7 @@ export const POST: APIRoute = async (context) => {
     }
   }
 
-  return json({ ok: true, folderId, created, updated, skipped, failed });
+  return json({ ok: true, done, folderId, created, updated, skipped, failed });
 };
 
 function json(obj: unknown, status = 200) {

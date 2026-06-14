@@ -225,34 +225,40 @@ const user = Astro.locals.user;
       });
     });
 
-    // Drive sync buttons (Git -> Drive and Drive -> Git)
+    // Drive sync buttons — processed in small batches; the page loops each
+    // endpoint until it reports done, so we never hit the function timeout.
     const syncStatus = document.getElementById('portal-sync-status');
-    function runJob(btn: HTMLButtonElement | null, url: string, busy: string, done: (j: any) => string) {
+    function runBatched(btn: HTMLButtonElement | null, baseUrl: string, busy: string, summarize: (a: any) => string) {
       btn?.addEventListener('click', async () => {
         btn.disabled = true;
-        if (syncStatus) syncStatus.textContent = busy;
+        const acc: any = { created: 0, updated: 0, skipped: 0, failed: 0, committed: 0, baselined: 0, changed: [] };
+        let offset = 0, guard = 0;
         try {
-          const res = await fetch(url, { method: 'POST' });
-          const j = await res.json();
-          if (j.ok) {
-            if (syncStatus) syncStatus.textContent = done(j);
-            setTimeout(() => location.reload(), 2200);
-          } else if (syncStatus) {
-            syncStatus.textContent = 'Failed: ' + (j.message || j.error || 'error');
+          while (guard++ < 60) {
+            const total = acc.created + acc.updated + acc.committed + acc.baselined;
+            if (syncStatus) syncStatus.textContent = `${busy}… (${total} done)`;
+            const res = await fetch(baseUrl + (offset ? `?offset=${offset}` : ''), { method: 'POST' });
+            const j = await res.json();
+            if (!j.ok) { if (syncStatus) syncStatus.textContent = 'Failed: ' + (j.message || j.error || 'error'); btn.disabled = false; return; }
+            acc.created += j.created || 0; acc.updated += j.updated || 0; acc.failed += j.failed || 0;
+            acc.committed += j.committed || 0; acc.baselined += j.baselined || 0;
+            if (j.changed) acc.changed.push(...j.changed);
+            if (typeof j.nextOffset === 'number') offset = j.nextOffset;
+            if (j.done) break;
           }
+          if (syncStatus) syncStatus.textContent = summarize(acc);
+          setTimeout(() => location.reload(), 2500);
         } catch {
-          if (syncStatus) syncStatus.textContent = 'Failed (network).';
+          if (syncStatus) syncStatus.textContent = 'Failed (network) — click again to resume.';
         } finally {
           btn.disabled = false;
         }
       });
     }
-    runJob(document.getElementById('portal-sync') as HTMLButtonElement | null, '/portal/api/sync',
-      'Syncing to your Drive…',
-      (j) => `Synced ✓ ${j.created} new, ${j.updated} updated, ${j.skipped} unchanged` + (j.failed ? `, ${j.failed} failed` : ''));
-    runJob(document.getElementById('portal-pull') as HTMLButtonElement | null, '/portal/api/pull',
-      'Checking Drive for edits…',
-      (j) => j.committed ? `Pulled ✓ ${j.committed} doc(s) back to GitHub: ${j.changed.join(', ')}` : `No edits to pull (baselined ${j.baselined}, unchanged ${j.skipped})`);
+    runBatched(document.getElementById('portal-sync') as HTMLButtonElement | null, '/portal/api/sync', 'Syncing to your Drive',
+      (a) => `Synced ✓ ${a.created} new, ${a.updated} updated` + (a.failed ? `, ${a.failed} failed` : ''));
+    runBatched(document.getElementById('portal-pull') as HTMLButtonElement | null, '/portal/api/pull', 'Checking Drive for edits',
+      (a) => a.committed ? `Pulled ✓ ${a.committed} doc(s) to GitHub: ${a.changed.join(', ')}` : `No edits to pull (baselined ${a.baselined})`);
   }
 
   document.addEventListener('astro:page-load', initPortal);
