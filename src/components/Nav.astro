@@ -106,34 +106,52 @@ const currentPath = Astro.url.pathname;
 <div class="h-16 lg:h-18 bg-brand-dark"></div>
 
 <script>
-  const nav = document.getElementById('site-nav');
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const iconOpen  = document.getElementById('icon-open');
-  const iconClose = document.getElementById('icon-close');
+  // Re-runs on first load AND after every View Transitions navigation.
+  // (Component module scripts only execute once per session, so without this
+  //  the mobile menu button loses its listener after any client-side nav.)
+  function setupNav() {
+    const btn       = document.getElementById('mobile-menu-btn');
+    const menu      = document.getElementById('mobile-menu');
+    const iconOpen  = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    if (!btn || !menu) return;
 
+    const closeMenu = () => {
+      menu.classList.add('hidden');
+      menu.setAttribute('aria-hidden', 'true');
+      btn.setAttribute('aria-expanded', 'false');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+    const openMenu = () => {
+      menu.classList.remove('hidden');
+      menu.setAttribute('aria-hidden', 'false');
+      btn.setAttribute('aria-expanded', 'true');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    btn.addEventListener('click', () => {
+      if (menu.classList.contains('hidden')) openMenu();
+      else closeMenu();
+    });
+
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  }
+
+  // Scroll-state (blurred header) — re-queries the live header each tick, so it
+  // survives DOM swaps. Window listener is registered once for the session.
   function onScroll() {
+    const nav = document.getElementById('site-nav');
     if (nav) nav.dataset.scrolled = window.scrollY > 20 ? 'true' : 'false';
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
-  btn?.addEventListener('click', () => {
-    const isOpen = menu?.classList.contains('hidden') === false;
-    if (isOpen) {
-      menu?.classList.add('hidden'); menu?.setAttribute('aria-hidden', 'true');
-      btn.setAttribute('aria-expanded', 'false');
-      iconOpen?.classList.remove('hidden'); iconClose?.classList.add('hidden');
-      document.body.style.overflow = '';
-    } else {
-      menu?.classList.remove('hidden'); menu?.setAttribute('aria-hidden', 'false');
-      btn.setAttribute('aria-expanded', 'true');
-      iconOpen?.classList.add('hidden'); iconClose?.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-  });
-
-  menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => { menu.classList.add('hidden'); document.body.style.overflow = ''; });
+  document.addEventListener('astro:page-load', () => {
+    document.body.style.overflow = ''; // reset any leftover scroll-lock after nav
+    setupNav();
+    onScroll();
   });
 </script>

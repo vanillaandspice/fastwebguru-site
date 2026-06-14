@@ -12,16 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function initNav() {
-  const nav = document.getElementById("site-nav");
-  if (!nav) return;
-  const update = () => {
-    const scrolled = window.scrollY > 24;
-    nav.dataset.scrolled = scrolled ? "true" : "false";
-  };
-  window.addEventListener("scroll", update, { passive: true });
-  update();
-}
+// Nav scroll-state is owned by Nav.astro's own script (kept there so it stays
+// in sync with the mobile-menu logic). Don't duplicate it here.
 
 function initHero() {
   const hero = document.querySelector("[data-hero]") as HTMLElement | null;
@@ -210,8 +202,15 @@ function initStickyCTA() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  initNav();
+// astro:page-load fires on the initial load AND after every View Transitions
+// navigation. DOMContentLoaded only fires on the first full load, so with view
+// transitions enabled all of these effects would silently die after the first
+// in-site navigation.
+document.addEventListener("astro:page-load", () => {
+  // Tear down triggers from the previous page so they don't pile up or point at
+  // detached nodes after a client-side swap.
+  ScrollTrigger.getAll().forEach(t => t.kill());
+
   initHero();
   initScrollReveals();
   initUnderlines();
@@ -220,4 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initCardHovers();
   initPlanCardShimmer();
   initStickyCTA();
+
+  ScrollTrigger.refresh();
 });
